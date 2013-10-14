@@ -1,0 +1,56 @@
+<%= form_for(@role) do |f| %>
+  <% if @role.errors.any? %>
+    <div id="error_explanation">
+      <% if @role.errors.count == 1 %>
+        <h2><%= t('activerecord.errors.template.header.one', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) %></h2>
+      <% else %>
+        <h2><%= t('activerecord.errors.template.header.other', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"), :count => @role.errors.count) %></h2>
+      <% end %>
+      <ul>
+        <% @role.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :protected %>
+    <%= f.check_box :protected %>
+  </div>
+  <div class="field">
+    <%= f.label :super_admin %>
+    <%= f.check_box :super_admin %>
+  </div>
+  <div class="field">
+    <%= f.label :clinic_manager %>
+    <%= f.check_box :clinic_manager %>
+  </div>
+  <div class="field">
+    <%= f.label :doctor %>
+    <%= f.check_box :doctor %>
+  </div>
+  <div class="field">
+    <%= f.label :secretary %>
+    <%= f.check_box :secretary %>
+  </div>
+  <div class="field">
+    <%= f.label :patient %>
+    <%= f.check_box :patient %>
+  </div>
+  <div class="field">
+    <%= f.label :guess %>
+    <%= f.check_box :guess %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

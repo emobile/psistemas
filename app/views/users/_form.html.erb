@@ -1,0 +1,82 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <% if @user.errors.count == 1 %>
+        <h2><%= t('activerecord.errors.template.header.one', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) %></h2>
+      <% else %>
+        <h2><%= t('activerecord.errors.template.header.other', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"), :count => @user.errors.count) %></h2>
+      <% end %>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="newspaper">
+    <div class="field">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :phone1 %><br>
+      <%= f.text_field :phone1 %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :phone2 %><br>
+      <%= f.text_field :phone2 %>
+    </div>
+    <div class="field">
+      <%= f.label :fax %><br>
+      <%= f.text_field :fax %>
+    </div>
+    <div class="field">
+      <%= f.label :country %><br>
+      <%= f.country_select(:country, [ "Mexico", "United States", "Peru" ])%><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :state %><br>
+      <%= f.select :state, mx_states%><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :city %><br>
+      <%= f.text_field :city %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :address1 %><br>
+      <%= f.text_field :address1 %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :address2 %><br>
+      <%= f.text_field :address2 %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :zip %><br>
+      <%= f.number_field :zip %><span class="required">*</span>
+    </div>
+    <%if signed_in? and (current_user.role.super_admin or current_user.role.clinic_manager)%>
+      <div class="field">
+        <%= f.label :role_id %><br>
+        <%= f.collection_select(:role_id, Role.where("super_admin = false"), :id, :name, {:prompt => true}) %>
+      </div>
+      <div class="field">
+        <%= f.label :active %><br>
+        <%= f.check_box :active %>
+      </div>
+    <%end%>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= render "layouts/action_links" %>

@@ -1,0 +1,66 @@
+<p>
+  <%= render partial: 'avatars/form',
+    object: @user,
+    as: :avatarable %>
+</p>
+<p>
+  <strong><%= t('.fullname') %></strong>
+  <%= @user.fullname %>
+</p>
+
+<p>
+  <strong><%= t('.username') %></strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong><%= t('.email') %></strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong><%= t('.phone1') %></strong>
+  <%= number_to_phone(@user.phone1, area_code: true) %>
+</p>
+
+<p>
+  <strong><%= t('.phone2') %></strong>
+  <%= number_to_phone(@user.phone2, area_code: true) %>
+</p>
+
+<p>
+  <strong><%= t('.fax') %></strong>
+  <%= number_to_phone(@user.fax, area_code: true) %>
+</p>
+
+<p>
+  <strong><%= t('.fulladdress') %></strong>
+  <%= @user.fulladdress %>
+</p>
+
+<p>
+  <strong><%= t('.role_id') %></strong>
+  <%= @user.role.name %>
+</p>
+
+<p>
+  <strong><%= t('.active') %></strong>
+  <%= t(@user.active.to_s) %>
+</p>
+
+<p>
+  <strong><%= t('.created_at') %></strong>
+  <%=  I18n.l @user.created_at, :format => :long %>
+</p>
+
+<p>
+  <strong><%= t('.updated_at') %></strong>
+  <%= I18n.l @user.updated_at, :format => :long %>
+</p>
+
+<p>
+  <strong><%= t('.last_sign_in_at') %></strong>
+  <%= I18n.l @user.last_sign_in_at, :format => :long %>
+</p>
+<%= render "layouts/action_links" %>
+

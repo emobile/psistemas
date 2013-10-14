@@ -1,0 +1,6 @@
+<%if can? :index, eval(controller_name.singularize.titlecase.gsub(" ", "")) %>
+  <div class="pagination">
+    <%= page_entries_info eval("@#{controller_name}") %>
+    <%= will_paginate eval("@#{controller_name}")%>
+  </div>
+<%end%>

@@ -1,0 +1,51 @@
+<h1><%= t('activerecord.models.roles') %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('.id') %></th>
+      <th><%= t('.name') %></th>
+      <th><%= t('.protected') %></th>
+      <th><%= t('.super_admin') %></th>
+      <th><%= t('.clinic_manager') %></th>
+      <th><%= t('.doctor') %></th>
+      <th><%= t('.secretary') %></th>
+      <th><%= t('.patient') %></th>
+      <th><%= t('.guess') %></th>      
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @roles.each do |role| %>
+      <% @model = role %>
+      <tr>
+        <%if can? :show, Role %>
+          <td><%=link_to role.id, role, :class => 'button'%></td>
+        <%else%>
+          <td><%= label role.id, role.id, :class => 'button'%></td>
+        <%end%>
+        <td><%= role.name %></td>
+        <td><%= t(role.protected.to_s) %></td>
+        <td><%= t(role.super_admin.to_s) %></td>
+        <td><%= t(role.clinic_manager.to_s) %></td>
+        <td><%= t(role.doctor.to_s) %></td>
+        <td><%= t(role.secretary.to_s) %></td>
+        <td><%= t(role.patient.to_s) %></td>
+        <td><%= t(role.guess.to_s) %></td>
+        <%= render "layouts/index_links" %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="page_info">
+  <%= page_entries_info @roles %>
+  <%= will_paginate @roles, :renderer => BootstrapPagination::Rails %>
+</div>
+
+<%= render "layouts/action_links" %>

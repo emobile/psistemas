@@ -1,0 +1,17 @@
+  <p>
+    <b><%= t'.user_id' %></b> <%= @comment.user.fullname %>
+  </p>
+
+  <p>
+    <b><%= t'.email' %></b> <%= @comment.email %>
+  </p>
+
+  <p>
+    <b><%= t'.comment' %></b> <%= @comment.comment %>
+  </p>
+
+  <p>
+    <b><%= t'.app_name' %></b> <%= @comment.app_name %>
+  </p>
+
+<%= render "layouts/action_links" %>

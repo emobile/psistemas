@@ -1,0 +1,56 @@
+<p>
+  <strong><%= t('.name') %></strong>
+  <%= @role.name %>
+</p>
+
+<p>
+  <strong><%= t('.protected') %></strong>
+  <%= t(@role.protected.to_s) %>
+</p>
+
+<p>
+  <strong><%= t('.super_admin') %></strong>
+  <%= t(@role.super_admin.to_s) %>
+</p>
+
+<p>
+  <strong><%= t('.clinic_manager') %></strong>
+  <%= t(@role.clinic_manager.to_s) %>
+</p>
+
+<p>
+  <strong><%= t('.doctor') %></strong>
+  <%= t(@role.doctor.to_s) %>
+</p>
+
+<p>
+  <strong><%= t('.secretary') %></strong>
+  <%= t(@role.secretary.to_s) %>
+</p>
+
+<p>
+  <strong><%= t('.patient') %></strong>
+  <%= t(@role.patient.to_s) %>
+</p>
+
+<p>
+  <strong><%= t('.guess') %></strong>
+  <%= t(@role.guess.to_s) %>
+</p>
+
+<p>
+  <strong><%= t('.description') %></strong>
+  <%= @role.description %>
+</p>
+
+<p>
+  <strong><%= t('.created_at') %></strong>
+  <%=  I18n.l @role.created_at, :format => :long %>
+</p>
+
+<p>
+  <strong><%= t('.updated_at') %></strong>
+  <%= I18n.l @role.updated_at, :format => :long %>
+</p>
+
+<%= render "layouts/action_links" %>

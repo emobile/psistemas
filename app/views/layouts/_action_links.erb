@@ -1,0 +1,63 @@
+<div style="float:right; margin-top: -34px;">
+  <%=link_to :back, :title => t(:go_back) do%>
+    <img src="/assets/icons/blue/48x48/previous.png" alt=" <%=t(:go_back)%>" />
+  <%end%>
+  <%if controller.action_name == "new" or controller.action_name == "create"%>
+    <%if can? :index, eval(controller_name.camelize.singularize) %>
+      <%=link_to eval("#{controller_name}_path"), :title => t("actions.return_to",  model: t("activerecord.models.#{controller_name.pluralize}")) do%>
+        <img src="/assets/icons//blue/48x48/database_up.png" alt="<%=t("actions.return_to",  model: t("activerecord.models.#{controller_name.pluralize}"))%>" />
+      <%end%>
+    <%end%>
+  <%elsif controller.action_name == "edit" or controller.action_name == "update" %>
+    <%if can? :index, eval(controller_name.camelize.singularize) %>
+      <%=link_to eval("#{controller_name}_path"), :title => t("actions.return_to",  model: t("activerecord.models.#{controller_name.pluralize}")) do%>
+        <img src="/assets/icons//blue/48x48/database_up.png" alt="<%=t("actions.return_to",  model: t("activerecord.models.#{controller_name.pluralize}"))%>" />
+      <%end%>
+    <%end%>
+    <%if can? :new, eval(controller_name.camelize.singularize) %>
+      <%=link_to eval("new_#{controller_name.singularize}_path"), :title => t("actions.new",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+        <img src="/assets/icons//blue/48x48/database_add.png" alt="<%=t("actions.new",  model: t("activerecord.models.#{controller_name.singularize}"))%>" />
+      <%end%>
+    <%end%>
+    <%if can? :show, eval(controller_name.camelize.singularize) %>
+      <%=link_to eval("#{controller_name.singularize}_path(#{@model})"), :title => t("actions.show",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+        <img src="/assets/icons//blue/48x48/database_next.png" alt="<%=t("actions.show",  model: t("activerecord.models.#{controller_name.singularize}"))%>" />
+      <%end%>
+    <%end%>
+  <%elsif controller.action_name == "show" %>
+    <%if can? :index, eval(controller_name.camelize.singularize) %>
+      <%=link_to eval("#{controller_name}_path"), :title => t("actions.return_to",  model: t("activerecord.models.#{controller_name.pluralize}")) do%>
+        <img src="/assets/icons//blue/48x48/database_up.png" alt="<%=t("actions.return_to",  model: t("activerecord.models.#{controller_name.pluralize}"))%>" />
+      <%end%>
+    <%end%>
+    <%if can? :new, eval(controller_name.camelize.singularize) %>
+      <%=link_to eval("new_#{controller_name.singularize}_path"), :title => t("actions.new",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+        <img src="/assets/icons//blue/48x48/database_add.png" alt="<%=t("actions.new",  model: t("activerecord.models.#{controller_name.singularize}"))%>" />
+      <%end%>
+    <%end%>
+    <%if controller_name == "users" and @user.id != current_user.id%>
+      <%if can? :edit, User %>
+        <%=link_to edit_admin_user_path(@user), :title => t("actions.edit",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+          <img src="/assets/icons//blue/48x48/database_accept.png" alt="<%=t("actions.edit",  model: t("activerecord.models.#{controller_name.singularize}"))%>" />
+        <%end%>
+      <%end%>
+    <%else%>
+      <%if can? :edit, eval(controller_name.camelize.singularize) %>
+        <%=link_to eval("edit_#{controller_name.singularize}_path(@#{controller_name.singularize})"), :title => t("actions.edit",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+          <img src="/assets/icons//blue/48x48/database_accept.png" alt="<%=t("actions.edit",  model: t("activerecord.models.#{controller_name.singularize}"))%>" />
+        <%end%>
+      <%end%>
+    <%end%>
+    <%if can? :destory, eval(controller_name.camelize.singularize) %>
+      <%=link_to eval("@#{controller_name.singularize}"), method: :delete, data: { confirm: t(:are_you_sure?, model: t("activerecord.models.#{controller_name.singularize}").downcase) }, :title => t("actions.destroy",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+        <img src="/assets/icons//blue/48x48/database_remove.png" alt="<%=t("actions.destroy",  model: t("activerecord.models.#{controller_name.singularize}").downcase)%>" />
+      <%end%>
+    <%end%>
+  <%elsif controller.action_name == "index" %>
+    <%if can? :new, eval(controller_name.camelize.singularize) %>
+      <%=link_to eval("new_#{controller_name.singularize}_path"), :title => t("actions.new",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+        <img src="/assets/icons/blue/48x48/database_add.png" alt="<%=t("actions.new",  model: t("activerecord.models.#{controller_name.singularize}"))%>" />
+      <%end%>
+    <%end%>
+  <%end%>
+</div>

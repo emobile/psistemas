@@ -1,0 +1,22 @@
+<h2><%= t('devise.passwords.change_your') %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <%= f.hidden_field :reset_password_token %>
+
+  <div>
+    <%= f.label :password, t('devise.passwords.new') %><br />
+    <%= f.password_field :password, :placeholder => t('devise.passwords.new'), :autocomplete=>"off" , :autofocus => true %><span class="required">*</span>
+  </div>
+  <br />
+  <div>
+    <%= f.label :password_confirmation, t('devise.passwords.confirm') %><br />
+    <%= f.password_field :password_confirmation, :placeholder => t('devise.passwords.confirm'), :autocomplete=>"off" %><span class="required">*</span>
+  </div>
+  <br />
+  <div>
+    <%= f.submit t('devise.passwords.change_my')%>
+  </div>
+<% end %>
+<br />
+<%= render "devise/shared/links" %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  protected: false
+  super_admin: false
+  clinic_manager: false
+  doctor: false
+  secretary: false
+  patient: false
+  guess: false  
+  description: MyText
+
+two:
+  name: MyString
+  protected: false
+  super_admin: false
+  clinic_manager: false
+  doctor: false
+  secretary: false
+  patient: false
+  guess: false    
+  description: MyText

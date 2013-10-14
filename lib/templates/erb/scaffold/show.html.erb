@@ -1,0 +1,7 @@
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+  <p>
+    <b><%%= t'.<%= attribute.human_name.downcase.tr(" ", "_") %>' %></b> <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+  </p>
+
+<% end -%>
+<%%= render "layouts/action_links" %>

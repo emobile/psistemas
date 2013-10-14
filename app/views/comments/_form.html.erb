@@ -1,0 +1,37 @@
+<%= form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <% if @comment.errors.count == 1 %>
+        <h2><%= t('activerecord.errors.template.header.one', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) %></h2>
+      <% else %>
+        <h2><%= t('activerecord.errors.template.header.other', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"), :count => @comment.errors.count) %></h2>
+      <% end %>
+      <ul>
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user, :value => current_user.fullname, :readonly => true  %>
+    <%= f.hidden_field :user_id, :value => current_user.id, :readonly => true  %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, :value => current_user.email %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </div>
+  <div class="field">
+    <%#= f.label :app_name %><br>
+    <%= f.hidden_field :app_name, :value => Rails.application.class.parent_name.titlecase, :readonly => true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

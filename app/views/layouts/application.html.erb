@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= eval("t('activerecord.models.#{controller_name.underscore.pluralize}')") %></title>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body id="body">
+    <div id="container">
+      <h1><%=link_to t(:main_title), root_path, title: t(:main_title)%></h1>
+
+      <div style="float: right;">
+        <%= link_to root_path, title: t(:home) do %>
+          <%=image_tag("/assets/icons/blue/24x24/home.png") %>
+        <%end%>
+        <%if signed_in?%>
+          <%= link_to destroy_session_path, title: t(:logout) + " " + current_user.username do %>
+            <%=image_tag("/assets/icons/blue/24x24/user_down.png") %>
+          <%end%>
+        <%else%>
+          <%= link_to new_user_session_path, title: t(:login) do %>
+            <%=image_tag("/assets/icons/blue/24x24/user_up.png") %>
+          <%end%>
+          <%= link_to new_user_registration_path, title: t(:sign_up) do %>
+            <%=image_tag("/assets/icons/blue/24x24/user_add.png") %>
+          <%end%>
+        <%end%>
+      </div>
+      <div style="display: block; width: 100%;">
+        <%if signed_in?%>
+          <%= render "layouts/sidebar" %>
+        <%end%>
+      </div>
+      <% if flash[:notice] %>
+        <div class="alert alert-info">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:error] %>
+        <div class="alert alert-error">
+          <%= flash[:error] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-alert">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>   
+      <%= yield %>
+    </div>
+<%#= debug(params) if Rails.env.development? or Rails.env.local?%>
+  </body>
+</html>

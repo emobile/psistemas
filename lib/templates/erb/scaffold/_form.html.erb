@@ -1,0 +1,35 @@
+<%%= form_for(@<%= singular_table_name %>) do |f| %>
+  <%% if @<%= singular_table_name %>.errors.any? %>
+    <div id="error_explanation">
+      <%% if @<%= singular_table_name %>.errors.count == 1 %>
+        <h2><%%= t('activerecord.errors.template.header.one', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) %></h2>
+      <%% else %>
+        <h2><%%= t('activerecord.errors.template.header.other', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"), :count => @<%= singular_table_name %>.errors.count) %></h2>
+      <%% end %>
+      <ul>
+      <%% @<%= singular_table_name %>.errors.full_messages.each do |msg| %>
+        <li><%%= msg %></li>
+      <%% end %>
+      </ul>
+    </div>
+  <%% end %>
+
+<% attributes.each do |attribute| -%>
+  <div class="field">
+<% if attribute.password_digest? -%>
+    <%%= f.label :password %><br>
+    <%%= f.password_field :password %>
+  </div>
+  <div>
+    <%%= f.label :password_confirmation %><br>
+    <%%= f.password_field :password_confirmation %>
+<% else -%>
+    <%%= f.label :<%= attribute.name %> %><br>
+    <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %>
+<% end -%>
+  </div>
+<% end -%>
+  <div class="actions">
+    <%%= f.submit %>
+  </div>
+<%% end %>

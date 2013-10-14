@@ -1,0 +1,170 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *= require jquery.ui.all
+ *= require_self
+ *= require avatars_for_rails
+ *= require_tree .
+ */
+
+a   { text-decoration: none; }
+a:hover   { color: black !important;   background: transparent !important;}
+a.skip {
+    background-color: #8c9cbf;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #8c9cbf), color-stop(50%, #546a9e), color-stop(50%, #36518f), color-stop(100%, #3d5691));
+    background-image: -webkit-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+    background-image: -moz-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+    background-image: -ms-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+    background-image: -o-linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+    background-image: linear-gradient(top, #8c9cbf 0%, #546a9e 50%, #36518f 50%, #3d5691 100%);
+    border: 1px solid #172d6e;
+    border-bottom: 1px solid #0e1d45;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 1px 0 0 #b1b9cb;
+    -moz-box-shadow: inset 0 1px 0 0 #b1b9cb;
+    box-shadow: inset 0 1px 0 0 #b1b9cb;
+    color: #fff;
+    font: bold 16px "helvetica neue", helvetica, arial, sans-serif;
+    padding: 7px 0 8px 0;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 0 -1px 1px #000f4d;
+    width: 150px; }
+a.skip:hover {
+    background-color: #7f8dad;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7f8dad), color-stop(50%, #4a5e8c), color-stop(50%, #2f477d), color-stop(100%, #364c80));
+    background-image: -webkit-linear-gradient(top, #7f8dad 0%, #4a5e8c 50%, #2f477d 50%, #364c80 100%);
+    background-image: -moz-linear-gradient(top, #7f8dad 0%, #4a5e8c 50%, #2f477d 50%, #364c80 100%);
+    background-image: -ms-linear-gradient(top, #7f8dad 0%, #4a5e8c 50%, #2f477d 50%, #364c80 100%);
+    background-image: -o-linear-gradient(top, #7f8dad 0%, #4a5e8c 50%, #2f477d 50%, #364c80 100%);
+    background-image: linear-gradient(top, #7f8dad 0%, #4a5e8c 50%, #2f477d 50%, #364c80 100%);
+    cursor: pointer; }
+a.skip:active {
+    -webkit-box-shadow: inset 0 0 20px 0 #1d2845, 0 1px 0 white;
+    -moz-box-shadow: inset 0 0 20px 0 #1d2845, 0 1px 0 white;
+    box-shadow: inset 0 0 20px 0 #1d2845, 0 1px 0 white; }
+
+.required{
+    font-size: 16px;
+    color: #b00;
+    position: relative;
+    top: 4px;
+    left: 7px;    
+}
+
+
+.left-custom-column{
+    float:left;
+    width: 40%;
+    display: block;
+}
+.right-custom-column {
+    float:right;
+    width: 40%;
+    display: block;
+}
+
+.newspaper
+{
+-moz-column-count:2; /* Firefox */
+-webkit-column-count:2; /* Safari and Chrome */
+column-count:2;
+
+-moz-column-gap:40px; /* Firefox */
+-webkit-column-gap:40px; /* Safari and Chrome */
+column-gap:40px;
+column-width: 40%;     
+}
+
+
+
+
+#body {
+    background-color: #4B7399;
+    font-family: Verdana, Helvetica, Arial;
+    font-size: 14px;
+}
+
+a img {
+    border: none;
+}
+
+a {
+    color: #0000FF;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+
+#container {
+    width: 75%;
+    margin: 0 auto;
+    background-color: #FFF;
+    padding: 20px 40px;
+    border: solid 1px black;
+    margin-top: 20px;
+}
+
+#flash_notice, #flash_error {
+    padding: 5px 8px;
+    margin: 10px 0;
+}
+
+#flash_notice {
+    background-color: #CFC;
+    border: solid 1px #6C6;
+}
+
+#flash_error {
+    background-color: #FCC;
+    border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+    display: inline;
+}
+
+#errorExplanation {
+    width: 400px;
+    border: 2px solid #CF0000;
+    padding: 0px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: 0;
+    background-color: #c00;
+    color: #fff;
+}
+
+#errorExplanation p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 8px;
+}
+
+#errorExplanation ul {
+    margin: 2px 24px;
+}
+
+#errorExplanation ul li {
+    font-size: 12px;
+    list-style: disc;
+}

@@ -1,0 +1,46 @@
+<h1><%= t('activerecord.models.comments') %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t'.id' %></th>
+      <th><%= t'.user_id' %></th>
+      <th><%= t'.email' %></th>
+      <th><%= t'.app_name' %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <%if can? :show, Comment %>
+          <td><%=link_to comment.id, comment, :class => 'button'%></td>
+        <%else%>
+          <td><%= label comment.id, comment.id, :class => 'button'%></td>
+        <%end%>
+
+        <td><%= comment.user.fullname %></td>
+
+        <% @model = comment %> 
+
+        <td><%= comment.email %></td>
+
+        <td><%= comment.app_name %></td>
+
+        <%= render "layouts/index_links" %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="page_info">
+  <%= page_entries_info @comments %>
+  <%= will_paginate @comments, :renderer => BootstrapPagination::Rails %>
+</div>
+
+<%= render "layouts/action_links" %>

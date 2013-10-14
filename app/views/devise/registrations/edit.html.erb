@@ -1,0 +1,91 @@
+<h2><%= t('users.edit_my_account')  %></h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="newspaper">
+    <div class="field">
+      <%= f.label :username %><br>
+      <%= f.text_field :username %><span class="required">*</span>
+    </div>  
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :phone1 %><br>
+      <%= f.text_field :phone1 %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :phone2 %><br>
+      <%= f.text_field :phone2 %>
+    </div>
+    <div class="field">
+      <%= f.label :fax %><br>
+      <%= f.text_field :fax %>
+    </div>
+    <div class="field">
+      <%= f.label :country %><br>
+      <%= f.country_select(:country, [ "Mexico", "United States", "Peru" ])%><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :state %><br>
+      <%= f.select :state, mx_states%><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :city %><br>
+      <%= f.text_field :city %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :address1 %><br>
+      <%= f.text_field :address1 %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :address2 %><br>
+      <%= f.text_field :address2 %><span class="required">*</span>
+    </div>
+    <div class="field">
+      <%= f.label :zip %><br>
+      <%= f.number_field :zip %><span class="required">*</span>
+    </div>
+    <%if signed_in? and (current_user.role.super_admin or current_user.role.clinic_manager)%>
+      <div class="field">
+        <%= f.label :role_id %><br>
+        <%= f.collection_select(:role_id, Role.where("super_admin = false"), :id, :name, {:prompt => true}) %>
+      </div>
+      <div class="field">
+        <%= f.label :active %><br>
+        <%= f.check_box :active %>
+      </div>
+    <%end%>
+
+  </div>
+
+  <br /><br />
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field"><%= f.label :password %> <br>
+    <%= f.password_field :password, :autocomplete => "off" %><br>
+    <i><%=t(:leave_password_blank)%></i></div>
+
+  <div class="field"><%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %></div>
+
+  <div class="field"><%= f.label :current_password %> <br>
+    <%= f.password_field :current_password %><span class="required">*</span></div>
+
+  <div><%= f.submit %></div>
+<% end %>
+
+<br /><br />
+<%= link_to t('users.cancel'), :back %>

@@ -1,0 +1,51 @@
+<h1><%= t('activerecord.models.users') %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('.id') %></th>
+      <th><%= t('.fullname') %></th>
+      <th><%= t('.email') %></th>
+      <th><%= t('.phone1') %></th>
+      <th><%= t('.city') %></th>
+      <th><%= t('.state') %></th>
+      <th><%= t('.country') %></th>
+      <th><%= t('.role_id') %></th>
+      <th><%= t('.active') %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <% @model = user %>
+      <tr>
+        <%if can? :show, User %>
+          <td><%=link_to user.id, user, :class => 'button'%></td>
+        <%else%>
+          <td><%= label user.id, user.id, :class => 'button'%></td>
+        <%end%>
+        <td><%= user.fullname %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone1 %></td>
+        <td><%= user.city %></td>
+        <td><%= user.state %></td>
+        <td><%= user.country %></td>
+        <td><%= user.role.name %></td>
+        <td><%= t(user.active.to_s) %></td>
+        <%= render "layouts/index_links" %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="page_info">
+  <%= page_entries_info @users %>
+  <%= will_paginate @users, :renderer => BootstrapPagination::Rails %>
+</div>
+
+<%= render "layouts/action_links" %>

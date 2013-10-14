@@ -1,0 +1,25 @@
+<%if can? :show, eval(controller_name.camelize.singularize) %>
+  <td><%=link_to @model, :title => t("actions.show",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+      <img src="/assets/icons/blue/24x24/next.png" alt="<%=t("actions.show",  model: t("activerecord.models.#{controller_name.singularize}"))%>" />
+    <%end%>
+  </td>
+<%end%>
+<%if can? :edit, eval(controller_name.camelize.singularize) %>
+  <%if controller_name == "users" and @model.id != current_user.id%>
+    <td><%=link_to edit_admin_user_path(@model), :title => t("actions.edit",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+        <img src="/assets/icons/blue/24x24/accept.png" alt="<%=t("actions.edit",  model: t("activerecord.models.#{controller_name.singularize}"))%>" />
+      <%end%>
+    </td>
+  <%else%>
+    <td><%=link_to eval("edit_#{controller_name.singularize}_path(@model)"), :title => t("actions.edit",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+        <img src="/assets/icons/blue/24x24/accept.png" alt="<%=t("actions.edit",  model: t("activerecord.models.#{controller_name.singularize}"))%>" />
+      <%end%>
+    </td>
+  <%end%>
+<%end%>
+<%if can? :destroy, eval(controller_name.camelize.singularize) %>
+  <td><%=link_to @model, method: :delete, data: { confirm: t(:are_you_sure?, model: t("activerecord.models.#{controller_name.singularize}").downcase) }, :title => t("actions.destroy",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+      <img src="/assets/icons/blue/24x24/remove.png" alt="<%=t("actions.destroy",  model: t("activerecord.models.#{controller_name.singularize}").downcase)%>" />
+    <%end%>
+  </td>
+<%end%>
