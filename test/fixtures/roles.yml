@@ -4,10 +4,10 @@ one:
   name: MyString
   protected: false
   super_admin: false
-  clinic_manager: false
-  doctor: false
+  super_manager: false
+  manager: false
   secretary: false
-  patient: false
+  client: false
   guess: false  
   description: MyText
 
@@ -15,9 +15,9 @@ two:
   name: MyString
   protected: false
   super_admin: false
-  clinic_manager: false
-  doctor: false
+  super_manager: false
+  manager: false
   secretary: false
-  patient: false
+  client: false
   guess: false    
   description: MyText

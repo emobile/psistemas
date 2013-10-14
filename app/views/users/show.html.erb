@@ -14,8 +14,18 @@
 </p>
 
 <p>
+  <strong><%= t('.company_id') %></strong>
+  <%= @user.company.name %>
+</p>
+
+<p>
+  <strong><%= t('.branch_id') %></strong>
+  <%= @user.branch.name %>
+</p>
+
+<p>
   <strong><%= t('.email') %></strong>
-  <%= @user.email %>
+  <%= mail_to @user.email, @user.email %>
 </p>
 
 <p>
@@ -60,7 +70,7 @@
 
 <p>
   <strong><%= t('.last_sign_in_at') %></strong>
-  <%= I18n.l @user.last_sign_in_at, :format => :long %>
+  <%= I18n.l @user.last_sign_in_at, :format => :long unless @user.last_sign_in_at.blank?%>
 </p>
 <%= render "layouts/action_links" %>
 

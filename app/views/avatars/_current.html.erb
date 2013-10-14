@@ -1,6 +1,10 @@
 <div class="avatar-current">
   <%if signed_in?%>
-    <%= image_tag(current_user.logo.blank? ? "/assets/missing.png": current_user.logo) %>
+    <%if controller_name == "companies" %>
+      <%= image_tag(@company.logo.blank? ? "/assets/home.png": @company.company.logo) %>
+    <%elsif  controller_name == "users" %>
+      <%= image_tag(@user.logo.blank? ? "/assets/missing.png": @user.logo) %>
+    <%end%>
   <%else%>
     <%= image_tag("/assets/missing.png") %>
   <%end%>

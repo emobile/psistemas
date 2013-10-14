@@ -12,14 +12,18 @@ class Devise::SessionsController < DeviseController
 
   # POST /resource/sign_in
   def create
-    if current_user.active
-      self.resource = warden.authenticate!(auth_options)
-      set_flash_message(:notice, :signed_in) if is_navigational_format?
-      sign_in(resource_name, resource)
-      respond_with resource, :location => after_sign_in_path_for(resource)
+    if signed_in?
+      if current_user.active
+        self.resource = warden.authenticate!(auth_options)
+        set_flash_message(:notice, :signed_in) if is_navigational_format?
+        sign_in(resource_name, resource)
+        respond_with resource, :location => after_sign_in_path_for(resource)
+      else
+        sign_out(current_user)
+        redirect_to root_path, :alert => t("errors.messages.account_inactive")
+      end
     else
-      sign_out(current_user)
-      redirect_to root_path, :alert => t("errors.messages.account_inactive")
+      redirect_to new_user_session_path, :alert => t("devise.failure.invalid")
     end
   end
 

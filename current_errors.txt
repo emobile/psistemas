@@ -1,0 +1,6 @@
+* No se actualizan las imagenes de las companias
+* No se actualizan las imagenes de los usuarios cuando se edita otro usuario que no es el current_user
+* No se ven las imagenes de a compania en la vista de la sucursal
+* Resolver el probema de devise/sessions con devise_parameter_sanitizer.for(:sign_in)
+* Un administrador de sucursal le puede cambiar el rol a un administrador de compania
+* No se despliegan los roles correctos para dar de alta usuarios dependiendo del rol que tiene el current_user

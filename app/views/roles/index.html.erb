@@ -7,10 +7,10 @@
       <th><%= t('.name') %></th>
       <th><%= t('.protected') %></th>
       <th><%= t('.super_admin') %></th>
-      <th><%= t('.clinic_manager') %></th>
-      <th><%= t('.doctor') %></th>
+      <th><%= t('.super_manager') %></th>
+      <th><%= t('.manager') %></th>
       <th><%= t('.secretary') %></th>
-      <th><%= t('.patient') %></th>
+      <th><%= t('.client') %></th>
       <th><%= t('.guess') %></th>      
       <th></th>
       <th></th>
@@ -30,10 +30,10 @@
         <td><%= role.name %></td>
         <td><%= t(role.protected.to_s) %></td>
         <td><%= t(role.super_admin.to_s) %></td>
-        <td><%= t(role.clinic_manager.to_s) %></td>
-        <td><%= t(role.doctor.to_s) %></td>
+        <td><%= t(role.super_manager.to_s) %></td>
+        <td><%= t(role.manager.to_s) %></td>
         <td><%= t(role.secretary.to_s) %></td>
-        <td><%= t(role.patient.to_s) %></td>
+        <td><%= t(role.client.to_s) %></td>
         <td><%= t(role.guess.to_s) %></td>
         <%= render "layouts/index_links" %>
       </tr>

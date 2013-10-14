@@ -9,11 +9,17 @@ class Ability
     unless @user.blank?
       if @user.role.super_admin == true
         can :manage, :all
-      elsif @user.role.clinic_manager == true
-        can :manage, User#, :id => @user.branch_id
-      elsif @user.role.doctor == true
+      elsif @user.role.company_admin == true
+        can :manage, Company, :id => @user.company_id        
+        can :manage, Branch, :company_id => @user.company_id
+        can :manage, User, :company_id => @user.company_id
+      elsif @user.role.branch_admin == true
+        can :manage, Branch, :id => @user.branch_id
+        can :manage, User, :branch_id => @user.branch_id
+      elsif @user.role.super_manager == true
+      elsif @user.role.manager == true
       elsif @user.role.secretary == true
-      elsif @user.role.patient == true
+      elsif @user.role.client == true
       elsif @user.role.guess == true
         can [:show, :edit, :update], User, :id => @user.id
       else

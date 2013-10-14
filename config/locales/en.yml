@@ -279,7 +279,9 @@ en:
         created_at: "Created At: "
         updated_at: "Updated At: "
         last_sign_in_at: "Last Sign In At: "
-        login: "Iniciar sesión"    
+        login: "Iniciar sesión"  
+        company_id: "Compañía: "
+        branch_id: "Sucursal: "          
     registrations:
       new:
         fullname: "Full Name: "
@@ -302,7 +304,11 @@ en:
         password_confirmation: "Password Confirmation: "
         created_at: "Created At: "
         updated_at: "Updated At: "
-        last_sign_in_at: "Last Sign In At: " 
+        last_sign_in_at: "Last Sign In At: "
+        company_id: "Compañía: "
+        branch_id: "Sucursal: "
+        company_id: "Compañía: "
+        branch_id: "Sucursal: "          
     confirmations:
       resend: "Resend confirmation instructions"
     links:
@@ -361,11 +367,16 @@ en:
       name: "Name: "
       protected: "Protected: "
       description: "Description: "
-      super_admin: "Super Admin: "
-      clinic_manager: "Clinic Manager: "
-      doctor: "Doctor: "
+      super_admin: "Super Administrator: "
+      company_admin: "Company Administrator: "
+      branch_admin: "Branch Administrator: "          
+      super_manager: "Clinic Manager: "
+      manager: "Manager: "
+      routes_admin: "Routes Administrator: " 
+      seller: "Seller: "      
       secretary: "Secretary: "
-      patient: "Patient: "
+      driver: "Driver: "      
+      client: "client: "
       guess: "Guess: "        
       created_at: "Created At: "
       updated_at: "Updated At: "
@@ -374,12 +385,17 @@ en:
       name: "Name"
       protected: "Protected"
       description: "Description"
-      super_admin: "Super Admin"
-      clinic_manager: "Clinic Manager"
-      doctor: "Doctor"
+      super_admin: "Super Administrator"
+      company_admin: "Company Administrator"
+      branch_admin: "Branch Administrator"    
+      super_manager: "Clinic Manager"
+      manager: "Manager"
+      routes_admin: "Routes Administrator" 
+      seller: "Seller"      
       secretary: "Secretary"
-      patient: "Patient"
-      guess: "Guess" 
+      driver: "Driver"      
+      client: "client"
+      guess: "Guess"  
       created_at: "Created At"
       updated_at: "Updated At"    
   users:
@@ -411,7 +427,9 @@ en:
       password_confirmation: "Password Confirmation: "
       created_at: "Created At: "
       updated_at: "Updated At: "
-      last_sign_in_at: "Last Sign In At: " 
+      last_sign_in_at: "Last Sign In At: "
+      company_id: "Compañía: "
+      branch_id: "Sucursal: "       
     index:
       id: "Id "      
       fullname: "Full Name"
@@ -436,6 +454,8 @@ en:
       created_at: "Created At"
       updated_at: "Updated At"
       last_sign_in_at: "Last Sign In At"
+      company_id: "Compañía"
+      branch_id: "Sucursal"     
   comments:
     show:
       id: "Id: "
@@ -453,6 +473,82 @@ en:
       app_name: "Application"
       created_at: "Created At"
       updated_at: "Updated At"
+  companies:
+    show:
+      id: 'Id: '
+      name: 'Name: '
+      email1: 'Email1: '
+      email2: 'Email2: '
+      webpage: 'Webpage: '
+      phone1: 'Phone1: '
+      phone2: 'Phone2: '
+      fax: 'Fax: '
+      address1: 'Address1: '
+      address2: 'Address2: '
+      city: 'City: '
+      state: 'State: '
+      zip: 'Zip: '
+      country: 'Country: '
+      description: 'Description: '
+      created_at: 'Created At: '
+      updated_at: 'Updated At: '
+    index:
+      id: 'Id'
+      name: 'Name'
+      email1: 'Email1'
+      email2: 'Email2'
+      webpage: 'Webpage'
+      phone1: 'Phone1'
+      phone2: 'Phone2'
+      fax: 'Fax'
+      address1: 'Address1'
+      address2: 'Address2'
+      city: 'City'
+      state: 'State'
+      zip: 'Zip'
+      country: 'Country'
+      description: 'Description'
+      created_at: 'Created At'
+      updated_at: 'Updated At'
+  branches:
+    show:
+      id: 'Id: '
+      name: 'Name: '
+      email1: 'Email1: '
+      email2: 'Email2: '
+      webpage: 'Webpage: '
+      phone1: 'Phone1: '
+      phone2: 'Phone2: '
+      fax: 'Fax: '
+      address1: 'Address1: '
+      address2: 'Address2: '
+      city: 'City: '
+      state: 'State: '
+      zip: 'Zip: '
+      country: 'Country: '
+      description: 'Description: '
+      company_id: 'Company: '
+      created_at: 'Created At: '
+      updated_at: 'Updated At: '
+    index:
+      id: 'Id'
+      name: 'Name'
+      email1: 'Email1'
+      email2: 'Email2'
+      webpage: 'Webpage'
+      phone1: 'Phone1'
+      phone2: 'Phone2'
+      fax: 'Fax'
+      address1: 'Address1'
+      address2: 'Address2'
+      city: 'City'
+      state: 'State'
+      zip: 'Zip'
+      country: 'Country'
+      description: 'Description'
+      company_id: 'Company'
+      created_at: 'Created At'
+      updated_at: 'Updated At'
   #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
   
   activerecord:
@@ -494,6 +590,10 @@ en:
       confirmations: "Confirmations"
       unlock: "Unlock"      
       unlocks: "Unlocks"
+      company: 'Company'
+      companies: 'Companies'
+      branch: 'Branch'
+      branches: 'Branches'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT
     
     attributes:
@@ -520,17 +620,24 @@ en:
         password_confirmation: "Password Confirmation: "
         current_password: "Current Password: "
         created_at: "Created At: "
-        updated_at: "Updated At: "        
+        updated_at: "Updated At: "
+        company_id: "Compañía: "
+        branch_id: "Sucursal: "          
       role:
         name: "Name: "
         protected: "Protected: "
-        description: "Description: "
-        super_admin: "Super Admin: "
-        clinic_manager: "Clinic Manager: "
-        doctor: "Doctor: "
+        description: "Description: "        
+        super_admin: "Super Administrator: "
+        company_admin: "Company Administrator: "
+        branch_admin: "Branch Administrator: "      
+        super_manager: "Clinic Manager: "
+        manager: "Manager: "
+        routes_admin: "Routes Administrator: " 
+        seller: "Seller: "      
         secretary: "Secretary: "
-        patient: "Patient: "
-        guess: "Guess: "
+        driver: "Driver: "      
+        client: "client: "
+        guess: "Guess: " 
         created_at: "Created At: "
         updated_at: "Updated At: "        
       comment:
@@ -542,4 +649,41 @@ en:
         app_name: "Application: "
         created_at: "Created At: "
         updated_at: "Updated At: "
+      company:
+        id: 'Id: '
+        name: 'Name: '
+        email1: 'Email1: '
+        email2: 'Email2: '
+        webpage: 'Webpage: '
+        phone1: 'Phone1: '
+        phone2: 'Phone2: '
+        fax: 'Fax: '
+        address1: 'Address1: '
+        address2: 'Address2: '
+        city: 'City: '
+        state: 'State: '
+        zip: 'Zip: '
+        country: 'Country: '
+        description: 'Description: '
+        created_at: 'Created At: '
+        updated_at: 'Updated At: '
+      branch:
+        id: 'Id: '
+        name: 'Name: '
+        email1: 'Email1: '
+        email2: 'Email2: '
+        webpage: 'Webpage: '
+        phone1: 'Phone1: '
+        phone2: 'Phone2: '
+        fax: 'Fax: '
+        address1: 'Address1: '
+        address2: 'Address2: '
+        city: 'City: '
+        state: 'State: '
+        zip: 'Zip: '
+        country: 'Country: '
+        description: 'Description: '
+        company_id: 'Company: '
+        created_at: 'Created At: '
+        updated_at: 'Updated At: '
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT

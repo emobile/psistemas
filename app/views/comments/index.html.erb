@@ -15,6 +15,7 @@
 
   <tbody>
     <% @comments.each do |comment| %>
+      <% @model = comment %> 
       <tr>
         <%if can? :show, Comment %>
           <td><%=link_to comment.id, comment, :class => 'button'%></td>
@@ -23,8 +24,6 @@
         <%end%>
 
         <td><%= comment.user.fullname %></td>
-
-        <% @model = comment %> 
 
         <td><%= comment.email %></td>
 

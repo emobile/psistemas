@@ -6,7 +6,7 @@
 development:
   adapter: postgresql
   host: localhost
-  database: base_app
+  database: serviroute
   schema: development
   port: 5432
   username: postgres

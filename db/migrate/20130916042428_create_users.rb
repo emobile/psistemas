@@ -12,7 +12,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :state,  :null => false, :default => ""
       t.integer :zip,  :null => false
       t.string :country,  :null => false, :default => ""
-      t.references :role, index: true,  :null => false
+      t.references :company, index: true,  :null => false
+      t.references :branch, index: true,  :null => false
+      t.references :role, index: true,  :null => false      
       t.boolean :active,  :null => false, :default => true
 
       t.timestamps

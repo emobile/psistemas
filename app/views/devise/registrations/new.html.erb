@@ -49,10 +49,18 @@
       <%= f.label :zip %><br>
       <%= f.number_field :zip %><span class="required">*</span>
     </div>
-    <%if signed_in? and (current_user.role.super_admin or current_user.role.clinic_manager)%>
+    <%if signed_in? and (current_user.role.super_admin or current_user.role.company_admin or current_user.role.branch_admin)%>
+      <div class="field">
+        <%= f.label :company_id %><br>
+        <%= f.collection_select(:company_id, Company.where(:id => current_user.company_id), :id, :name) %>
+      </div>
+      <div class="field">
+        <%= f.label :branch_id %><br>
+        <%= f.collection_select(:branch_id, Branch.where(:company_id => current_user.company_id), :id, :name, {:prompt => true}) %>
+      </div>
       <div class="field">
         <%= f.label :role_id %><br>
-        <%= f.collection_select(:role_id, Role.where("super_admin = false"), :id, :name, {:prompt => true}) %>
+        <%= f.collection_select(:role_id, Role.where("super_admin = false and company_admin = false and super_manager = false and manager = false"), :id, :name, {:prompt => true}) %>
       </div>
       <div class="field">
         <%= f.label :active %><br>

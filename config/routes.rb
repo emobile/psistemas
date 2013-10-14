@@ -1,4 +1,8 @@
 Serviroute::Application.routes.draw do
+  resources :branches
+
+  resources :companies
+
   resources :comments
 
   devise_for :users

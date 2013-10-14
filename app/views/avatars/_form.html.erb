@@ -4,9 +4,16 @@
     as: :avatarable %>
 
   <%= form_for avatarable, url: avatar_path, multipart: true do |f| %>
-    <%if can? :edit, User%>
-      <%= f.file_field :logo, "data-url" => avatar_path %>
+    <%if controller_name == "companies" %>
+      <%if can? :edit, Company%>
+        <%= f.file_field :logo, "data-url" => avatar_path %>
+      <%end%>
+    <%elsif  controller_name == "users" %>
+      <%if can? :edit, User%>
+        <%= f.file_field :logo, "data-url" => avatar_path %>
+      <%end%>
     <%end%>
+
     <!--div style="padding:10px;font-weight:bolder; background-color:#446655;color: white;margin-top:10px;width:200px;overflow: hidden;">
   <%#= t'users.change_avatar' %>  <input data-url="/avatar" id="user_logo" name="user[logo]" type="file" />
     </div-->

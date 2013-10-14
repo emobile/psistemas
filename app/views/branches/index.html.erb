@@ -1,0 +1,51 @@
+<h1>Listing branches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t'.id' %></th>
+      <th><%= t'.name' %></th>
+      <th><%= t'.email1' %></th>
+      <th><%= t'.webpage' %></th>
+      <th><%= t'.phone1' %></th>
+      <th><%= t'.city' %></th>
+      <th><%= t'.state' %></th>
+      <th><%= t'.company_id' %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @branches.each do |branch| %>           
+      <% @model = branch %>
+      <tr>
+        <%if can? :show, Branch %>
+          <td><%=link_to branch.id, branch, :class => 'button'%></td>
+        <%else%>
+          <td><%= label branch.id, branch.id, :class => 'button'%></td>
+        <%end%>
+
+        <td><%= branch.name %></td>        
+
+        <td><%= branch.email1 %></td>                
+
+        <td><%= branch.webpage %></td>
+
+        <td><%= number_to_phone(branch.phone1, area_code: true)  %></td>
+
+        <td><%= branch.city %></td>
+
+        <td><%= branch.state %></td>
+
+        <td><%= branch.company.name %></td>        
+
+        <%= render "layouts/index_links" %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= render "layouts/action_links" %>

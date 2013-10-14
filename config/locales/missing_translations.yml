@@ -1,0 +1,17 @@
+---
+es:
+  branches:
+    show:
+      fulladdress: Fulladdress
+  companies:
+    show:
+      fulladdress: Fulladdress
+  devise:
+    failure:
+      invalid:
+        messages:
+          account_inactive: Account Inactive
+        account_inactive: Account Inactive
+  failure:
+    invalid:
+      account_inactive: Account Inactive

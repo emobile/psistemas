@@ -263,7 +263,7 @@ es:
         phone1: "Teléfono"
         phone2: "Celular"
         fax: "Fax"
-        address1: "Dirección"
+        address1: "Calle"
         address2: "Colonia"
         city: "Ciudad"
         state: "Estado"
@@ -279,7 +279,9 @@ es:
         created_at: "Registrado el"
         updated_at: "Actualizado el"
         last_sign_in_at: "Acceso por última vez el día"
-        login: "Iniciar sesión"    
+        login: "Iniciar sesión"
+        company_id: "Compañía"
+        branch_id: "Sucursal"
     registrations:
       new:
         fullname: "Nombre: "
@@ -288,7 +290,7 @@ es:
         phone1: "Teléfono: "
         phone2: "Celular: "
         fax: "Fax: "
-        address1: "Dirección: "
+        address1: "Calle: "
         address2: "Colonia: "
         city: "Ciudad: "
         state: "Estado: "
@@ -303,6 +305,8 @@ es:
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
         last_sign_in_at: "Acceso por última vez el día: "
+        company_id: "Compañía: "
+        branch_id: "Sucursal: "        
     confirmations:
       resend: "Reenviar instrucciones de confirmación" 
     links:
@@ -362,10 +366,15 @@ es:
       protected: "Protegido: "
       description: "Descripción: "
       super_admin: "Súper Administrador: "
-      clinic_manager: "Administrador de Clínica: "
-      doctor: "Doctor(a): "
+      company_admin: "Administrador de Compañía: "
+      branch_admin: "Administrador de Sucursal: "      
+      super_manager: "Administrador de Compañía de Cliente: "
+      manager: "Administrador de Sucursal de Cliente: "      
+      routes_admin: "Administrador de Rutas: "
+      seller: "Vendedor: "      
       secretary: "Secretaría(o): "
-      patient: "Paciente: "
+      driver: "Conductor: "
+      client: "Cliente: "
       guess: "Invitado: "       
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
@@ -375,11 +384,16 @@ es:
       protected: "Protegido"
       description: "Descripción"
       super_admin: "Súper Administrador"
-      clinic_manager: "Administrador de Clínica"
-      doctor: "Doctor(a)"
+      company_admin: "Administrador de Compañía"
+      branch_admin: "Administrador de Sucursal"      
+      super_manager: "Administrador de Compañía de Cliente"
+      manager: "Administrador de Sucursal de Cliente"      
+      routes_admin: "Administrador de Rutas"
+      seller: "Vendedor"      
       secretary: "Secretaría(o)"
-      patient: "Paciente"
-      guess: "Invitado"
+      driver: "Conductor"
+      client: "Cliente"
+      guess: "Invitado"  
       created_at: "Registrado el"
       updated_at: "Actualizado el"      
   users:
@@ -396,7 +410,7 @@ es:
       phone1: "Teléfono: "
       phone2: "Celular: "
       fax: "Fax: "
-      address1: "Dirección: "
+      address1: "Calle: "
       address2: "Colonia: "
       fulladdress: "Dirección: "      
       city: "Ciudad: "
@@ -411,7 +425,9 @@ es:
       password_confirmation: "Confirmación de Contraseña: "
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
-      last_sign_in_at: "Acceso por última vez el día : " 
+      last_sign_in_at: "Acceso por última vez el día : "
+      company_id: "Compañía: "
+      branch_id: "Sucursal: "      
     index:
       id: "Id "      
       fullname: "Nombre"
@@ -420,7 +436,7 @@ es:
       phone1: "Teléfono"
       phone2: "Celular"
       fax: "Fax"
-      address1: "Dirección"
+      address1: "Calle"
       address2: "Colonia"
       fulladdress: "Dirección"
       city: "Ciudad"
@@ -436,6 +452,8 @@ es:
       created_at: "Registrado el"
       updated_at: "Actualizado el"
       last_sign_in_at: "Acceso por última vez el día"
+      company_id: "Compañía"
+      branch_id: "Sucursal"      
   comments:
     show:
       id: "Id: "
@@ -453,6 +471,86 @@ es:
       app_name: "Aplicación "
       created_at: "Registrado el"
       updated_at: "Actualizado el"
+  companies:
+    show:
+      id: 'Id: '
+      name: 'Nombre: '
+      email1: 'Correo Electrónico Principal: '
+      email2: 'Correo Electrónico Alternativo: '
+      webpage: 'Página Web: '
+      phone1: "Teléfono: "
+      phone2: "Teléfono Alternativo: "
+      fax: "Fax: "
+      fulladdress: "Dirección: "      
+      address1: "Calle: "
+      address2: "Colonia: "
+      city: "Ciudad: "
+      state: "Estado: "
+      zip: "Código Postal: "
+      country: "País: "
+      description: 'Descripción: '
+      created_at: "Registrada el: "
+      updated_at: "Actualizada el: "
+    index:
+      id: 'Id'
+      name: 'Nombre'
+      email1: 'Correo Electrónico Principal'
+      email2: 'Correo Electrónico Alternativo'
+      webpage: 'Página Web'
+      phone1: "Teléfono"
+      phone2: "Teléfono Alternativo"
+      fax: "Fax"
+      fulladdress: "Dirección"        
+      address1: "Calle"
+      address2: "Colonia"
+      city: "Ciudad"
+      state: "Estado"
+      zip: "Código Postal"
+      country: "País"
+      description: 'Descripción'
+      created_at: "Registrada el"
+      updated_at: "Actualizada el"
+  branches:
+    show:
+      id: 'Id: '
+      name: 'Nombre: '
+      email1: 'Correo Electrónico Principal: '
+      email2: 'Correo Electrónico Alternativo: '
+      webpage: 'Página Web: '
+      phone1: "Teléfono: "
+      phone2: "Teléfono Alternativo: "
+      fax: "Fax: "
+      fulladdress: "Dirección: "        
+      address1: "Calle: "
+      address2: "Colonia: "
+      city: "Ciudad: "
+      state: "Estado: "
+      zip: "Código Postal: "
+      country: "País: "
+      description: 'Descripción: '
+      company_id: 'Compañía: '
+      created_at: "Registrada el: "
+      updated_at: "Actualizada el: "
+    index:
+      id: 'Id'
+      name: 'Nombre'
+      email1: 'Correo Electrónico Principal'
+      email2: 'Correo Electrónico Alternativo'
+      webpage: 'Página Web'
+      phone1: "Teléfono"
+      phone2: "Teléfono Alternativo"
+      fax: "Fax"
+      fulladdress: "Dirección"        
+      address1: "Calle"
+      address2: "Colonia"
+      city: "Ciudad"
+      state: "Estado"
+      zip: "Código Postal"
+      country: "País"
+      description: 'Descripción'
+      company_id: 'Compañía'
+      created_at: "Registrada el"
+      updated_at: "Actualizada el"
   #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
   
   activerecord:
@@ -494,6 +592,10 @@ es:
       confirmations: "Confirmacións"
       unlock: "Desbloquear Cuenta"      
       unlocks: "Desbloquear Cuentas"
+      company: 'Compañía'
+      companies: 'Compañías'
+      branch: 'Sucursal'
+      branches: 'Sucursales'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT
       
     attributes:
@@ -504,7 +606,7 @@ es:
         phone1: "Teléfono: "
         phone2: "Celular: "
         fax: "Fax: "
-        address1: "Dirección: "
+        address1: "Calle: "
         address2: "Colonia: "
         city: "Ciudad: "
         state: "Estado: "
@@ -520,17 +622,24 @@ es:
         password_confirmation: "Confirmación de Contraseña: "
         current_password: "Contraseña Actual: "
         created_at: "Registrado el: "
-        updated_at: "Actualizado el: "        
+        updated_at: "Actualizado el: "
+        company_id: "Compañía: "
+        branch_id: "Sucursal: "         
       role:
         name: "Nombre: "
         protected: "Protegido: "
         description: "Descripción: "
         super_admin: "Súper Administrador: "
-        clinic_manager: "Administrador de Clínica: "
-        doctor: "Doctor(a): "
+        company_admin: "Administrador de Compañía: "
+        branch_admin: "Administrador de Sucursal: "       
+        super_manager: "Administrador de Compañía de Cliente: "
+        manager: "Administrador de Sucursal de Cliente: "      
+        routes_admin: "Administrador de Rutas: "
+        seller: "Vendedor: "      
         secretary: "Secretaría(o): "
-        patient: "Paciente: "
-        guess: "Invitado: "
+        driver: "Conductor: "
+        client: "Cliente: "
+        guess: "Invitado: "  
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "        
       comment:
@@ -542,4 +651,41 @@ es:
         app_name: "Aplicación: "
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
+      company:
+        id: 'Id: '
+        name: 'Nombre: '
+        email1: 'Correo Electrónico Principal: '
+        email2: 'Correo Electrónico Alternativo: '
+        webpage: 'Página Web: '
+        phone1: "Teléfono: "
+        phone2: "Teléfono Alternativo: "
+        fax: "Fax: "
+        address1: "Calle: "
+        address2: "Colonia: "
+        city: "Ciudad: "
+        state: "Estado: "
+        zip: "Código Postal: "
+        country: "País: "
+        description: 'Descripción: '
+        created_at: "Registrada el: "
+        updated_at: "Actualizada el: "
+      branch:
+        id: 'Id: '
+        name: 'Nombre: '
+        email1: 'Correo Electrónico Principal: '
+        email2: 'Correo Electrónico Alternativo: '
+        webpage: 'Página Web: '
+        phone1: "Teléfono: "
+        phone2: "Teléfono Alternativo: "
+        fax: "Fax: "
+        address1: "Calle: "
+        address2: "Colonia: "
+        city: "Ciudad: "
+        state: "Estado: "
+        zip: "Código Postal: "
+        country: "País: "
+        description: 'Descripción: '
+        company_id: 'Compañía: '
+        created_at: "Registrada el: "
+        updated_at: "Actualizada el: "
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT

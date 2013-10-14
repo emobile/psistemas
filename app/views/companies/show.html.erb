@@ -1,0 +1,57 @@
+<p>
+  <%= render partial: 'avatars/form',
+    object: @company,
+    as: :avatarable %>
+</p>
+
+<p>
+  <b><%= t'.name' %></b> <%= @company.name %>
+</p>
+
+<p>
+  <b><%= t'.email1' %></b> <%= mail_to @company.email1, @company.email1 %>
+</p>
+
+<p>
+  <b><%= t'.email2' %></b> <%= mail_to @company.email2, @company.email2 %>
+</p>
+
+<p>
+  <b><%= t'.webpage' %></b> <%= link_to @company.webpage, @company.webpage %>
+</p>
+
+<p>
+  <b><%= t('.phone1') %></b>
+  <%= number_to_phone(@company.phone1, area_code: true) %>
+</p>
+
+<p>
+  <b><%= t('.phone2') %></b>
+  <%= number_to_phone(@company.phone2, area_code: true) %>
+</p>
+
+<p>
+  <b><%= t('.fax') %></b>
+  <%= number_to_phone(@company.fax, area_code: true) %>
+</p>
+
+<p>
+  <b><%= t('.fulladdress') %></b>
+  <%= @company.fulladdress %>
+</p>
+
+<p>
+  <b><%= t('.created_at') %></b>
+  <%=  I18n.l @company.created_at, :format => :long %>
+</p>
+
+<p>
+  <b><%= t('.updated_at') %></b>
+  <%= I18n.l @company.updated_at, :format => :long %>
+</p>
+
+<p>
+  <b><%= t'.description' %></b> <%= @company.description %>
+</p>
+
+<%= render "layouts/action_links" %>

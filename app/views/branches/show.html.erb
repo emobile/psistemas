@@ -1,0 +1,59 @@
+<p>
+<%= image_tag @branch.company.logo.blank? ? "/assets/home.png": @branch.company.logo %>
+  <%@company = @branch.company%>  
+  <%= render partial: 'avatars/form',
+    object: @company,
+    as: :avatarable %>
+</p>
+
+<p>
+  <b><%= t'.company_id' %></b> <%= @branch.company.name %>
+</p>
+
+<p>
+  <b><%= t'.email1' %></b> <%= mail_to @branch.email1, @branch.email1 %>
+</p>
+
+<p>
+  <b><%= t'.email2' %></b> <%= mail_to @branch.email2, @branch.email2 %>
+</p>
+
+<p>
+  <b><%= t'.webpage' %></b> <%= link_to @branch.webpage, @branch.webpage %>
+</p>
+
+<p>
+  <b><%= t('.phone1') %></b>
+  <%= number_to_phone(@branch.phone1, area_code: true) %>
+</p>
+
+<p>
+  <b><%= t('.phone2') %></b>
+  <%= number_to_phone(@branch.phone2, area_code: true) %>
+</p>
+
+<p>
+  <b><%= t('.fax') %></b>
+  <%= number_to_phone(@branch.fax, area_code: true) %>
+</p>
+
+<p>
+  <b><%= t('.fulladdress') %></b>
+  <%= @branch.fulladdress %>
+</p>
+
+<p>
+  <b><%= t('.created_at') %></b>
+  <%=  I18n.l @branch.created_at, :format => :long %>
+</p>
+
+<p>
+  <b><%= t('.updated_at') %></b>
+  <%= I18n.l @branch.updated_at, :format => :long %>
+</p>
+
+<p>
+  <b><%= t'.description' %></b> <%= @branch.description %>
+</p>
+
+<%= render "layouts/action_links" %>

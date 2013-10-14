@@ -23,10 +23,10 @@
       <%%end%>
       <%x = 0%>
       <% attributes.reject(&:password_digest?).each do |attribute| -%>
-        <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
         <%if x == 0%>
           <%% @model = <%= singular_table_name %> %> 
         <%end -%>
+        <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
         <%x = x +1%>
       <% end -%>
       <%%= render "layouts/index_links" %>

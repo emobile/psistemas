@@ -1,0 +1,27 @@
+rails g scaffold company name:string email1:string email2:string webpage:string phone1:string phone2:string address1:string address2:string city:string state:string zip:integer country:string description:text
+rails g scaffold branch name:string email1:string email2:string webpage:string phone1:string phone2:string address1:string address2:string city:string state:string zip:integer country:string description:text branch:references
+rails g scaffold roles name:string protected:boolean super_admin:boolean branch_admin:boolean routes_admin:boolean driver:boolean description:text branch:references
+rails g scaffold error_reeports ser:string controller_name:string action_name:string line_number:string referrer_url:string original_path:string environment:string branch:references description:text backtrace:text error_time:date
+rails g scaffold client_company name:string email1:string email2:string webpage:string phone1:string phone2:string address1:string address2:string city:string state:string zip:integer country:string description:text
+
+rails g scaffold client_branch name:string email1:string email2:string webpage:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string description:text client:references
+rails g scaffold client name:string email1:string email2:string webpage:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string description:text company:references
+
+rails g scaffold bill name:string rfc:string email:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string client:references company:references
+rails d scaffold cellphone phone_number:string model:string brand:string color:string ope_system:string condition:text imei:string description:text user:references branch:references
+rails g scaffold truck model:string brand:string year:integer truck_type:string plate_no:string serial_no:string color:string wheels_no:integer other:string identifier:string branch:references
+rails g scaffold driver user:references truck:references branch:references
+rails g scaffold schedule branch:references driver:references client_branch:references client:references monday:boolean tuesday:boolean wednesday:boolean thursday:boolean friday:boolean saturday:boolean sunday:boolean
+
+
+rails g scaffold roles name:string protected:boolean super_admin:boolean clinic_manager:boolean doctor:boolean secretary:boolean patient:boolean description:text 
+rails g scaffold user first_name:string last_name:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string role:references active:boolean
+
+
+rails g scaffold error_reeports ser:string controller_name:string action_name:string line_number:string referrer_url:string original_path:string environment:string branch:references description:text backtrace:text error_time:date
+
+rails g user:references email:string comment:text app_name:string 
+
+
+rails g scaffold company name:string email1:string email2:string webpage:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string description:text
+rails g scaffold branch name:string email1:string email2:string webpage:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string description:text company:references

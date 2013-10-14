@@ -1,0 +1,80 @@
+<%= form_for(@branch) do |f| %>
+  <% if @branch.errors.any? %>
+    <div id="error_explanation">
+      <% if @branch.errors.count == 1 %>
+        <h2><%= t('activerecord.errors.template.header.one', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) %></h2>
+      <% else %>
+        <h2><%= t('activerecord.errors.template.header.other', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"), :count => @branch.errors.count) %></h2>
+      <% end %>
+      <ul>
+        <% @branch.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email1 %><br>
+    <%= f.text_field :email1 %>
+  </div>
+  <div class="field">
+    <%= f.label :email2 %><br>
+    <%= f.text_field :email2 %>
+  </div>
+  <div class="field">
+    <%= f.label :webpage %><br>
+    <%= f.text_field :webpage %>
+  </div>
+  <div class="field">
+    <%= f.label :phone1 %><br>
+    <%= f.text_field :phone1 %>
+  </div>
+  <div class="field">
+    <%= f.label :phone2 %><br>
+    <%= f.text_field :phone2 %>
+  </div>
+  <div class="field">
+    <%= f.label :fax %><br>
+    <%= f.text_field :fax %>
+  </div>
+  <div class="field">
+    <%= f.label :address1 %><br>
+    <%= f.text_field :address1 %>
+  </div>
+  <div class="field">
+    <%= f.label :address2 %><br>
+    <%= f.text_field :address2 %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.number_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :company_id %><br>
+    <%= f.collection_select(:company_id, Company.where(:id => current_user.company_id), :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

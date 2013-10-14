@@ -7,13 +7,15 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessor :login, :fullname
   belongs_to :role
+  belongs_to :company
+  belongs_to :branch  
   has_many :comments
   validates :first_name, :last_name, :username, :phone1, :address1, :address2, :city, :state, :zip, :country, :presence => true
-  validates :username, :uniqueness => true
+  validates :username, :email, :uniqueness => true
   validates :phone1, :zip, :numericality => {:only_integer => true}
   validates :phone2, :fax, :numericality => {:only_integer => true}, :allow_blank => true  
   validates_length_of :email, :maximum => 120
-  validates_length_of :first_name, :last_name, :city, :state, :maximum => 30
+  validates_length_of :first_name, :last_name, :address1, :address2, :city, :state, :maximum => 30
   validates :zip, :length => { :within => 5..5 }
   validates :phone1, :length => { :within => 10..15 } 
   validates :phone2, :fax, :length => { :within => 10..15 }, :allow_blank => true  

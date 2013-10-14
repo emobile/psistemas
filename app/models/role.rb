@@ -17,7 +17,7 @@ class Role < ActiveRecord::Base
   end
   
   def rol_type
-    errors.add(:base, I18n.t('activerecord.errors.messages.rol_type')) unless super_admin || clinic_manager || doctor || secretary || patient  || guess
+    errors.add(:base, I18n.t('activerecord.errors.messages.rol_type')) unless super_admin || company_admin || branch_admin || super_manager || manager || routes_admin || seller || secretary || driver || client  || guess
   end
   
 end

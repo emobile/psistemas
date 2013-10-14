@@ -70,7 +70,7 @@ class UsersController < ApplicationController
   end
   
   def get_user_role
-    unless current_user.role.super_admin or current_user.role.clinic_manager
+    unless current_user.role.super_admin or current_user.role.company_admin or current_user.role.branch_admin
       flash[:error] = t('activerecord.errors.messages.access_denied')
       redirect_to @user
     end
@@ -78,6 +78,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :phone1, :phone2, :fax, :address1, :address2, :city, :state, :zip, :country, :role_id, :active, :logo, :logo_crop_x, :logo_crop_y, :logo_crop_w, :avatar_tmp_basename)
+    params.require(:user).permit(:first_name, :last_name, :phone1, :phone2, :fax, :address1, :address2, :city, :state, :zip, :country, :role_id, :active, :logo, :logo_crop_x, :logo_crop_y, :logo_crop_w, :avatar_tmp_basename, :company_id, :branch_id)
   end
 end

@@ -131,11 +131,11 @@ class Devise::RegistrationsController < DeviseController
   end
   
   def sign_up_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :current_password, :first_name, :last_name, :phone1, :phone2, :fax, :address1, :address2, :city, :state, :zip, :country, :role_id, :active, :logo, :logo_crop_x, :logo_crop_y, :logo_crop_w, :avatar_tmp_basename)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :current_password, :first_name, :last_name, :phone1, :phone2, :fax, :address1, :address2, :city, :state, :zip, :country, :role_id, :active, :logo, :logo_crop_x, :logo_crop_y, :logo_crop_w, :avatar_tmp_basename, :company_id, :branch_id)
   end
   
   def account_update_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :current_password, :first_name, :last_name, :phone1, :phone2, :fax, :address1, :address2, :city, :state, :zip, :country, :role_id, :active, :logo, :logo_crop_x, :logo_crop_y, :logo_crop_w, :avatar_tmp_basename)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation, :current_password, :first_name, :last_name, :phone1, :phone2, :fax, :address1, :address2, :city, :state, :zip, :country, :role_id, :active, :logo, :logo_crop_x, :logo_crop_y, :logo_crop_w, :avatar_tmp_basename, :company_id, :branch_id)
   end
 
   private :sign_up_params

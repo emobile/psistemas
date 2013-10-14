@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131013081749) do
+ActiveRecord::Schema.define(version: 20131014065559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "branches", force: true do |t|
+    t.string   "name"
+    t.string   "email1"
+    t.string   "email2"
+    t.string   "webpage"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "fax"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "country"
+    t.text     "description"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "branches", ["company_id"], name: "index_branches_on_company_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -27,16 +49,44 @@ ActiveRecord::Schema.define(version: 20131013081749) do
 
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "companies", force: true do |t|
+    t.string   "name"
+    t.string   "email1"
+    t.string   "email2"
+    t.string   "webpage"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "fax"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "country"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
+
   create_table "roles", force: true do |t|
-    t.string   "name",           default: "",    null: false
-    t.boolean  "protected",      default: false, null: false
-    t.boolean  "super_admin",    default: false, null: false
-    t.boolean  "clinic_manager", default: false, null: false
-    t.boolean  "doctor",         default: false, null: false
-    t.boolean  "secretary",      default: false, null: false
-    t.boolean  "patient",        default: false, null: false
-    t.boolean  "guess",          default: false, null: false
-    t.text     "description",    default: "",    null: false
+    t.string   "name",                          null: false
+    t.boolean  "protected",     default: false, null: false
+    t.boolean  "super_admin",   default: false, null: false
+    t.boolean  "company_admin",         default: false, null: false
+    t.boolean  "branch_admin",  default: false, null: false
+    t.boolean  "super_manager", default: false, null: false
+    t.boolean  "manager",       default: false, null: false
+    t.boolean  "routes_admin",  default: false, null: false
+    t.boolean  "seller",        default: false, null: false
+    t.boolean  "secretary",     default: false, null: false
+    t.boolean  "driver",        default: false, null: false
+    t.boolean  "client",        default: false, null: false
+    t.boolean  "guess",         default: false, null: false
+    t.text     "description",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,10 +103,16 @@ ActiveRecord::Schema.define(version: 20131013081749) do
     t.string   "state",                  default: "",   null: false
     t.integer  "zip",                                   null: false
     t.string   "country",                default: "",   null: false
+    t.integer  "company_id",                            null: false
+    t.integer  "branch_id",                             null: false
     t.integer  "role_id",                               null: false
     t.boolean  "active",                 default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
     t.string   "username",               default: "",   null: false
     t.string   "email",                  default: "",   null: false
     t.string   "encrypted_password",     default: "",   null: false
@@ -76,13 +132,11 @@ ActiveRecord::Schema.define(version: 20131013081749) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
-    t.string   "logo_file_name"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
-    t.datetime "logo_updated_at"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
+  add_index "users", ["branch_id"], name: "index_users_on_branch_id", using: :btree
+  add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
