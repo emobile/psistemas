@@ -1,0 +1,1 @@
+json.extract! @error_report, :user_id, :controller_name, :action_name, :line_number, :referrer_url, :original_path, :environment, :branch_id, :company_id, :description, :backtrace, :error_time, :created_at, :updated_at

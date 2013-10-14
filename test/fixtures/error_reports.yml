@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 
+  controller_name: MyString
+  action_name: MyString
+  line_number: MyString
+  referrer_url: MyString
+  original_path: MyString
+  environment: MyString
+  branch_id: 
+  company_id: 
+  description: MyText
+  backtrace: MyText
+  error_time: 2013-10-14 04:12:51
+
+two:
+  user_id: 
+  controller_name: MyString
+  action_name: MyString
+  line_number: MyString
+  referrer_url: MyString
+  original_path: MyString
+  environment: MyString
+  branch_id: 
+  company_id: 
+  description: MyText
+  backtrace: MyText
+  error_time: 2013-10-14 04:12:51

@@ -18,7 +18,7 @@ rails g scaffold roles name:string protected:boolean super_admin:boolean clinic_
 rails g scaffold user first_name:string last_name:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string role:references active:boolean
 
 
-rails g scaffold error_reeports ser:string controller_name:string action_name:string line_number:string referrer_url:string original_path:string environment:string branch:references description:text backtrace:text error_time:date
+rails g scaffold error_reeports user:references controller_name:string action_name:string line_number:string referrer_url:string original_path:string environment:string branch:references company:references description:text backtrace:text error_time:datetime
 
 rails g user:references email:string comment:text app_name:string 
 

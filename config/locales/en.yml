@@ -14,6 +14,7 @@ en:
   edit_my_account: "Edit My Account"
   are_you_sure?: "Are you sure yo want to delete this %{model}?"
   main_title: "Base Application"
+  something_went_wrong: "Ha ocurrido un error inesperado: "  
   leave_password_blank: "(Leave passwork blank if you do not want to change it)"
   actor:
     name: "Name"
@@ -551,6 +552,39 @@ en:
       company_id: 'Company'
       created_at: 'Created At'
       updated_at: 'Updated At'
+  error_reports:
+    show:
+      id: 'Id: '
+      user_id: 'User: '
+      controller_name: 'Controller Name: '
+      action_name: 'Action Name: '
+      line_number: 'Line Number: '
+      referrer_url: 'Referrer Url: '
+      original_path: 'Original Path: '
+      environment: 'Environment: '
+      branch_id: 'Branch: '
+      company_id: 'Company: '
+      description: 'Description: '
+      backtrace: 'Backtrace: '
+      error_time: 'Error Time: '
+      created_at: 'Created At: '
+      updated_at: 'Updated At: '
+    index:
+      id: 'Id'
+      user_id: 'User'
+      controller_name: 'Controller Name'
+      action_name: 'Action Name'
+      line_number: 'Line Number'
+      referrer_url: 'Referrer Url'
+      original_path: 'Original Path'
+      environment: 'Environment'
+      branch_id: 'Branch'
+      company_id: 'Company'
+      description: 'Description'
+      backtrace: 'Backtrace'
+      error_time: 'Error Time'
+      created_at: 'Created At'
+      updated_at: 'Updated At'
   #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
   
   activerecord:
@@ -596,6 +630,8 @@ en:
       companies: 'Companies'
       branch: 'Branch'
       branches: 'Branches'
+      error_report: 'Error Report'
+      error_reports: 'Error Reports'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT
     
     attributes:
@@ -686,6 +722,22 @@ en:
         country: 'Country: '
         description: 'Description: '
         company_id: 'Company: '
+        created_at: 'Created At: '
+        updated_at: 'Updated At: '
+      error_report:
+        id: 'Id: '
+        user_id: 'User: '
+        controller_name: 'Controller Name: '
+        action_name: 'Action Name: '
+        line_number: 'Line Number: '
+        referrer_url: 'Referrer Url: '
+        original_path: 'Original Path: '
+        environment: 'Environment: '
+        branch_id: 'Branch: '
+        company_id: 'Company: '
+        description: 'Description: '
+        backtrace: 'Backtrace: '
+        error_time: 'Error Time: '
         created_at: 'Created At: '
         updated_at: 'Updated At: '
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT

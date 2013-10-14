@@ -1,0 +1,68 @@
+<%= form_for(@error_report) do |f| %>
+  <% if @error_report.errors.any? %>
+    <div id="error_explanation">
+      <% if @error_report.errors.count == 1 %>
+        <h2><%= t('activerecord.errors.template.header.one', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) %></h2>
+      <% else %>
+        <h2><%= t('activerecord.errors.template.header.other', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"), :count => @error_report.errors.count) %></h2>
+      <% end %>
+      <ul>
+      <% @error_report.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :controller_name %><br>
+    <%= f.text_field :controller_name %>
+  </div>
+  <div class="field">
+    <%= f.label :action_name %><br>
+    <%= f.text_field :action_name %>
+  </div>
+  <div class="field">
+    <%= f.label :line_number %><br>
+    <%= f.text_field :line_number %>
+  </div>
+  <div class="field">
+    <%= f.label :referrer_url %><br>
+    <%= f.text_field :referrer_url %>
+  </div>
+  <div class="field">
+    <%= f.label :original_path %><br>
+    <%= f.text_field :original_path %>
+  </div>
+  <div class="field">
+    <%= f.label :environment %><br>
+    <%= f.text_field :environment %>
+  </div>
+  <div class="field">
+    <%= f.label :branch_id %><br>
+    <%= f.text_field :branch_id %>
+  </div>
+  <div class="field">
+    <%= f.label :company_id %><br>
+    <%= f.text_field :company_id %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :backtrace %><br>
+    <%= f.text_area :backtrace %>
+  </div>
+  <div class="field">
+    <%= f.label :error_time %><br>
+    <%= f.datetime_select :error_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

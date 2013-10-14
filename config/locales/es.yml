@@ -14,6 +14,7 @@ es:
   edit_my_account: "Editar mi cuenta"
   are_you_sure?: "¿Esta seguro que desea eliminar este(a) %{model}?"
   main_title: "Aplicacíon Base"
+  something_went_wrong: "Something went wrong: "   
   leave_password_blank: "(Deje el password en blanco si no desea cambiarlo)"
   actor:
     name: "Nombre"
@@ -551,6 +552,39 @@ es:
       company_id: 'Compañía'
       created_at: "Registrada el"
       updated_at: "Actualizada el"
+  error_reports:
+    show:
+      id: 'Id: '
+      user_id: 'Usuario: '
+      controller_name: 'Controlador: '
+      action_name: 'Acción: '
+      line_number: 'No. de Línea: '
+      referrer_url: 'URL Referida: '
+      original_path: 'URL de Destino: '
+      environment: 'Ambiente: '
+      branch_id: 'Sucursal: '
+      company_id: 'Compañía: '
+      description: 'Descripción: '
+      backtrace: 'Error (Backtrace): '
+      error_time: 'Hora: '
+      created_at: "Registrado el: "
+      updated_at: "Actualizado el: "
+    index:
+      id: 'Id'
+      user_id: 'Usuario'
+      controller_name: 'Controlador'
+      action_name: 'Acción'
+      line_number: 'No. de Línea'
+      referrer_url: 'URL Referida'
+      original_path: 'URL de Destino'
+      environment: 'Ambiente'
+      branch_id: 'Sucursal'
+      company_id: 'Compañía'
+      description: 'Descripción'
+      backtrace: 'Error (Backtrace)'
+      error_time: 'Hora'
+      created_at: "Registrado el"
+      updated_at: "Actualizado el"
   #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
   
   activerecord:
@@ -596,6 +630,8 @@ es:
       companies: 'Compañías'
       branch: 'Sucursal'
       branches: 'Sucursales'
+      error_report: 'Reporte de Error'
+      error_reports: 'Reporte de Errores'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT
       
     attributes:
@@ -688,4 +724,20 @@ es:
         company_id: 'Compañía: '
         created_at: "Registrada el: "
         updated_at: "Actualizada el: "
+      error_report:
+        id: 'Id: '
+        user_id: 'Usuario: '
+        controller_name: 'Controlador: '
+        action_name: 'Acción: '
+        line_number: 'No. de Línea: '
+        referrer_url: 'URL Referida: '
+        original_path: 'URL de Destino: '
+        environment: 'Ambiente: '
+        branch_id: 'Sucursal: '
+        company_id: 'Compañía: '
+        description: 'Descripción: '
+        backtrace: 'Error (Backtrace): '
+        error_time: 'Hora: '
+        created_at: "Registrado el: "
+        updated_at: "Actualizado el: "
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT

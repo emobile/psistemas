@@ -13,4 +13,27 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  if Rails.env == "production" or Rails.env == "development" or Rails.env == "local"
+    rescue_from Exception do |exception|#WORKS
+      line_number = exception.backtrace.to_s.split(":in").first.gsub("[\"", "")
+      flash[:error] = t(:something_went_wrong)  + exception.to_s + " (" + line_number + ")"
+      if signed_in?  
+        ErrorReport.create(:user_id => current_user.id, :controller_name => controller_name, :action_name => action_name, :description => exception.to_s, :referrer_url => request.referer, :original_path => request.env['ORIGINAL_FULLPATH'], :branch_id => current_user.branch_id, :company_id => current_user.company_id, :environment => Rails.env, :error_time => Time.now, :line_number => line_number, :backtrace => exception.backtrace.to_s)
+      else
+        ErrorReport.create(:user_id => 4, :controller_name => controller_name, :action_name => action_name, :description => exception.to_s, :referrer_url => request.referer, :original_path => request.env['ORIGINAL_FULLPATH'], :branch_id => 1, :company_id => 1, :environment => Rails.env, :error_time => Time.now, :line_number => line_number, :backtrace => exception.backtrace.to_s)
+      end
+      render welcome_index_path
+    end
+    rescue_from ActiveRecord::RecordNotFound do |exception|#WORKS
+      line_number = exception.backtrace.to_s.split(":in").first.gsub("[\"", "")      
+      flash[:error] = t(:something_went_wrong)  + exception.to_s + " (" + line_number + ")"
+      if signed_in?  
+        ErrorReport.create(:user_id => current_user.id, :controller_name => controller_name, :action_name => action_name, :description => exception.to_s, :referrer_url => request.referer, :original_path => request.env['ORIGINAL_FULLPATH'], :branch_id => current_user.branch_id, :company_id => current_user.company_id, :environment => Rails.env, :error_time => Time.now, :line_number => line_number, :backtrace => exception.backtrace.to_s)
+      else
+        ErrorReport.create(:user_id => 4, :controller_name => controller_name, :action_name => action_name, :description => exception.to_s, :referrer_url => request.referer, :original_path => request.env['ORIGINAL_FULLPATH'], :branch_id => 1, :company_id => 1, :environment => Rails.env, :error_time => Time.now, :line_number => line_number, :backtrace => exception.backtrace.to_s)
+      end
+      render welcome_index_path
+    end 
+  end
+  
 end

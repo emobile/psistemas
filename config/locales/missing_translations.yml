@@ -15,3 +15,8 @@ es:
   failure:
     invalid:
       account_inactive: Account Inactive
+  error_reports:
+    index:
+      user: User
+      branch: Branch
+      company: Company

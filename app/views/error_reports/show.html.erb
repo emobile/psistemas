@@ -1,0 +1,59 @@
+<p>
+  <b><%= t'.user_id' %></b> <%= @error_report.user.name %>
+</p>
+
+<p>
+  <b><%= t'.controller_name' %></b> <%= @error_report.controller_name %>
+</p>
+
+<p>
+  <b><%= t'.action_name' %></b> <%= @error_report.action_name %>
+</p>
+
+<p>
+  <b><%= t'.line_number' %></b> <%= @error_report.line_number %>
+</p>
+
+<p>
+  <b><%= t'.referrer_url' %></b> <%= @error_report.referrer_url %>
+</p>
+
+<p>
+  <b><%= t'.original_path' %></b> <%= @error_report.original_path %>
+</p>
+
+<p>
+  <b><%= t'.environment' %></b> <%= @error_report.environment %>
+</p>
+
+<p>
+  <b><%= t'.branch_id' %></b> <%= @error_report.branch.name %>
+</p>
+
+<p>
+  <b><%= t'.company_id' %></b> <%= @error_report.company.name %>
+</p>
+
+<p>
+  <b><%= t'.description' %></b> <%= @error_report.description %>
+</p>
+
+<p>
+  <b><%= t'.backtrace' %></b> <%= @error_report.backtrace %>
+</p>
+
+<p>
+  <b><%= t'.error_time' %></b> <%=  I18n.l @error_report.error_time, :format => :long %>
+</p>
+
+<p>
+  <b><%= t('.created_at') %></b>
+  <%=  I18n.l @error_report.created_at, :format => :long %>
+</p>
+
+<p>
+  <b><%= t('.updated_at') %></b>
+  <%= I18n.l @error_report.updated_at, :format => :long %>
+</p>
+
+<%= render "layouts/action_links" %>

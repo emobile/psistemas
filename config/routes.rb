@@ -1,4 +1,6 @@
 Serviroute::Application.routes.draw do
+  resources :error_reports
+
   resources :branches
 
   resources :companies

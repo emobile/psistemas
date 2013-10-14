@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014065559) do
+ActiveRecord::Schema.define(version: 20131014101251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,11 +72,32 @@ ActiveRecord::Schema.define(version: 20131014065559) do
     t.datetime "logo_updated_at"
   end
 
+  create_table "error_reports", force: true do |t|
+    t.integer  "user_id"
+    t.string   "controller_name"
+    t.string   "action_name"
+    t.string   "line_number"
+    t.string   "referrer_url"
+    t.string   "original_path"
+    t.string   "environment"
+    t.integer  "branch_id"
+    t.integer  "company_id"
+    t.text     "description"
+    t.text     "backtrace"
+    t.datetime "error_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "error_reports", ["branch_id"], name: "index_error_reports_on_branch_id", using: :btree
+  add_index "error_reports", ["company_id"], name: "index_error_reports_on_company_id", using: :btree
+  add_index "error_reports", ["user_id"], name: "index_error_reports_on_user_id", using: :btree
+
   create_table "roles", force: true do |t|
     t.string   "name",                          null: false
     t.boolean  "protected",     default: false, null: false
     t.boolean  "super_admin",   default: false, null: false
-    t.boolean  "company_admin",         default: false, null: false
+    t.boolean  "company_admin", default: false, null: false
     t.boolean  "branch_admin",  default: false, null: false
     t.boolean  "super_manager", default: false, null: false
     t.boolean  "manager",       default: false, null: false

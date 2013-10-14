@@ -1,0 +1,59 @@
+<h1>Listing error_reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t'.id' %></th>
+      <th><%= t'.user_id' %></th>
+      <th><%= t'.controller_name' %></th>
+      <th><%= t'.action_name' %></th>
+      <th><%= t'.line_number' %></th>
+      <th><%= t'.referrer_url' %></th>
+      <th><%= t'.original_path' %></th>
+      <th><%= t'.environment' %></th>
+      <th><%= t'.branch_id' %></th>
+      <th><%= t'.company_id' %></th>
+      <th><%= t'.description' %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @error_reports.each do |error_report| %>
+      <% @model = error_report %> 
+      <tr>
+        <%if can? :show, ErrorReport %>
+          <td><%=link_to error_report.id, error_report, :class => 'button'%></td>
+        <%else%>
+          <td><%= label error_report.id, error_report.id, :class => 'button'%></td>
+        <%end%>                    
+        <td><%= error_report.user.fullname %></td>
+
+        <td><%= error_report.controller_name %></td>
+
+        <td><%= error_report.action_name %></td>
+
+        <td><%= error_report.line_number %></td>
+
+        <td><%= error_report.referrer_url %></td>
+
+        <td><%= error_report.original_path %></td>
+
+        <td><%= error_report.environment %></td>
+
+        <td><%= error_report.branch.name %></td>
+
+        <td><%= error_report.company.name %></td>
+
+        <td><%= error_report.description %></td>
+
+        <%= render "layouts/index_links" %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= render "layouts/action_links" %>
