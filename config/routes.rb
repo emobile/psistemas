@@ -1,4 +1,4 @@
-ClinicManager::Application.routes.draw do
+Serviroute::Application.routes.draw do
   resources :comments
 
   devise_for :users

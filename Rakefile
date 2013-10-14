@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ClinicManager::Application.load_tasks
+Serviroute::Application.load_tasks

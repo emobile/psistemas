@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-ClinicManager::Application.config.secret_key_base = '61ca5bd86c5d98ce95f35acb616db13a8e0c07d26137ace50add4f978d4c983a24ce2a21479bf2e02e92830174c2516505bb85713dfd1443a221a8058c42a86a'
+Serviroute::Application.config.secret_key_base = '61ca5bd86c5d98ce95f35acb616db13a8e0c07d26137ace50add4f978d4c983a24ce2a21479bf2e02e92830174c2516505bb85713dfd1443a221a8058c42a86a'
