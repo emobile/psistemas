@@ -279,9 +279,9 @@ en:
         created_at: "Created At: "
         updated_at: "Updated At: "
         last_sign_in_at: "Last Sign In At: "
-        login: "Iniciar sesión"  
-        company_id: "Compañía: "
-        branch_id: "Sucursal: "          
+        login: "Log In"  
+        company_id: "Company: "
+        branch_id: "Branch: "          
     registrations:
       new:
         fullname: "Full Name: "
@@ -306,9 +306,7 @@ en:
         updated_at: "Updated At: "
         last_sign_in_at: "Last Sign In At: "
         company_id: "Compañía: "
-        branch_id: "Sucursal: "
-        company_id: "Compañía: "
-        branch_id: "Sucursal: "          
+        branch_id: "Sucursal: "        
     confirmations:
       resend: "Resend confirmation instructions"
     links:
@@ -483,6 +481,7 @@ en:
       phone1: 'Phone1: '
       phone2: 'Phone2: '
       fax: 'Fax: '
+      fulladdress: "Full Address: "       
       address1: 'Address1: '
       address2: 'Address2: '
       city: 'City: '
@@ -501,6 +500,7 @@ en:
       phone1: 'Phone1'
       phone2: 'Phone2'
       fax: 'Fax'
+      fulladdress: "Full Address"       
       address1: 'Address1'
       address2: 'Address2'
       city: 'City'
@@ -520,6 +520,7 @@ en:
       phone1: 'Phone1: '
       phone2: 'Phone2: '
       fax: 'Fax: '
+      fulladdress: "Full Address: "       
       address1: 'Address1: '
       address2: 'Address2: '
       city: 'City: '
@@ -539,6 +540,7 @@ en:
       phone1: 'Phone1'
       phone2: 'Phone2'
       fax: 'Fax'
+      fulladdress: "Full Address"       
       address1: 'Address1'
       address2: 'Address2'
       city: 'City'

@@ -13,9 +13,12 @@ class Ability
         can :manage, Company, :id => @user.company_id        
         can :manage, Branch, :company_id => @user.company_id
         can :manage, User, :company_id => @user.company_id
+        can [:new, :create, :show], Comment, :user_id  => @user.id
       elsif @user.role.branch_admin == true
-        can :manage, Branch, :id => @user.branch_id
+        can [:index, :show], Branch 
+        can [:edit, :update], Branch, :id => @user.branch_id
         can :manage, User, :branch_id => @user.branch_id
+        can [:new, :create, :show], Comment, :user_id  => @user.id        
       elsif @user.role.super_manager == true
       elsif @user.role.manager == true
       elsif @user.role.secretary == true

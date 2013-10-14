@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= eval("t('activerecord.models.#{controller_name.underscore.pluralize}')") %></title>
+    <title><%= t(:main_title) + " : " + eval("t('activerecord.models.#{controller_name.underscore.pluralize}')") %></title>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
@@ -16,6 +16,11 @@
           <%=image_tag("/assets/icons/blue/24x24/home.png") %>
         <%end%>
         <%if signed_in?%>
+          <%if can? :new, Comment %>
+            <%= link_to new_comment_path, title:  t("actions.new",  model: t("activerecord.models.comment"))  do %>
+              <%=image_tag("/assets/icons/blue/24x24/comment.png") %>
+            <%end%>
+          <%end%>
           <%= link_to destroy_session_path, title: t(:logout) + " " + current_user.username do %>
             <%=image_tag("/assets/icons/blue/24x24/user_down.png") %>
           <%end%>
