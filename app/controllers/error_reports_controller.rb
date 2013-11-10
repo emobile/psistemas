@@ -1,11 +1,12 @@
 class ErrorReportsController < ApplicationController
   before_action :set_error_report, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_filter :set_icon
   load_and_authorize_resource except: [:create]
   
   # GET /error_reports
   def index
-    @error_reports = ErrorReport.all
+    @error_reports = ErrorReport.order("id ASC")
   end
 
   # GET /error_reports/1
@@ -45,7 +46,11 @@ class ErrorReportsController < ApplicationController
     @error_report.destroy
     redirect_to error_reports_url, notice:  t("actions.destroyed.male",  model: t("activerecord.models.#{controller_name.singularize}").downcase)
   end
-
+  
+  def set_icon
+    @icon = "warning-sign"
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_error_report

@@ -1,3 +1,69 @@
+
+Create a new repository on the command line
+
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:emobile/inspectio.git
+git push -u origin master
+
+Push an existing repository from the command line
+
+git remote add origin git@github.com:emobile/inspectio.git
+git push -u origin master
+
+
+
+ENVIROMENT CONFIGURATION
+1. \curl -L https://get.rvm.io | bash -s stable --rails
+
+2. generate ssh keys
+
+3. Install Git: yum install git-core
+
+4. install ImageMagick
+
+		1) remove existing one(you may require to restart the system after that by init 6)
+
+		yum remove ImageMagick //if it's already installed
+	
+		2) Install image magick and libraries required.
+
+		yum install ImageMagick ImageMagick-devel ImageMagick-perl
+
+		3) Install the gem
+
+		gem install rmagick
+
+		4) require libraries where required.
+
+		require 'rubygems'
+		require 'RMagick'
+
+5. Instalar sqlite
+	yum install sqlite
+	yum install sqlite-devel
+
+6. Clonar proyecto
+
+7. Bundle install
+
+8. Installar passenger:
+	gem install passenger
+	yum install curl-devel
+	passenger-install-apache2-module
+	copiar y pegar la salida de instalacion en el archivo:
+		/etc/httpd/conf/httpd.conf
+
+   LoadModule passenger_module /usr/local/rvm/gems/ruby-2.0.0-p247/gems/passenger-4.0.20/buildout/apache2/mod_passenger.so
+   PassengerRoot /usr/local/rvm/gems/ruby-2.0.0-p247/gems/passenger-4.0.20
+   PassengerDefaultRuby /usr/local/rvm/wrappers/ruby-2.0.0-p247/ruby
+
+	reiniciar apache /sbin/service httpd restart
+
+	
+
 1. crear archivo app_name.conf dentro del httpdoc
  <VirtualHost *:80>
       ServerName www.servi-net.us
@@ -333,3 +399,13 @@ initializers/session_store.rb
 environments/test.rb, production.rb and development.rb
 
 4) You can also rename the databases in config.database.yml.sqlite3 to (yourapp)_development, (yourapp)_test etc. It may be necessary reload your databases in this case. I used the yaml_db gem and rake db:reload to do this and worked.
+
+
+cd /var/cpanel/nameserverips.yaml
+
+Generally with this sort of thing, it's either a password issue, or Caching issue. Are you able to log in successfully with any other webmail clients?
+Juan nop, outlook is also asking for credentials again and authentication fails
+Don P.Okay, so that sounds like an issue with the login being used. Make sure the server settings are correct as well in Outlook. When I'm going to http://emobile.com.mx/webmail, I'm getting an SSL error, so I would suggest checking the SSL settings as well.
+
+Please ensure that /home/edemos/Rails/anadic/log/production.log exists and is chmod 0666.
+

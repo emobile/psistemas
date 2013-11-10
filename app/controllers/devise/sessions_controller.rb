@@ -20,7 +20,7 @@ class Devise::SessionsController < DeviseController
         respond_with resource, :location => after_sign_in_path_for(resource)
       else
         sign_out(current_user)
-        redirect_to root_path, :alert => t("errors.messages.account_inactive")
+        redirect_to root_path, :warning => t("errors.messages.account_inactive")
       end
     else
       redirect_to new_user_session_path, :alert => t("devise.failure.invalid")

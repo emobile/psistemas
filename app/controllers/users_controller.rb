@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :get_user_role, only: [:edit, :update]
   before_filter :authenticate_user!#, except: [:new, :create]
+  before_filter :set_icon
   load_and_authorize_resource
   # GET /users
   # GET /users.json
@@ -74,6 +75,10 @@ class UsersController < ApplicationController
       flash[:error] = t('activerecord.errors.messages.access_denied')
       redirect_to @user
     end
+  end
+  
+  def set_icon
+    @icon = "user"
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

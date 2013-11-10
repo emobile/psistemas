@@ -1,90 +1,138 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <% if @user.errors.count == 1 %>
-        <h2><%= t('activerecord.errors.template.header.one', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) %></h2>
-      <% else %>
-        <h2><%= t('activerecord.errors.template.header.other', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"), :count => @user.errors.count) %></h2>
-      <% end %>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="box">
+      <div class="box-header">
+        <span class="title">Forms</span>
+        <ul class="box-toolbar">
+          <li>
+            <i class="icon-refresh"></i>
+          </li>
+          <li>
+            <input type="checkbox" class="iButton-icons" checked="checked" />
+          </li>
+          <li class="toolbar-link">
+            <a href="#" class="dropdown" data-toggle="dropdown"><i class="icon-cog"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><i class="icon-plus-sign"></i> Add</a></li>
+              <li><a href="#"><i class="icon-remove-sign"></i> Remove</a></li>
+              <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="box-content">
+
+        <%= form_for @user, :html => {:class => "fill-up"} do |f| %>
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <% if @user.errors.count == 1 %>
+                <h2><%= t('activerecord.errors.template.header.one', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) %></h2>
+              <% else %>
+                <h2><%= t('activerecord.errors.template.header.other', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"), :count => @user.errors.count) %></h2>
+              <% end %>
+              <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="row">
+            <div class="col-lg-6">
+
+              <ul class="padded separate-sections">
+
+                <li class="field">
+                  <%= f.label :first_name %>
+                  <%= f.text_field :first_name, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :last_name %>
+                  <%= f.text_field :last_name, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :phone1 %>
+                  <%= f.text_field :phone1, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :phone2 %>
+                  <%= f.text_field :phone2 %>
+                </li>
+                <li class="field">
+                  <%= f.label :fax %>
+                  <%= f.text_field :fax %>
+                </li>
+                <li class="field">
+                  <%= f.label :address1 %>
+                  <%= f.text_field :address1, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :address2 %>
+                  <%= f.text_field :address2, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :zip %>
+                  <%= f.number_field :zip, :required => true, :placeholder => t(:required) %>
+                </li>
+
+                <li class="input">
+                  <input type="file" name="img">
+                </li>
+
+              </ul>
+            </div>
+
+            <div class="col-lg-6">
+
+              <ul class="padded separate-sections">
+                <li class="field">
+                  <%= f.label :country %>
+                  <%= f.country_select(:country, [ "Mexico", "United States", "Peru" ], {}, { :class => 'chzn-select' })%>
+                </li>
+                <li class="field">
+                  <%= f.label :state %>
+                  <%= f.select :state, mx_states, {}, { :class => 'chzn-select' }%>
+                </li>
+                <li class="field">
+                  <%= f.label :city %>
+                  <%= f.text_field :city, :required => true, :placeholder => t(:required) %>
+                </li>
+                <%if signed_in? and (current_user.role.super_admin or current_user.role.company_admin or current_user.role.branch_admin)%>
+                  <li class="field">
+                    <%= f.label :company_id %>
+                    <%= f.collection_select(:company_id, Company.where(:id => current_user.company_id), :id, :name, {}, { :class => 'chzn-select' }) %>
+                  </li>
+                  <li class="field">
+                    <%= f.label :branch_id %>
+                    <%= f.collection_select(:branch_id, Branch.where(:company_id => current_user.company_id), :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+                  </li>
+                  <li class="field">
+                    <%= f.label :role_id %>
+                    <%= f.collection_select(:role_id, Role.where("super_admin = false and company_admin = false and super_manager = false and manager = false"), :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+                  </li>
+                  <li class="field">
+                    <%= f.label :active %>
+                    <%= f.check_box :active %>
+                  </li>
+                <%end%>
+              </ul>
+            </div>
+          </div>
+          <div class="form-actions">
+            <%= f.submit :class=>"btn btn-blue"%>
+            <%= render "layouts/action_links" %>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="newspaper">
-    <div class="field">
-      <%= f.label :first_name %><br>
-      <%= f.text_field :first_name %><span class="required">*</span>
-    </div>
-    <div class="field">
-      <%= f.label :last_name %><br>
-      <%= f.text_field :last_name %><span class="required">*</span>
-    </div>
-    <div class="field">
-      <%= f.label :email %><br>
-      <%= f.text_field :email %><span class="required">*</span>
-    </div>
-    <div class="field">
-      <%= f.label :phone1 %><br>
-      <%= f.text_field :phone1 %><span class="required">*</span>
-    </div>
-    <div class="field">
-      <%= f.label :phone2 %><br>
-      <%= f.text_field :phone2 %>
-    </div>
-    <div class="field">
-      <%= f.label :fax %><br>
-      <%= f.text_field :fax %>
-    </div>
-    <div class="field">
-      <%= f.label :country %><br>
-      <%= f.country_select(:country, [ "Mexico", "United States", "Peru" ])%><span class="required">*</span>
-    </div>
-    <div class="field">
-      <%= f.label :state %><br>
-      <%= f.select :state, mx_states%><span class="required">*</span>
-    </div>
-    <div class="field">
-      <%= f.label :city %><br>
-      <%= f.text_field :city %><span class="required">*</span>
-    </div>
-    <div class="field">
-      <%= f.label :address1 %><br>
-      <%= f.text_field :address1 %><span class="required">*</span>
-    </div>
-    <div class="field">
-      <%= f.label :address2 %><br>
-      <%= f.text_field :address2 %><span class="required">*</span>
-    </div>
-    <div class="field">
-      <%= f.label :zip %><br>
-      <%= f.number_field :zip %><span class="required">*</span>
-    </div>
-    <%if signed_in? and (current_user.role.super_admin or current_user.role.company_admin or current_user.role.branch_admin)%>
-      <div class="field">
-        <%= f.label :company_id %><br>
-        <%= f.collection_select(:company_id, Company.where(:id => current_user.company_id), :id, :name) %>
       </div>
-      <div class="field">
-        <%= f.label :branch_id %><br>
-        <%= f.collection_select(:branch_id, Branch.where(:company_id => current_user.company_id), :id, :name, {:prompt => true}) %>
-      </div>
-      <div class="field">
-        <%= f.label :role_id %><br>
-        <%= f.collection_select(:role_id, Role.where("super_admin = false and company_admin = false and super_manager = false and manager = false"), :id, :name, {:prompt => true}) %>
-      </div>
-      <div class="field">
-        <%= f.label :active %><br>
-        <%= f.check_box :active %>
-      </div>
-    <%end%>
+    </div>
 
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-<%= render "layouts/action_links" %>
+</div>

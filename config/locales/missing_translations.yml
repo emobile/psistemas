@@ -1,22 +1,15 @@
 ---
 es:
-  branches:
+  close: Close
+  hello: Hello
+  layouts:
+    applicaion:
+      actions: Actions
+    sidebar:
+      administration: Administration
+  users:
     show:
-      fulladdress: Fulladdress
-  companies:
-    show:
-      fulladdress: Fulladdress
-  devise:
-    failure:
-      invalid:
-        messages:
-          account_inactive: Account Inactive
-        account_inactive: Account Inactive
-  failure:
-    invalid:
-      account_inactive: Account Inactive
-  error_reports:
-    index:
-      user: User
-      branch: Branch
-      company: Company
+      contact_info: Contact Info
+      user_type: User Type
+      change_picture: Change Picture
+  homea: Homea

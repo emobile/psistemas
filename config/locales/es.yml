@@ -1,4 +1,5 @@
 es:
+  required: "Obligatorio"  
   "true": "Si"
   "false": "No"
   home: "Inicio"
@@ -13,8 +14,8 @@ es:
   welcome: "Bienvenido"
   edit_my_account: "Editar mi cuenta"
   are_you_sure?: "¿Esta seguro que desea eliminar este(a) %{model}?"
-  main_title: "Aplicacíon Base"
-  something_went_wrong: "Something went wrong: "   
+  main_title: "Servi Ruta"
+  something_went_wrong: "Ha ocurrido un error inesperado: "   
   leave_password_blank: "(Deje el password en blanco si no desea cambiarlo)"
   actor:
     name: "Nombre"
@@ -173,13 +174,20 @@ es:
       header:
         one: ! "%{model} no pudo guardarse debido a 1 error"
         other: ! "%{model} no pudo guardarse debido a %{count} errores"
-  helpers:
+    helpers:
+      actions:
+        edit_male: "Editando %{model}" 
+        new_male: "Nuevo %{model}"
+        edit_female: "Editando %{model}" 
+        new_female: "Nueva %{model}"
+      submit:
+        create: "Crear %{model}"
+        update: "Actualizar %{model}"
+        submit: "Guardar"
+        actions: "Acciones"
     select:
       prompt: Por favor selecciona
-    submit:
-      create: Crear %{model}
-      submit: Guardar %{model}
-      update: Actualizar %{model}
+
   number:
     currency:
       format:
@@ -240,6 +248,10 @@ es:
       short: ! "%d de %b a las %H:%M hrs"
     pm: pm
   actions:
+    male:
+      created: "La %{model} fue creado correctamente."
+      updated: "La %{model} fue actualizado correctamente."
+      destroyed: "La %{model} fue eliminado correctamente." 
     show: "Mostrar %{model}"
     edit: "Editar %{model}"
     destroy: "Eliminar %{model}"
@@ -280,7 +292,6 @@ es:
         created_at: "Registrado el"
         updated_at: "Actualizado el"
         last_sign_in_at: "Acceso por última vez el día"
-        login: "Iniciar sesión"
         company_id: "Compañía"
         branch_id: "Sucursal"
     registrations:
@@ -316,6 +327,7 @@ es:
       forgot_pwd: "¿Olvidó su contraseña?"
       conf_inst: "¿No recibió las instrucciones de confirmación?"
       unlock_inst: "¿No recibió las instrucciones de desbloqueo?"
+      access_links: "¿Necesita ayuda para ingresar a su cuenta?"
     mailer:
       confirm:
         conf_legend: "Usted puede confirmar su cuenta de correo electrónico a través del siguiente enlace:"
@@ -360,6 +372,9 @@ es:
       multi_page: "Mostrando %{from} - %{to} de %{count} en total"
       multi_page_html: "Mostrando <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b> %{count}</b> en total"  
   
+  layouts:
+    application:
+      actions: "Acciones"
   roles:
     show:
       id: "Id: "      

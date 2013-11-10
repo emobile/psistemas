@@ -1,16 +1,34 @@
-<h2><%= t(:login) %></h2>
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :login %><br />
-    <%= f.text_field :login, :placeholder => t('devise.unlocks.email'), :autofocus => true %></div>
-<br />
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, :placeholder => t('devise.passwords.password') %></div>
-<br />
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-  <br />
-  <div><%= f.submit t(:login) %></div>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :class => "separate-sections") do |f| %>
+  <div class="login box" style="margin-top: 80px;">
+    <div class="box-header">
+      <span class="title"><%=t(:login)%></span>
+    </div>
+
+    <div class="box-content padded">
+      <div class="input-group addon-left">
+        <span class="input-group-addon" href="#">
+          <i class="icon-user"></i>
+        </span>
+        <%= f.text_field :login, :placeholder => t('devise.sessions.new.login'), :autofocus => true %>
+      </div>
+      <br />
+      <div class="input-group addon-left">
+        <span class="input-group-addon" href="#">
+          <i class="icon-key"></i>
+        </span>
+        <%= f.password_field :password, :placeholder => t('devise.passwords.password') %>      </div>
+      <br />
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
+      <br>
+      <%= button_tag(:type => 'submit', :class => 'btn btn-blue btn-block') do %>
+        <%= t(:login) %> <i class="icon-signin"></i>
+      <% end %>
+      <br>
+      <div>
+        <a data-toggle="modal" href="#modal-simple"><%=t('devise.links.access_links')%></a>
+      </div>
+    </div>
+  </div>
 <% end %>
-<br />
-<%= render "devise/shared/links" %>

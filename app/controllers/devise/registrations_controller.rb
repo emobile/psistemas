@@ -1,8 +1,8 @@
 require 'securerandom'
 class Devise::RegistrationsController < DeviseController
-  prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
-  prepend_before_filter :authenticate_scope!, :only => [:edit, :update, :destroy]
-  #prepend_before_filter :authenticate_scope!, :only => [ :new, :create, :edit, :update, :destroy]
+  #prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
+  #prepend_before_filter :authenticate_scope!, :only => [:edit, :update, :destroy]
+  prepend_before_filter :authenticate_scope!, :only => [ :new, :create, :edit, :update, :destroy]
   # GET /resource/sign_up
   
   def new

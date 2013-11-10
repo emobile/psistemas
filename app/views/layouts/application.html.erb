@@ -1,60 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800">
+
     <title><%= t(:main_title) + " : " + eval("t('activerecord.models.#{controller_name.underscore.pluralize}')") %></title>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-  <body id="body">
-    <div id="container">
-      <h1><%=link_to t(:main_title), root_path, title: t(:main_title)%></h1>
 
-      <div style="float: right;">
-        <%= link_to root_path, title: t(:home) do %>
-          <%=image_tag("/assets/icons/blue/24x24/home.png") %>
-        <%end%>
-        <%if signed_in?%>
-          <%if can? :new, Comment %>
-            <%= link_to new_comment_path, title:  t("actions.new",  model: t("activerecord.models.comment"))  do %>
-              <%=image_tag("/assets/icons/blue/24x24/comment.png") %>
-            <%end%>
-          <%end%>
-          <%= link_to destroy_session_path, title: t(:logout) + " " + current_user.username do %>
-            <%=image_tag("/assets/icons/blue/24x24/user_down.png") %>
-          <%end%>
-        <%else%>
-          <%= link_to new_user_session_path, title: t(:login) do %>
-            <%=image_tag("/assets/icons/blue/24x24/user_up.png") %>
-          <%end%>
-          <%= link_to new_user_registration_path, title: t(:sign_up) do %>
-            <%=image_tag("/assets/icons/blue/24x24/user_add.png") %>
-          <%end%>
-        <%end%>
-      </div>
-      <div style="display: block; width: 100%;">
-        <%if signed_in?%>
-          <%= render "layouts/sidebar" %>
-        <%end%>
-      </div>
-      <% if flash[:notice] %>
-        <div class="alert alert-info">
-          <%= flash[:notice] %>
-        </div>
-      <% end %>
-      <% if flash[:error] %>
-        <div class="alert alert-error">
-          <%= flash[:error] %>
-        </div>
-      <% end %>
-      <% if flash[:alert] %>
-        <div class="alert alert-alert">
-          <%= flash[:alert] %>
-        </div>
-      <% end %>   
-      <%= yield %>
+
+
+  <body>
+    <nav class="navbar navbar-default navbar-inverse navbar-static-top" role="navigation">
+      <%=render "/layouts/navbar"%>
+    </nav>
+
+    <div class="primary-sidebar">
+      <%=render "/layouts/sidebar"%>
     </div>
-<%#= debug(params) if Rails.env.development? or Rails.env.local?%>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="row">
+
+          <div class="area-top clearfix">
+            <div class="pull-left header">
+              <h3 class="title">
+                <i class="icon-<%= @icon %>"></i>
+                <%= eval("t('activerecord.models.#{controller_name.underscore.pluralize}')") %>
+              </h3>
+              <h5>
+                <span>
+                  A subtitle can go here
+                </span>
+              </h5>
+            </div>
+
+            <ul class="list-inline pull-right sparkline-box">
+
+              <li class="sparkline-row">
+                <h4 class="blue"><span>Orders</span> 847</h4>
+                <div class="sparkline big" data-color="blue"><!--17,4,9,13,18,14,5,26,23,14,9,23--></div>
+              </li>
+
+              <li class="sparkline-row">
+                <h4 class="green"><span>Reviews</span> 223</h4>
+                <div class="sparkline big" data-color="green"><!--27,21,17,15,27,12,9,23,28,9,13,8--></div>
+              </li>
+
+              <li class="sparkline-row">
+                <h4 class="red"><span>New visits</span> 7930</h4>
+                <div class="sparkline big"><!--26,6,22,23,6,19,13,29,7,19,27,12--></div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="container padded">
+        <% if flash[:notice] %>
+          <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= flash[:notice]%>
+          </div>
+        <% end %>
+        <% if flash[:error] %>
+          <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <%= flash[:error] %>
+          </div>
+        <% end %>
+        <% if flash[:alert] %>
+          <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
+        <% if flash[:warning] %>
+          <div class="alert alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <%= flash[:warning] %>
+          </div>
+        <% end %>
+
+
+        <div id="shortcuts">
+          <%=render "/layouts/shortcuts"%>
+        </div>
+
+        <div class="row">
+
+          <!-- Breadcrumb line -->
+
+          <div id="breadcrumbs">
+            <div class="breadcrumb-button blue">
+              <%=link_to root_path, :title => t(:home) do%>
+                <span class="breadcrumb-label"><i class="icon-home"></i> <%=t(:home)%></span>
+              <%end%>
+              <span class="breadcrumb-arrow"><span></span></span>
+            </div>
+            <div class="breadcrumb-button">
+              <%=link_to eval("#{controller_name}_path"), :title => t("activerecord.models.#{controller_name}") do%>
+                <span class="breadcrumb-label"><i class="icon-<%= @icon %>"></i> <%= t("activerecord.models.#{controller_name}") %></span>
+              <%end%>
+              <span class="breadcrumb-arrow"><span></span></span>
+            </div>
+
+
+          </div><br /><br />
+
+            <%= yield %>
+     
+        </div>
+        
+      </div>
+    </div>
   </body>
 </html>

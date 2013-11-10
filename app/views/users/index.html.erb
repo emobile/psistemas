@@ -1,53 +1,65 @@
-<h1><%= t('activerecord.models.users') %></h1>
-
-<table>
-  <thead>
-    <tr>
-      <th><%= t('.id') %></th>
-      <th><%= t('.fullname') %></th>
-      <th><%= t('.email') %></th>
-      <th><%= t('.phone1') %></th>
-      <th><%= t('.city') %></th>
-      <th><%= t('.state') %></th>
-      <th><%= t('.company_id') %></th>
-      <th><%= t('.branch_id') %></th>
-      <th><%= t('.role_id') %></th>
-      <th><%= t('.active') %></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <% @model = user %>
-      <tr>
-        <%if can? :show, User %>
-          <td><%=link_to user.id, user, :class => 'button'%></td>
-        <%else%>
-          <td><%= label user.id, user.id, :class => 'button'%></td>
-        <%end%>
-        <td><%= user.fullname %></td>
-        <td><%= user.email %></td>
-        <td><%= number_to_phone(user.phone1, area_code: true) %></td>
-        <td><%= user.city %></td>
-        <td><%= user.state %></td>
-        <td><%= user.company.name %></td>
-        <td><%= user.branch.name %></td>
-        <td><%= user.role.name %></td>
-        <td><%= t(user.active.to_s) %></td>
-        <%= render "layouts/index_links" %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<div class="page_info">
-  <%= page_entries_info @users %>
-  <%= will_paginate @users, :renderer => BootstrapPagination::Rails %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header"><span class="title"><%= t("activerecord.models.#{controller_name}") %></span>
+        <ul class="box-toolbar">
+          <li><span class="label label-blue"><%= @users.count %></span></li>
+        </ul>
+      </div>
+      <div class="box-content">
+        <!-- find me in partials/data_tables_custom -->
+        <div id="dataTables">
+          <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
+            <thead>
+              <tr>
+                <th><div><%= t('.id') %></div></th>
+            <th><div><%= t('.fullname') %></div></th>
+            <th><div><%= t('.email') %></div></th>
+            <th><div><%= t('.phone1') %></div></th>
+            <th><div><%= t('.branch_id') %></div></th>
+            <th><div><%= t('.role_id') %></div></th>
+            <th><div><%= t('.active') %></div></th>
+            <th><div><%= t('layouts.applicaion.actions') %></div></th>
+            </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+                <% @model = user %>
+                <tr>
+                  <%if can? :show, User %>                  
+                    <td><button class="btn btn-mini btn-blue"><%=link_to user.id, user, :class => 'button'%></button></td>
+                  <%else%>
+                    <td><button class="btn btn-mini btn-blue"><%= label user.id, user.id, :class => 'button'%></button></td>
+                  <%end%>
+                  <td><%= user.fullname %></td>
+                  <td><%= user.email %></td>
+                  <td><%= number_to_phone(user.phone1, area_code: true) %></td>
+                  <td><%= user.branch.name %></td>
+                  <td><%= user.role.name %></td>
+                  <td><%= t(user.active.to_s) %></td>
+                  <td><%= render "layouts/index_links" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<%= render "layouts/action_links" %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-content padded">
+        <div class="page_info">
+          <%= page_entries_info @users %>
+          <%= will_paginate @users, :renderer => BootstrapPagination::Rails %>
+        </div>
+        <%= render "layouts/action_links" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

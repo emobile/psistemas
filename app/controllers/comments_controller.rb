@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_filter :set_icon
   load_and_authorize_resource except: [:create]
   # GET /comments
   # GET /comments.json
@@ -61,7 +62,11 @@ class CommentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def set_icon
+    @icon = "comments"
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment

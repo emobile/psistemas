@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_filter :set_icon
   load_and_authorize_resource except: [:create]
   
   # GET /companies
@@ -45,15 +46,19 @@ class CompaniesController < ApplicationController
     @company.destroy
     redirect_to companies_url, notice:  t("actions.destroyed.female",  model: t("activerecord.models.#{controller_name.singularize}").downcase)
   end
+  
+  def set_icon
+    @icon = "sitemap"
+  end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_company
-      @company = Company.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_company
+    @company = Company.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def company_params
-      params.require(:company).permit(:name, :email1, :email2, :webpage, :phone1, :phone2, :fax, :address1, :address2, :city, :state, :zip, :country, :description)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def company_params
+    params.require(:company).permit(:name, :email1, :email2, :webpage, :phone1, :phone2, :fax, :address1, :address2, :city, :state, :zip, :country, :description)
+  end
 end
