@@ -3,7 +3,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   include ApplicationHelper  
   protect_from_forgery with: :exception
-  before_filter :get_user_status, :set_action_icon, :get_data_counters
+  before_filter :get_user_status, :set_action_icon, :get_data_counters, :set_locale
+  
+  before_filter :get_user_status
+
+  def set_locale
+    unless params[:locale].blank?
+      session[:locale] = params[:locale]
+    end
+    I18n.locale = session[:locale] || I18n.default_locale
+  end
   
   def set_action_icon
     if action_name == "show"

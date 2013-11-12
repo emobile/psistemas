@@ -21,18 +21,18 @@
 <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="collapse navbar-collapse navbar-collapse-top">
   <div class="navbar-right">
-
     <ul class="nav navbar-nav navbar-left">
+
       <li class="cdrop active"><%=link_to "http://www.emobile-demos.com.mx/webmail", :title => t('.email') do %>
           <i class="icon-envelope"></i><span> <%=t('.email')%></span>
         <%end%>
       </li>
-      <li class="cdrop active"><%=link_to "#", :title => t(".messages") do %>
+      <li class="cdrop"><%=link_to "#", :title => t(".messages") do %>
           <i class="icon-comments"></i><span> <%=t(".messages")%></span>
         <%end%>
       </li>
       <%if can? :new, Comment%>
-        <li class="cdrop active"><%=link_to new_comment_path, :title => t(".leave_a_comment") do %>
+        <li class="cdrop"><%=link_to new_comment_path, :title => t(".leave_a_comment") do %>
             <i class="icon-comment"></i><span> <%=t(".leave_a_comment")%></span>
           <%end%>
         </li>
@@ -93,6 +93,7 @@
 
         </ul>
       </li>
+      <%=render "/layouts/languages"%>
     </ul>
   </div>
 </div><!-- /.navbar-collapse -->

@@ -391,7 +391,9 @@ es:
   layouts:
     sidebar:
       administration: "Administración"
-    navbar:
+    languages:
+      change_to_english: "Change To English"
+    navbar:      
       email: "Correo Electrónico"
       messages: "Mensajes"
       shortcuts: "Accesos Rápidos"

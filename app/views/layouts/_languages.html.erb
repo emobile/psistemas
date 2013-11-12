@@ -1,0 +1,5 @@
+<% if I18n.locale.to_s == "es"%>
+  <li><%= link_to image_tag("/assets/english.jpg", :width => "40px", :style => "margin-top: -5px;"), :locale=>'en', :title => t(".change_to_english")%> </li>
+<% else %>
+  <li><%= link_to image_tag("/assets/spanish.png", :width => "40px", :style => "margin-top: -5px;"), :locale=>'es', :title => t(".change_to_spanish")%> </li>
+<%end%>
