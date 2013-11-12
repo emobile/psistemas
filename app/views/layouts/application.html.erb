@@ -39,7 +39,7 @@
               </h3>
               <h5>
                 <span>
-                  A subtitle can go here
+                  <%=current_user.fullname%>
                 </span>
               </h5>
             </div>
@@ -113,14 +113,20 @@
               <%end%>
               <span class="breadcrumb-arrow"><span></span></span>
             </div>
-
-
+            <%unless controller.action_name == "index" or controller.action_name == "destroy"%>
+              <div class="breadcrumb-button">
+                <%=link_to "#", :title => t("actions.#{controller.action_name}",  model: controller.action_name, model: t("activerecord.models.#{controller_name.singularize}"))  do%>
+                  <span class="breadcrumb-label"><i class="icon-<%= @action_icon %>"></i> <%= t("actions.#{controller.action_name}",  model: controller.action_name, model: t("activerecord.models.#{controller_name.singularize}")) %></span>
+                <%end%>
+                <span class="breadcrumb-arrow"><span></span></span>
+              </div>
+            <%end%>
           </div><br /><br />
 
-            <%= yield %>
-     
+          <%= yield %>
+
         </div>
-        
+
       </div>
     </div>
   </body>

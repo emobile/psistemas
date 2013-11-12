@@ -1,5 +1,43 @@
 <ul class="action-nav-normal rounded">
 
+  <% if can? :new, Company %>
+    <li class="action-nav-button">
+      <%= link_to new_company_path, :class=>"tip", :title=>t(".create_company") do%>
+        <i class="icon-globe"></i>
+      <%end%>
+      <span class="label label-black"><%= @companies_count %></span>
+    </li>
+  <%end%>
+
+  <% if can? :new, Branch %>
+    <li class="action-nav-button">
+      <%= link_to new_branch_path, :class=>"tip", :title=>t(".create_branch") do%>
+        <i class="icon-sitemap"></i>
+      <%end%>
+      <span class="label label-black"><%= @branches_count %></span>
+    </li>
+  <%end%>
+
+  <% if can? :new, Role %>
+    <li class="action-nav-button">
+      <%= link_to new_role_path, :class=>"tip", :title=>t(".create_rol") do%>
+        <i class="icon-key"></i>
+      <%end%>
+      <span class="label label-black"><%= @roles_count %></span>
+    </li>
+  <%end%>
+
+
+  <% if can? :new, User %>
+    <li class="action-nav-button">
+      <%= link_to new_user_path, :class=>"tip", :title=>t(".create_user") do%>
+        <i class="icon-user"></i>
+      <%end%>
+      <span class="label label-black"><%= @users_count %></span>
+    </li>
+  <%end%>
+
+
   <li class="action-nav-button">
     <a href="#" class="tip" title="New Project">
       <i class="icon-file-alt"></i>
@@ -41,23 +79,4 @@
     </a>
     <span class="label label-black">14</span>
   </li>
-  <li class="action-nav-button">
-    <a href="#" class="tip" title="Followers">
-      <i class="icon-twitter"></i>
-    </a>
-    <span class="label label-black">14</span>
-  </li>
-  <li class="action-nav-button">
-    <a href="#" class="tip" title="Followers">
-      <i class="icon-twitter"></i>
-    </a>
-    <span class="label label-black">14</span>
-  </li>
-  <li class="action-nav-button">
-    <a href="#" class="tip" title="Followers">
-      <i class="icon-twitter"></i>
-    </a>
-    <span class="label label-black">14</span>
-  </li>
-
 </ul>

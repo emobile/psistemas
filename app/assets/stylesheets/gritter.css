@@ -26,7 +26,7 @@
 .gritter-item-wrapper {
   position: relative;
   margin: 0 0 10px 0;
-  background: url("../images/ie-spacer.gif");
+  background: url("/assets/ie-spacer.gif");
   /* ie7/8 fix */ }
   /* line 36, /home/andrei/core-admin-release/core-admin/source/stylesheets/gritter.scss */
   .gritter-item-wrapper.warn .gritter-title {

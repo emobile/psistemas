@@ -3,7 +3,7 @@
     <div class="box">
       <div class="box-header"><span class="title"><%= t("activerecord.models.#{controller_name}") %></span>
         <ul class="box-toolbar">
-          <li><span class="label label-blue"><%= @error_reports.count.to_i %></span></li>
+          <li><span class="label label-blue"><%= @error_reports.count%></span></li>
         </ul>
       </div>
       <div class="box-content">
@@ -19,18 +19,18 @@
             <th><div><%= t('.line_number') %></div></th>
             <th><div><%= t('.referrer_url') %></div></th>
             <th><div><%= t('.original_path') %></div></th>
-            <th><div><%= t('layouts.applicaion.actions') %></div></th>
+            <th><div><%= t('layouts.application.actions') %></div></th>
             </tr>
             </thead>
             <tbody>
               <% @error_reports.each do |error_report| %>
                 <% @model = error_report %> 
                 <tr>
-                  <%if can? :show, User %>                  
+                  <%if can? :show, ErrorReport %>                  
                     <td><button class="btn btn-mini btn-blue"><%=link_to error_report.id, error_report, :class => 'button'%></button></td>
                   <%else%>
                     <td><button class="btn btn-mini btn-blue"><%= label error_report.id, error_report.id, :class => 'button'%></button></td>
-                  <%end%>
+                    <%end%>
                   <td><%= error_report.user.fullname %></td>
 
                   <td><%= error_report.controller_name %></td>
@@ -53,18 +53,4 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <div class="box">
-      <div class="box-content padded">
-        <div class="page_info">
-          <%#= page_entries_info @error_reports %>
-          <%#= will_paginate @error_reports, :renderer => BootstrapPagination::Rails %>
-        </div>
-        <%= render "layouts/action_links" %>
-      </div>
-    </div>
-  </div>
-</div>
-
-
+<%= render "layouts/action_links" %>

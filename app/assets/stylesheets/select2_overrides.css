@@ -130,7 +130,7 @@
 
 /* line 85, /home/andrei/core-admin-release/core-admin/source/stylesheets/select2_overrides.scss */
 .select2-search input.select2-active {
-  background: white url("../images/loading.gif") no-repeat 100%; }
+  background: white url("/assets/loading.gif") no-repeat 100%; }
 
 /* line 90, /home/andrei/core-admin-release/core-admin/source/stylesheets/select2_overrides.scss */
 .select2-container-active .select2-choice, .select2-container-active .select2-choices {

@@ -1,3 +1,5 @@
+//= require jquery-1.9.1
+//= require jquery_ujs
 //= require vendor/jquery191
 //= require vendor/jqueryui1102
 //= require vendor/bootstrap/bootstrap
@@ -31,3 +33,4 @@
 //= require charts/xcharts_bar
 //= require charts/sparkline_samples
 //= require generic
+//= require custom

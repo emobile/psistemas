@@ -1,81 +1,88 @@
-<p>
-  <strong><%= t('.name') %></strong>
-  <%= @role.name %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header">
+        <ul class="nav nav-tabs nav-tabs-left">
+          <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+          <li><a href="#permissions" data-toggle="tab"><i class="icon-ok"></i> <span><%=t('.has_permissions_as')%></span></a></li>
+          <li><a href="#description" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('.description')%></span></a></li>
+        </ul>
+        <div class="title"><%= @role.name %></div>
+      </div>
 
-<p>
-  <strong><%= t('.protected') %></strong>
-  <%= t(@role.protected.to_s) %>
-</p>
+      <div class="box-content">
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            <ul class="box-list">
+              <li>
+                <span><strong><%= t('.name') %></strong><%= @role.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.created_at') %></strong><%=  I18n.l @role.created_at, :format => :long if @role.created_at%></span>
+              </li>
+              <li>
+                <span><strong><%= t('.updated_at') %></strong><%= I18n.l @role.updated_at, :format => :long if  @role.updated_at%></span>
+              </li>
+            </ul>
+          </div>
 
-<p>
-  <strong><%= t('.super_admin') %></strong>
-  <%= t(@role.super_admin.to_s) %>
-</p>
+          <div class="tab-pane" id="permissions">
 
-<p>
-  <strong><%= t('.company_admin') %></strong>
-  <%= t(@role.company_admin.to_s) %>
-</p>
+            <ul class="box-list">
+              <li>
+                <span><strong><%= t('.super_admin') %></strong><%= t(@role.super_admin.to_s) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.company_admin') %></strong><%= t(@role.company_admin.to_s) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.branch_admin') %></strong><%= t(@role.branch_admin.to_s) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.super_manager') %></strong><%= t(@role.super_manager.to_s) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.manager') %></strong><%= t(@role.manager.to_s) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.routes_admin') %></strong><%= t(@role.routes_admin.to_s) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.seller') %></strong><%= t(@role.seller.to_s) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.secretary') %></strong><%= t(@role.secretary.to_s) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.driver') %></strong><%= t(@role.driver.to_s) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.client') %></strong><%= t(@role.client.to_s) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.guess') %></strong><%= t(@role.guess.to_s) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.other') %></strong><%= t(@role.other.to_s) %></span>
+              </li>
+            </ul>
+          </div>
 
-<p>
-  <strong><%= t('.branch_admin') %></strong>
-  <%= t(@role.branch_admin.to_s) %>
-</p>
+          <div class="tab-pane active" id="description">
+            <ul class="box-list">
+              <li>
+                <span><%= @role.description %></span>
+              </li>
+            </ul>
+          </div>
 
-<p>
-  <strong><%= t('.super_manager') %></strong>
-  <%= t(@role.super_manager.to_s) %>
-</p>
-
-<p>
-  <strong><%= t('.manager') %></strong>
-  <%= t(@role.manager.to_s) %>
-</p>
-
-<p>
-  <strong><%= t('.routes_admin') %></strong>
-  <%= t(@role.routes_admin.to_s) %>
-</p>
-
-<p>
-  <strong><%= t('.seller') %></strong>
-  <%= t(@role.seller.to_s) %>
-</p>
-
-<p>
-  <strong><%= t('.secretary') %></strong>
-  <%= t(@role.secretary.to_s) %>
-</p>
-
-<p>
-  <strong><%= t('.driver') %></strong>
-  <%= t(@role.driver.to_s) %>
-</p>
-
-<p>
-  <strong><%= t('.client') %></strong>
-  <%= t(@role.client.to_s) %>
-</p>
-
-<p>
-  <strong><%= t('.guess') %></strong>
-  <%= t(@role.guess.to_s) %>
-</p>
-
-<p>
-  <strong><%= t('.description') %></strong>
-  <%= @role.description %>
-</p>
-
-<p>
-  <strong><%= t('.created_at') %></strong>
-  <%=  I18n.l @role.created_at, :format => :long %>
-</p>
-
-<p>
-  <strong><%= t('.updated_at') %></strong>
-  <%= I18n.l @role.updated_at, :format => :long %>
-</p>
-
-<%= render "layouts/action_links" %>
+        </div>
+      </div>
+      <div class="box-footer padded">
+        <span class="pull-right">
+          <%= render "layouts/action_links" %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

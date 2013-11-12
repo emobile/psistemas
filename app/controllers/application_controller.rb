@@ -1,8 +1,30 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  include ApplicationHelper  
   protect_from_forgery with: :exception
-  before_filter :get_user_status
+  before_filter :get_user_status, :set_action_icon, :get_data_counters
+  
+  def set_action_icon
+    if action_name == "show"
+      @action_icon = "eye-open"
+    elsif action_name == "new" or action_name == "crete"
+      @action_icon = "plus"
+    elsif action_name == "edit" or action_name == "update"
+      @action_icon = "pencil"
+    else
+      @action_icon = "cog"
+    end
+  end
+  
+  def get_data_counters
+    if signed_in?
+      companies
+      branches
+      roles
+      users
+    end
+  end
   
   def get_user_status
     if signed_in?

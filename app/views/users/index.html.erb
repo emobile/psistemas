@@ -19,7 +19,7 @@
             <th><div><%= t('.branch_id') %></div></th>
             <th><div><%= t('.role_id') %></div></th>
             <th><div><%= t('.active') %></div></th>
-            <th><div><%= t('layouts.applicaion.actions') %></div></th>
+            <th><div><%= t('layouts.application.actions') %></div></th>
             </tr>
             </thead>
             <tbody>
@@ -27,9 +27,9 @@
                 <% @model = user %>
                 <tr>
                   <%if can? :show, User %>                  
-                    <td><button class="btn btn-mini btn-blue"><%=link_to user.id, user, :class => 'button'%></button></td>
+                    <td><%=link_to user.id, user, :class => 'btn btn-mini btn-blue'%></td>
                   <%else%>
-                    <td><button class="btn btn-mini btn-blue"><%= label user.id, user.id, :class => 'button'%></button></td>
+                    <td><%= label user.id, user.id, :class => 'btn btn-mini btn-blue'%></td>
                   <%end%>
                   <td><%= user.fullname %></td>
                   <td><%= user.email %></td>
@@ -47,19 +47,6 @@
     </div>
   </div>
 </div>
-
-<div class="row">
-  <div class="col-md-12">
-    <div class="box">
-      <div class="box-content padded">
-        <div class="page_info">
-          <%= page_entries_info @users %>
-          <%= will_paginate @users, :renderer => BootstrapPagination::Rails %>
-        </div>
-        <%= render "layouts/action_links" %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render "layouts/action_links" %>
 
 

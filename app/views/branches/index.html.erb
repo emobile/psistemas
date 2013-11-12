@@ -1,51 +1,62 @@
-<h1>Listing branches</h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header"><span class="title"><%= t("activerecord.models.#{controller_name}") %></span>
+        <ul class="box-toolbar">
+          <li><span class="label label-blue"><%= @branches_count %></span></li>
+        </ul>
+      </div>
+      <div class="box-content">
+        <!-- find me in partials/data_tables_custom -->
+        <div id="dataTables">
+          <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
+            <thead>
+              <tr>
+                <th><div><%= t('.id') %></div></th>
+            <th><div><%= t('.name') %></div></th>
+            <th><div><%= t('.contact_name') %></div></th>          
+            <th><div><%= t('.email1') %></div></th>
+            <th><div><%= t('.webpage') %></div></th>
+            <th><div><%= t('.phone1') %></div></th>
+            <th><div><%= t('.city') %></div></th>
+            <th><div><%= t('.state') %></div></th>
+            <th><div><%= t('.main_branch') %></div></th>
+            <th><div><%= t('layouts.application.actions') %></div></th>
+            </tr>
+            </thead>
+            <tbody>
+              <% @branches.each do |branch| %>
+                <% @model = branch %>
+                <tr>
+                  <%if can? :show, Role %>                  
+                    <td><%=link_to branch.id, branch, :class => 'btn btn-mini btn-blue'%></td>
+                  <%else%>
+                    <td><%= label branch.id, branch.id, :class => 'btn btn-mini btn-blue'%></td>
+                  <%end%>
+                  <td><%= branch.name %></td>        
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t'.id' %></th>
-      <th><%= t'.name' %></th>
-      <th><%= t'.email1' %></th>
-      <th><%= t'.webpage' %></th>
-      <th><%= t'.phone1' %></th>
-      <th><%= t'.city' %></th>
-      <th><%= t'.state' %></th>
-      <th><%= t'.company_id' %></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+                  <td><%= branch.contact_name %></td>
 
-  <tbody>
-    <% @branches.each do |branch| %>           
-      <% @model = branch %>
-      <tr>
-        <%if can? :show, Branch %>
-          <td><%=link_to branch.id, branch, :class => 'button'%></td>
-        <%else%>
-          <td><%= label branch.id, branch.id, :class => 'button'%></td>
-        <%end%>
+                  <td><%= branch.email1 %></td>                
 
-        <td><%= branch.name %></td>        
+                  <td><%= branch.webpage %></td>
 
-        <td><%= branch.email1 %></td>                
+                  <td><%= number_to_phone(branch.phone1, area_code: true)  %></td>
 
-        <td><%= branch.webpage %></td>
+                  <td><%= branch.city %></td>
 
-        <td><%= number_to_phone(branch.phone1, area_code: true)  %></td>
+                  <td><%= branch.state %></td>
 
-        <td><%= branch.city %></td>
+                  <td><%= t(branch.main_branch.to_s) %></td>
 
-        <td><%= branch.state %></td>
-
-        <td><%= branch.company.name %></td>        
-
-        <%= render "layouts/index_links" %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<%= render "layouts/action_links" %>
+                  <td><%= render "layouts/index_links" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<td><%= render "layouts/action_links" %></td>

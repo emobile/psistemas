@@ -1,4 +1,6 @@
 es:
+  close: "Cerrar"
+  hello: "Hola"  
   required: "Obligatorio"  
   "true": "Si"
   "false": "No"
@@ -142,6 +144,7 @@ es:
   errors: &errors
     format: ! "%{attribute} %{message}"
     messages:
+      company_has_already_a_main_branch: "La compañía ya cuenta con una sucursal matriz"      
       accepted: debe ser aceptado
       blank: no puede estar en blanco
       confirmation: no coincide con la confirmación
@@ -174,19 +177,26 @@ es:
       header:
         one: ! "%{model} no pudo guardarse debido a 1 error"
         other: ! "%{model} no pudo guardarse debido a %{count} errores"
-    helpers:
-      actions:
-        edit_male: "Editando %{model}" 
-        new_male: "Nuevo %{model}"
-        edit_female: "Editando %{model}" 
-        new_female: "Nueva %{model}"
-      submit:
-        create: "Crear %{model}"
-        update: "Actualizar %{model}"
-        submit: "Guardar"
-        actions: "Acciones"
+  helpers:
+    submit:
+      create: "Crear %{model}"
+      update: "Actualizar %{model}"
+      submit: "Guardar"
+      actions: "Acciones"
+    button:
+      create: "Crear %{model}"
+      update: "Actualizar %{model}"
+      submit: "Guardar"  
     select:
-      prompt: Por favor selecciona
+      prompt: Por favor selecciona      
+    actions:
+      edit_male: "Editando %{model}" 
+      new_male: "Nuevo %{model}"
+      edit_female: "Editando %{model}" 
+      new_female: "Nueva %{model}"
+      new: "%{action} %{model}"
+      edit: "%{action} %{model}"
+      destroy: "%{action} %{model}"
 
   number:
     currency:
@@ -248,6 +258,8 @@ es:
       short: ! "%d de %b a las %H:%M hrs"
     pm: pm
   actions:
+    create: "Crear %{model}"
+    update: "Actualizar"    
     male:
       created: "La %{model} fue creado correctamente."
       updated: "La %{model} fue actualizado correctamente."
@@ -256,6 +268,10 @@ es:
     edit: "Editar %{model}"
     destroy: "Eliminar %{model}"
     new:  "Crear %{model}"
+    form_new: "Crear %{model}"
+    form_create: "Crear %{model}"
+    form_edit: "Actualizar %{model}"
+    form_update:  "Actualizar %{model}"    
     created: 
       male: "El %{model} fue exitosamente creado."
       female: "La %{model} fue exitosamente creada."
@@ -373,11 +389,31 @@ es:
       multi_page_html: "Mostrando <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b> %{count}</b> en total"  
   
   layouts:
+    sidebar:
+      administration: "Administración"
+    navbar:
+      email: "Correo Electrónico"
+      messages: "Mensajes"
+      shortcuts: "Accesos Rápidos"
+      search: "Buscar"
+      profile: "Mi Cuenta"
+      edit_my_accout: "Editar Mi Cuenta"
+      show_my_account: "Mi Cuenta"
+      leave_a_comment: "Soporte Técnico"
     application:
+      contact_info: "Información de Contacto"      
       actions: "Acciones"
+      form_reset: "Resetear Forma"
+    shortcuts:
+      create_company: "Crear Compañía"
+      create_branch: "Crear Sucursal"
+      create_rol: "Crear Rol"
+      create_user: "Crear Usuario"
+      
   roles:
     show:
-      id: "Id: "      
+      id: "Id: "
+      has_permissions_as: "Tiene Permisos Como"      
       name: "Nombre: "
       protected: "Protegido: "
       description: "Descripción: "
@@ -391,7 +427,8 @@ es:
       secretary: "Secretaría(o): "
       driver: "Conductor: "
       client: "Cliente: "
-      guess: "Invitado: "       
+      guess: "Invitado: " 
+      other: "Otro: "  
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
     index:
@@ -409,7 +446,8 @@ es:
       secretary: "Secretaría(o)"
       driver: "Conductor"
       client: "Cliente"
-      guess: "Invitado"  
+      guess: "Invitado"
+      other: "Otro"       
       created_at: "Registrado el"
       updated_at: "Actualizado el"      
   users:
@@ -419,7 +457,10 @@ es:
     cancel: "Cancelar"   
     change_avatar: "Cambiar Imagen: "
     show:
-      id: "Id: "      
+      id: "Id: "
+      contact_info: "Información de Contacto"
+      user_type: "Tipo de  Usuario"
+      change_picture: "Cambiar Imagen"      
       fullname: "Nombre: "
       first_name: "Nombre(s): "
       last_name: "Apellidos(s): "
@@ -477,6 +518,8 @@ es:
       email: "Correo Electrónico: "
       comment: "Comentario: "
       app_name: "Aplicación: "
+      company_id: 'Compañía: '
+      branch_id: 'Sucursal: '
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
     index:
@@ -484,13 +527,17 @@ es:
       user_id: "Usuario "
       email: "Correo Electrónico "
       comment: "Comentario "
-      app_name: "Aplicación "
+      app_name: "Aplicación"
+      company_id: 'Compañía'
+      branch_id: 'Sucursal'
       created_at: "Registrado el"
       updated_at: "Actualizado el"
   companies:
     show:
       id: 'Id: '
       name: 'Nombre: '
+      change_logo: 'Cambiar Logo'
+      contact_name:  'Contacto: '
       email1: 'Correo Electrónico Principal: '
       email2: 'Correo Electrónico Alternativo: '
       webpage: 'Página Web: '
@@ -510,6 +557,8 @@ es:
     index:
       id: 'Id'
       name: 'Nombre'
+      change_logo: 'Cambiar Logo'
+      contact_name:  'Contacto'
       email1: 'Correo Electrónico Principal'
       email2: 'Correo Electrónico Alternativo'
       webpage: 'Página Web'
@@ -530,6 +579,9 @@ es:
     show:
       id: 'Id: '
       name: 'Nombre: '
+      main_branch: "Sucursal Matriz: "      
+      change_logo: 'Cambiar Logo'
+      contact_name:  'Contacto: '     
       email1: 'Correo Electrónico Principal: '
       email2: 'Correo Electrónico Alternativo: '
       webpage: 'Página Web: '
@@ -550,6 +602,9 @@ es:
     index:
       id: 'Id'
       name: 'Nombre'
+      main_branch: "Sucursal Matriz"    
+      change_logo: 'Cambiar Logo'
+      contact_name:  'Contacto'
       email1: 'Correo Electrónico Principal'
       email2: 'Correo Electrónico Alternativo'
       webpage: 'Página Web'
@@ -627,8 +682,8 @@ es:
       users: "Usuarios"
       role: "Rol"
       roles: "Roles"
-      registration: "Registro"
-      registrations: "Registros"
+      registration: "Usuario"
+      registrations: "Usuarios"
       session: "Inicio de Sesión"
       sessions: "Inicio de Sesión"
       welcome: "Bienvenido!"
@@ -651,6 +706,7 @@ es:
       
     attributes:
       user:
+        logo: "Imágen"        
         login: "Iniciar sesión"
         first_name: "Nombre(s): "
         last_name: "Apellidos(s): "
@@ -690,7 +746,8 @@ es:
         secretary: "Secretaría(o): "
         driver: "Conductor: "
         client: "Cliente: "
-        guess: "Invitado: "  
+        guess: "Invitado: "
+        other: "Otro: "          
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "        
       comment:
@@ -700,11 +757,15 @@ es:
         email: "Correo Electrónico: "
         comment: "Comentario: "
         app_name: "Aplicación: "
+        company_id: 'Compañía: '
+        branch_id: 'Sucursal: '
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
       company:
         id: 'Id: '
         name: 'Nombre: '
+        change_logo: 'Cambiar Logo: '
+        contact_name: 'Contacto: '
         email1: 'Correo Electrónico Principal: '
         email2: 'Correo Electrónico Alternativo: '
         webpage: 'Página Web: '
@@ -723,6 +784,9 @@ es:
       branch:
         id: 'Id: '
         name: 'Nombre: '
+        change_logo: 'Cambiar Logo: '
+        contact_name: 'Contacto: '
+        main_branch: "Sucursal Matriz: "
         email1: 'Correo Electrónico Principal: '
         email2: 'Correo Electrónico Alternativo: '
         webpage: 'Página Web: '

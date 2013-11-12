@@ -6,7 +6,7 @@ class ErrorReportsController < ApplicationController
   
   # GET /error_reports
   def index
-    @error_reports = ErrorReport.order("id ASC")
+    @error_reports = ErrorReport.order("id ASC")#.paginate(:page => params[:page])
   end
 
   # GET /error_reports/1

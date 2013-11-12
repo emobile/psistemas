@@ -3,28 +3,19 @@
 
     <div class="box">
       <div class="box-header">
-        <span class="title">Forms</span>
-        <ul class="box-toolbar">
-          <li>
-            <i class="icon-refresh"></i>
-          </li>
-          <li>
-            <input type="checkbox" class="iButton-icons" checked="checked" />
-          </li>
+        <span class="title"><%= t("actions.#{controller.action_name}",  model: controller.action_name, model: t("activerecord.models.#{controller_name.singularize}")) %></span>
+        <ul class="box-toolbar">          
           <li class="toolbar-link">
-            <a href="#" class="dropdown" data-toggle="dropdown"><i class="icon-cog"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="#"><i class="icon-plus-sign"></i> Add</a></li>
-              <li><a href="#"><i class="icon-remove-sign"></i> Remove</a></li>
-              <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
-            </ul>
+          <li><%=link_to  "#", :title => t("layouts.application.form_reset"), :onclick => "formReset($('#fill-up'));" do%>
+              <i class="icon-refresh"></i>
+            <%end%>
           </li>
         </ul>
       </div>
 
       <div class="box-content">
 
-        <%= form_for @user, :html => {:class => "fill-up"} do |f| %>
+        <%= form_for @user, :html => {:class => "fill-up", :id => "fill-up"} do |f| %>
           <% if @user.errors.any? %>
             <div id="error_explanation">
               <% if @user.errors.count == 1 %>
@@ -81,11 +72,6 @@
                   <%= f.label :zip %>
                   <%= f.number_field :zip, :required => true, :placeholder => t(:required) %>
                 </li>
-
-                <li class="input">
-                  <input type="file" name="img">
-                </li>
-
               </ul>
             </div>
 
@@ -107,32 +93,36 @@
                 <%if signed_in? and (current_user.role.super_admin or current_user.role.company_admin or current_user.role.branch_admin)%>
                   <li class="field">
                     <%= f.label :company_id %>
-                    <%= f.collection_select(:company_id, Company.where(:id => current_user.company_id), :id, :name, {}, { :class => 'chzn-select' }) %>
+                    <%= f.collection_select(:company_id, @companies, :id, :name, {}, { :class => 'chzn-select' }) %>
                   </li>
                   <li class="field">
                     <%= f.label :branch_id %>
-                    <%= f.collection_select(:branch_id, Branch.where(:company_id => current_user.company_id), :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+                    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>
                   <li class="field">
                     <%= f.label :role_id %>
-                    <%= f.collection_select(:role_id, Role.where("super_admin = false and company_admin = false and super_manager = false and manager = false"), :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+                    <%= f.collection_select(:role_id, @roles, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>
                   <li class="field">
+    <%#= f.label :logo %>
+    <%#= f.file_field :logo, "data-url" => avatar_path %>
+                  </li>
+                  <li class="field">
+                    <%= f.check_box :active, :class=>"icheck" %>
                     <%= f.label :active %>
-                    <%= f.check_box :active %>
                   </li>
                 <%end%>
               </ul>
             </div>
           </div>
           <div class="form-actions">
-            <%= f.submit :class=>"btn btn-blue"%>
+            <%=f.button  :class=>"btn btn-blue", :title => t("actions.form_#{action_name}",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+              <i class="icon-circle-arrow-up"></i> <%= t("actions.form_#{action_name}",  model: t("activerecord.models.#{controller_name.singularize}")) %>
+            <%end%>
             <%= render "layouts/action_links" %>
           </div>
         <% end %>
-
       </div>
     </div>
-
   </div>
 </div>

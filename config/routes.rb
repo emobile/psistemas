@@ -11,6 +11,7 @@ Serviroute::Application.routes.draw do
   devise_scope :user do
     get "devise/sessions/sign_out" => "devise/sessions#destroy", :as => :destroy_session
     match 'devise/registrations/:id/edit' => 'devise/registrations#edit', :as => :edit_user, :via => :get
+    match 'devise/registrations' => 'users#index', :as => :registrations, :via => :get    
     match 'users/:id/edit' => 'users#edit', :as => :edit_admin_user, :via => :get
   end
   

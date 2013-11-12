@@ -3,11 +3,12 @@ class UsersController < ApplicationController
   before_action :get_user_role, only: [:edit, :update]
   before_filter :authenticate_user!#, except: [:new, :create]
   before_filter :set_icon
+  before_filter :get_user_role, :except => [:index, :new, :create]  
+  #before_filter :get_data, :except => [:show, :destroy]  
   load_and_authorize_resource
   # GET /users
   # GET /users.json
   def index
-    @users = User.order("id ASC").paginate(:page => params[:page])
   end
 
   # GET /users/1
@@ -64,21 +65,32 @@ class UsersController < ApplicationController
     end
   end
 
+  def get_data
+    users
+    roles
+    branches
+    companies
+  end
+  
+  def get_user_role
+    @user = User.find(params[:id])
+    if @user.role.super_admin == true and current_user.role.super_admin == false
+      flash[:error] = t('activerecord.errors.messages.access_denied')
+      redirect_to root_path
+    elsif @user.role.company_admin == true and current_user.role.super_admin == false and current_user.role.company_admin == false
+      flash[:error] = t('activerecord.errors.messages.access_denied')
+      redirect_to root_path   
+    end
+  end
+  
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
   end
   
-  def get_user_role
-    unless current_user.role.super_admin or current_user.role.company_admin or current_user.role.branch_admin
-      flash[:error] = t('activerecord.errors.messages.access_denied')
-      redirect_to @user
-    end
-  end
-  
   def set_icon
-    @icon = "user"
+    @icon = "group"
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

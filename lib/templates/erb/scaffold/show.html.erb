@@ -1,7 +1,32 @@
-<% attributes.reject(&:password_digest?).each do |attribute| -%>
-  <p>
-    <b><%%= t'.<%= attribute.human_name.downcase.tr(" ", "_") %>' %></b> <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
-  </p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header">
+        <ul class="nav nav-tabs nav-tabs-left">
+          <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+        </ul>
+        <div class="title"><%%= MODEL %></div>
+      </div>
 
-<% end -%>
-<%%= render "layouts/action_links" %>
+      <div class="box-content">
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            <ul class="box-list">
+              <% attributes.reject(&:password_digest?).each do |attribute| -%>
+                <li>
+                  <span><strong><%%= t'.<%= attribute.human_name.downcase.tr(" ", "_") %>' %></strong> <%%= @<%= singular_table_name %>.<%= attribute.name %> %></span>
+                </li>
+              <% end -%>
+              <li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="box-footer padded">
+        <span class="pull-right">
+          <%%= render "layouts/action_links" %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

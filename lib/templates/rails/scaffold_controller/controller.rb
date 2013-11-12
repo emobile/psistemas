@@ -5,10 +5,12 @@ require_dependency "<%= namespaced_file_path %>/application_controller"
 <% module_namespacing do -%>
 class <%= controller_class_name %>Controller < ApplicationController
   before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
+  before_filter :set_icon  
+  #before_filter :get_data, :except => [:show, :destroy]
+  load_and_authorize_resource except: [:create]
   # GET <%= route_url %>
   def index
-    @<%= plural_table_name %> = <%= orm_class.all(class_name) %>
   end
 
   # GET <%= route_url %>/1
@@ -48,7 +50,11 @@ class <%= controller_class_name %>Controller < ApplicationController
     @<%= orm_instance.destroy %>
     redirect_to <%= index_helper %>_url, notice:  t("actions.destroyed.male",  model: t("activerecord.models.#{controller_name.singularize}").downcase)
   end
-
+  
+  def get_data
+     <%= plural_table_name %>
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_<%= singular_table_name %>

@@ -11,25 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014101251) do
+ActiveRecord::Schema.define(version: 20131112083414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "branches", force: true do |t|
-    t.string   "name"
-    t.string   "email1"
+    t.string   "name",                         null: false
+    t.string   "contact_name",                 null: false
+    t.string   "email1",                       null: false
     t.string   "email2"
     t.string   "webpage"
-    t.string   "phone1"
+    t.string   "phone1",                       null: false
     t.string   "phone2"
     t.string   "fax"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "city"
-    t.string   "state"
-    t.integer  "zip"
-    t.string   "country"
+    t.string   "address1",                     null: false
+    t.string   "address2",                     null: false
+    t.string   "city",                         null: false
+    t.string   "state",                        null: false
+    t.integer  "zip",                          null: false
+    t.string   "country",                      null: false
+    t.boolean  "main_branch",  default: false, null: false
     t.text     "description"
     t.integer  "company_id"
     t.datetime "created_at"
@@ -40,29 +42,34 @@ ActiveRecord::Schema.define(version: 20131014101251) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
-    t.string   "email"
-    t.text     "comment"
-    t.string   "app_name"
+    t.string   "email",      null: false
+    t.text     "comment",    null: false
+    t.string   "app_name",   null: false
+    t.integer  "company_id", null: false
+    t.integer  "branch_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["branch_id"], name: "index_comments_on_branch_id", using: :btree
+  add_index "comments", ["company_id"], name: "index_comments_on_company_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "companies", force: true do |t|
-    t.string   "name"
-    t.string   "email1"
+    t.string   "name",              null: false
+    t.string   "contact_name",      null: false
+    t.string   "email1",            null: false
     t.string   "email2"
     t.string   "webpage"
-    t.string   "phone1"
+    t.string   "phone1",            null: false
     t.string   "phone2"
     t.string   "fax"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "city"
-    t.string   "state"
-    t.integer  "zip"
-    t.string   "country"
+    t.string   "address1",          null: false
+    t.string   "address2",          null: false
+    t.string   "city",              null: false
+    t.string   "state",             null: false
+    t.integer  "zip",               null: false
+    t.string   "country",           null: false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -70,6 +77,13 @@ ActiveRecord::Schema.define(version: 20131014101251) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+  end
+
+  create_table "dogs", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "error_reports", force: true do |t|
@@ -107,23 +121,24 @@ ActiveRecord::Schema.define(version: 20131014101251) do
     t.boolean  "driver",        default: false, null: false
     t.boolean  "client",        default: false, null: false
     t.boolean  "guess",         default: false, null: false
+    t.boolean  "other",         default: false, null: false
     t.text     "description",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name",             default: "",   null: false
-    t.string   "last_name",              default: "",   null: false
-    t.string   "phone1",                 default: "",   null: false
+    t.string   "first_name",                            null: false
+    t.string   "last_name",                             null: false
+    t.string   "phone1",                                null: false
     t.string   "phone2"
     t.string   "fax"
-    t.string   "address1",               default: "",   null: false
+    t.string   "address1",                              null: false
     t.string   "address2"
-    t.string   "city",                   default: "",   null: false
-    t.string   "state",                  default: "",   null: false
+    t.string   "city",                                  null: false
+    t.string   "state",                                 null: false
     t.integer  "zip",                                   null: false
-    t.string   "country",                default: "",   null: false
+    t.string   "country",                               null: false
     t.integer  "company_id",                            null: false
     t.integer  "branch_id",                             null: false
     t.integer  "role_id",                               null: false

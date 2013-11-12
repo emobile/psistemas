@@ -8,7 +8,7 @@ class Company < ActiveRecord::Base
   validates :phone2, :fax, :numericality => {:only_integer => true}, :allow_blank => true  
   validates_length_of :email1, :maximum => 120
   validates_length_of :email2, :maximum => 120, :allow_blank => true    
-  validates_length_of :name, :address1, :address2, :city, :maximum => 30
+  validates_length_of :name, :address1, :address2, :city, :maximum => 200
   validates :zip, :length => { :within => 5..5 }
   validates :phone1, :length => { :within => 10..15 } 
   validates :phone2, :fax, :length => { :within => 10..15 }, :allow_blank => true  

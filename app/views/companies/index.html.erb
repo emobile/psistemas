@@ -1,48 +1,58 @@
-<h1>Listing companies</h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header"><span class="title"><%= t("activerecord.models.#{controller_name}") %></span>
+        <ul class="box-toolbar">
+          <li><span class="label label-blue"><%= @companies_count %></span></li>
+        </ul>
+      </div>
+      <div class="box-content">
+        <!-- find me in partials/data_tables_custom -->
+        <div id="dataTables">
+          <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
+            <thead>
+              <tr>
+                <th><div><%= t('.id') %></div></th>
+            <th><div><%= t('.name') %></div></th>
+            <th><div><%= t('.contact_name') %></div></th>          
+            <th><div><%= t('.email1') %></div></th>
+            <th><div><%= t('.webpage') %></div></th>
+            <th><div><%= t('.phone1') %></div></th>
+            <th><div><%= t('.city') %></div></th>
+            <th><div><%= t('.state') %></div></th>
+            <th><div><%= t('layouts.application.actions') %></div></th>
+            </tr>
+            </thead>
+            <tbody>
+              <% @companies.each do |company| %>
+                <% @model = company %>
+                <tr>
+                  <%if can? :show, Role %>                  
+                    <td><%=link_to company.id, company, :class => 'btn btn-mini btn-blue'%></td>
+                  <%else%>
+                    <td><%= label company.id, company.id, :class => 'btn btn-mini btn-blue'%></td>
+                  <%end%>
+                  <td><%= company.name %></td>        
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t'.id' %></th>
-      <th><%= t'.name' %></th>
-      <th><%= t'.email1' %></th>
-      <th><%= t'.webpage' %></th>
-      <th><%= t'.phone1' %></th>
-      <th><%= t'.city' %></th>
-      <th><%= t'.state' %></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+                  <td><%= company.contact_name %></td>
 
-  <tbody>
-    <% @companies.each do |company| %>
-      <% @model = company %> 
-      <tr>
-        <%if can? :show, Company %>
-          <td><%=link_to company.id, company, :class => 'button'%></td>
-        <%else%>
-          <td><%= label company.id, company.id, :class => 'button'%></td>
-        <%end%>            
+                  <td><%= company.email1 %></td>                
 
-        <td><%= company.name %></td>        
+                  <td><%= company.webpage %></td>
 
-        <td><%= company.email1 %></td>                
+                  <td><%= number_to_phone(company.phone1, area_code: true)  %></td>
 
-        <td><%= company.webpage %></td>
+                  <td><%= company.city %></td>
 
-        <td><%= number_to_phone(company.phone1, area_code: true)  %></td>
-
-        <td><%= company.city %></td>
-
-        <td><%= company.state %></td>
-
-        <%= render "layouts/index_links" %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<%= render "layouts/action_links" %>
+                  <td><%= company.state %></td>
+                  <td><%= render "layouts/index_links" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<td><%= render "layouts/action_links" %></td>

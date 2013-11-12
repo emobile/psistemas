@@ -3,4 +3,5 @@
 * No se ven las imagenes de a compania en la vista de la sucursal
 * Resolver el probema de devise/sessions con devise_parameter_sanitizer.for(:sign_in)
 * Un administrador de sucursal le puede cambiar el rol a un administrador de compania
-* No se despliegan los roles correctos para dar de alta usuarios dependiendo del rol que tiene el current_user
+* Editar info de compania cuando se edita main branch
+* No se puede seleccionar la imagen del usuario o compania al momento de crearlos

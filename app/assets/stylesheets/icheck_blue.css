@@ -8,7 +8,7 @@
   padding: 0;
   width: 20px;
   height: 20px;
-  background: url("../images/blue.png") no-repeat;
+  background: url("/assets/blue.png") no-repeat;
   border: none;
   cursor: pointer; }
   /* line 15, /home/andrei/core-admin-release/core-admin/source/stylesheets/icheck_blue.scss */
@@ -58,6 +58,6 @@
   /* line 57, /home/andrei/core-admin-release/core-admin/source/stylesheets/icheck_blue.scss */
   .icheckbox_flat-aero,
   .iradio_flat-aero {
-    background-image: url("../images/blue@2x.png");
+    background-image: url("/assets/blue@2x.png");
     -webkit-background-size: 176px 22px;
     background-size: 176px 22px; } }

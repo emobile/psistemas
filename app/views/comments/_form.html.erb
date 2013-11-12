@@ -28,8 +28,10 @@
     <%= f.text_area :comment %>
   </div>
   <div class="field">
-    <%#= f.label :app_name %><br>
+  <%#= f.label :app_name %><br>
     <%= f.hidden_field :app_name, :value => Rails.application.class.parent_name.titlecase, :readonly => true %>
+    <%= f.hidden_field :branch_id, :value => current_user.branch_id, :readonly => true  %>
+    <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true  %>
   </div>
   <div class="actions">
     <%= f.submit %>

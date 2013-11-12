@@ -10,7 +10,7 @@ class Ability
       if @user.role.super_admin == true
         can :manage, :all
       elsif @user.role.company_admin == true
-        can :manage, Company, :id => @user.company_id        
+        can [:show, :edit, :update], Company, :id => @user.company_id        
         can :manage, Branch, :company_id => @user.company_id
         can :manage, User, :company_id => @user.company_id
         can [:new, :create, :show], Comment, :user_id  => @user.id

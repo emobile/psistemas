@@ -1,11 +1,12 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_filter :set_icon
+  #before_filter :get_data, :except => [:show, :destroy]  
   load_and_authorize_resource except: [:create]
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.order("id ASC").paginate(:page => params[:page])
   end
 
   # GET /roles/1
@@ -61,7 +62,15 @@ class RolesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def set_icon
+    @icon = "key"
+  end
+  
+  def get_data
+    roles
+  end
+  
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_role
@@ -74,6 +83,6 @@ class RolesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def role_params
-    params.require(:role).permit(:name, :protected, :super_admin, :company_admin, :branch_admin, :super_manager, :manager, :routes_manager, :seller, :secretary, :driver, :client, :guess, :description)
+    params.require(:role).permit(:name, :protected, :super_admin, :company_admin, :branch_admin, :super_manager, :manager, :routes_manager, :seller, :secretary, :driver, :client, :guess, :other, :description)
   end
 end

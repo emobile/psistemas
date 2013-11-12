@@ -1,57 +1,101 @@
-<p>
-  <%= render partial: 'avatars/form',
-    object: @company,
-    as: :avatarable %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-20">
+      <div id="thumbs">
+        <%=link_to "", "/assets/home.png", :style=>"background-image:url(/assets/home.png)", :title => @company.name%>
+      </div>
+      <a data-toggle="modal" href="#modal-simple" class="btn btn-small btn-default" id="button-center"><i class="icon-cog"></i>  <%=t('.change_logo')%></a>
+    </div>
 
-<p>
-  <b><%= t'.name' %></b> <%= @company.name %>
-</p>
+    <div id="modal-simple" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><%=t('.change_logo')%></h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              <%= render partial: 'avatars/form',
+                object: @company,
+                as: :avatarable %>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal"><%=t('cancel')%></button>
+            <button type="button" class="btn btn-blue">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal --><!-- find me in partials/modal_form -->
 
-<p>
-  <b><%= t'.email1' %></b> <%= mail_to @company.email1, @company.email1 %>
-</p>
+    <div class="col-md-21">
+      <div class="box">
+        <div class="box-header">
+          <ul class="nav nav-tabs nav-tabs-left">
+            <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+            <li><a href="#description" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('layouts.application.contact_info')%></span></a></li>
+          </ul>
+          <div class="title"><%= @company.name %></div>
+        </div>
 
-<p>
-  <b><%= t'.email2' %></b> <%= mail_to @company.email2, @company.email2 %>
-</p>
+        <div class="box-content">
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+              <ul class="box-list">
+                <li>
+                  <span><strong><%= t('.name') %></strong><%= @company.name %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.description') %></strong><%= @company.description %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.created_at') %></strong><%=  I18n.l @company.created_at, :format => :long if @company.created_at%></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.updated_at') %></strong><%= I18n.l @company.updated_at, :format => :long if  @company.updated_at%></span>
+                </li>
+              </ul>
+            </div>
 
-<p>
-  <b><%= t'.webpage' %></b> <%= link_to @company.webpage, @company.webpage %>
-</p>
+            <div class="tab-pane" id="description">
+              <ul class="box-list">
+                <li>
+                  <span><strong><%= t('.contact_name') %></strong><%= @company.contact_name %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.email1') %></strong><%= mail_to @company.email1, @company.email1 %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.email2') %></strong><%= mail_to @company.email2, @company.email2 %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.webpage') %></strong><%= link_to @company.webpage, @company.webpage %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.phone1') %></strong><%= number_to_phone(@company.phone1, area_code: true) %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.phone2') %></strong><%= number_to_phone(@company.phone2, area_code: true) %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.fax') %></strong><%= number_to_phone(@company.fax, area_code: true) %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.fulladdress') %></strong><%= @company.fulladdress %></span>
+                </li>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-<p>
-  <b><%= t('.phone1') %></b>
-  <%= number_to_phone(@company.phone1, area_code: true) %>
-</p>
-
-<p>
-  <b><%= t('.phone2') %></b>
-  <%= number_to_phone(@company.phone2, area_code: true) %>
-</p>
-
-<p>
-  <b><%= t('.fax') %></b>
-  <%= number_to_phone(@company.fax, area_code: true) %>
-</p>
-
-<p>
-  <b><%= t('.fulladdress') %></b>
-  <%= @company.fulladdress %>
-</p>
-
-<p>
-  <b><%= t('.created_at') %></b>
-  <%=  I18n.l @company.created_at, :format => :long %>
-</p>
-
-<p>
-  <b><%= t('.updated_at') %></b>
-  <%= I18n.l @company.updated_at, :format => :long %>
-</p>
-
-<p>
-  <b><%= t'.description' %></b> <%= @company.description %>
-</p>
-
-<%= render "layouts/action_links" %>
+        <div class="box-footer padded">
+          <span class="pull-right">
+            <%= render "layouts/action_links" %>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

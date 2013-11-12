@@ -1,108 +1,110 @@
-<div class="row">
-  <div class="col-md-21">
-    <div id="thumbs">
-      <%=link_to "", "/assets/missing.png", :style=>"background-image:url(/assets/missing.png)", :title => @user.username%>
-    </div>
-    <a data-toggle="modal" href="#modal-simple" class="btn btn-blue" id="button-center"><i class="icon-comments-alt"></i>  <%=t('.change_picture')%></a>
-  </div>
-
-  <div id="modal-simple" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title"><%=t('.change_picture')%></h4>
-        </div>
-        <div class="modal-body">
-          <p>          <%= render partial: 'avatars/form',
-              object: @user,
-              as: :avatarable %></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal"><%=t('cancel')%></button>
-          <button type="button" class="btn btn-blue">Save changes</button>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal --><!-- find me in partials/modal_form -->
-
-  <div class="box">
+<div class="container">
+  <div class="row">
     <div class="col-md-20">
-      <div class="box-header">
-        <ul class="nav nav-tabs nav-tabs-left">
-          <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
-          <li><a href="#messages" data-toggle="tab"><i class="icon-comments-alt"></i> <span><%=t('.contact_info')%></span></a></li>
-          <li><a href="#settings" data-toggle="tab"><i class="icon-cog"></i> <span><%=t('.user_type')%></span></a></li>
-        </ul>
-        <div class="title"><%= @user.fullname %></div>
+      <div id="thumbs">
+        <%=link_to "", "/assets/missing.png", :style=>"background-image:url(/assets/missing.png)", :title => @user.username%>
       </div>
+      <a data-toggle="modal" href="#modal-simple" class="btn btn-small btn-default" id="button-center"><i class="icon-cog"></i>  <%=t('.change_picture')%></a>
+    </div>
 
-      <div class="box-content">
-        <div class="tab-content">
-          <div class="tab-pane active" id="home">
-            <ul class="box-list">
-              <li>
-                <span><strong><%= t('.fullname') %></strong><%= @user.fullname %></span>
-              </li>
-              <li>
-                <span><strong><%= t('.company_id') %></strong><%= @user.company.name %></span>
-              </li>
-              <li>
-                <span><strong><%= t('.branch_id') %></strong><%= @user.branch.name %></span>
-              </li>
-              <li>
-                <span><strong><%= t('.created_at') %></strong><%=  I18n.l @user.created_at, :format => :long if @user.created_at%></span>
-              </li>
-              <li>
-                <span><strong><%= t('.updated_at') %></strong><%= I18n.l @user.updated_at, :format => :long if  @user.updated_at%></span>
-              </li>
-              <li>
-                <span><strong><%= t('.last_sign_in_at') %></strong><%= I18n.l @user.last_sign_in_at, :format => :long if @user.last_sign_in_at%></span>
-              </li>
-            </ul>
+    <div id="modal-simple" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><%=t('.change_picture')%></h4>
           </div>
-
-          <div class="tab-pane" id="messages">
-            <ul class="box-list">
-              <li>
-                <span><strong><%= t('.email') %></strong><%= mail_to @user.email, @user.email %></span>
-              </li>
-              <li>
-                <span><strong><%= t('.phone1') %></strong><%= number_to_phone(@user.phone1, area_code: true) %></span>
-              </li>
-              <li>
-                <span><strong><%= t('.phone2') %></strong><%= number_to_phone(@user.phone2, area_code: true) %></span>
-              </li>
-              <li>
-                <span><strong><%= t('.fax') %></strong><%= number_to_phone(@user.fax, area_code: true) %></span>
-              </li>
-              <li>
-                <span><strong><%= t('.fulladdress') %></strong><%= @user.fulladdress %></span>
-              </li>
-            </ul>
+          <div class="modal-body">
+            <p>          <%= render partial: 'avatars/form',
+                object: @user,
+                as: :avatarable %></p>
           </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal"><%=t('cancel')%></button>
+            <button type="button" class="btn btn-blue">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal --><!-- find me in partials/modal_form -->
 
-          <div class="tab-pane" id="settings">
+    <div class="col-md-21">
+      <div class="box">
+        <div class="box-header">
+          <ul class="nav nav-tabs nav-tabs-left">
+            <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+            <li><a href="#messages" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('layouts.application.contact_info')%></span></a></li>
+            <li><a href="#settings" data-toggle="tab"><i class="icon-user"></i> <span><%=t('.user_type')%></span></a></li>
+          </ul>
+          <div class="title"><%= @user.fullname %></div>
+        </div>
 
-            <ul class="box-list">
-              <li>
-                <span><strong><%= t('.username') %></strong><%= @user.username %></span>
-              </li>
-              <li>
-                <span><strong><%= t('.role_id') %></strong><%= @user.role.name if @user.role.name %></span>
-              </li>
-              <li>
-                <span><strong><%= t('.active') %></strong><%= t(@user.active.to_s) %></span>
-              </li>
-            </ul>
+        <div class="box-content">
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+              <ul class="box-list">
+                <li>
+                  <span><strong><%= t('.fullname') %></strong><%= @user.fullname %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.company_id') %></strong><%= @user.company.name %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.branch_id') %></strong><%= @user.branch.name %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.created_at') %></strong><%=  I18n.l @user.created_at, :format => :long if @user.created_at%></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.updated_at') %></strong><%= I18n.l @user.updated_at, :format => :long if  @user.updated_at%></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.last_sign_in_at') %></strong><%= I18n.l @user.last_sign_in_at, :format => :long if @user.last_sign_in_at%></span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="tab-pane" id="messages">
+              <ul class="box-list">
+                <li>
+                  <span><strong><%= t('.email') %></strong><%= mail_to @user.email, @user.email %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.phone1') %></strong><%= number_to_phone(@user.phone1, area_code: true) %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.phone2') %></strong><%= number_to_phone(@user.phone2, area_code: true) %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.fax') %></strong><%= number_to_phone(@user.fax, area_code: true) %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.fulladdress') %></strong><%= @user.fulladdress %></span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="tab-pane" id="settings">
+
+              <ul class="box-list">
+                <li>
+                  <span><strong><%= t('.username') %></strong><%= @user.username %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.role_id') %></strong><%= @user.role.name if @user.role.name %></span>
+                </li>
+                <li>
+                  <span><strong><%= t('.active') %></strong><%= t(@user.active.to_s) %></span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="box-footer padded">
-        <span class="pull-right">
-          <%= render "layouts/action_links" %>
-        </span>
+        <div class="box-footer padded">
+          <span class="pull-right">
+            <%= render "layouts/action_links" %>
+          </span>
+        </div>
       </div>
     </div>
   </div>

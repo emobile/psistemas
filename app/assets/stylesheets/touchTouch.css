@@ -35,7 +35,7 @@
 
 /* line 45, /home/andrei/core-admin-release/core-admin/source/stylesheets/touchTouch.scss */
 #gallerySlider .placeholder {
-  background: url("../images/loading.gif") no-repeat center center;
+  background: url("/assets/loading.gif") no-repeat center center;
   height: 100%;
   line-height: 1px;
   text-align: center;

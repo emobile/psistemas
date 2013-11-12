@@ -14,6 +14,7 @@ class CreateRoles < ActiveRecord::Migration
       t.boolean :driver,  :null => false, :default => false
       t.boolean :client,  :null => false,  :default => false
       t.boolean :guess,  :null => false,  :default => false
+      t.boolean :other,  :null => false,  :default => false      
       t.text :description,  :null => false
 
       t.timestamps
