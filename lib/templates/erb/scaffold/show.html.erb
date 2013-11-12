@@ -5,7 +5,7 @@
         <ul class="nav nav-tabs nav-tabs-left">
           <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
         </ul>
-        <div class="title"><%%= MODEL %></div>
+        <div class="title"><%%= "MODEL" %></div>
       </div>
 
       <div class="box-content">
@@ -17,7 +17,6 @@
                   <span><strong><%%= t'.<%= attribute.human_name.downcase.tr(" ", "_") %>' %></strong> <%%= @<%= singular_table_name %>.<%= attribute.name %> %></span>
                 </li>
               <% end -%>
-              <li>
             </ul>
           </div>
         </div>
