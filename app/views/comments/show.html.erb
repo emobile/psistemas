@@ -1,17 +1,51 @@
-  <p>
-    <b><%= t'.user_id' %></b> <%= @comment.user.fullname %>
-  </p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header">
+        <ul class="nav nav-tabs nav-tabs-left">
+          <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+          <li><a href="#description" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('.description')%></span></a></li>
+        </ul>
+        <div class="title"><%= @comment.user.fullname %></div>
+      </div>
 
-  <p>
-    <b><%= t'.email' %></b> <%= @comment.email %>
-  </p>
+      <div class="box-content">
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            <ul class="box-list">
+              <li>
+                <span><strong><%= t('.user_id') %></strong><%= @comment.user.fullname %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.email') %></strong><%= @comment.email %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.app_name') %></strong><%= @comment.app_name %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.created_at') %></strong><%=  I18n.l @comment.created_at, :format => :long if @comment.created_at%></span>
+              </li>
+              <li>
+                <span><strong><%= t('.updated_at') %></strong><%= I18n.l @comment.updated_at, :format => :long if  @comment.updated_at%></span>
+              </li>
+            </ul>
+          </div>
 
-  <p>
-    <b><%= t'.comment' %></b> <%= @comment.comment %>
-  </p>
+          <div class="tab-pane active" id="description">
+            <ul class="box-list">
+              <li>
+                <span><%= @comment.comment %></span>
+              </li>
+            </ul>
+          </div>
 
-  <p>
-    <b><%= t'.app_name' %></b> <%= @comment.app_name %>
-  </p>
-
-<%= render "layouts/action_links" %>
+        </div>
+      </div>
+      <div class="box-footer padded">
+        <span class="pull-right">
+          <%= render "layouts/action_links" %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

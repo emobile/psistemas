@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
       branches
       roles
       users
+      comments
     end
   end
   

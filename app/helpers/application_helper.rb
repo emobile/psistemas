@@ -73,4 +73,9 @@ module ApplicationHelper
     end
   end
   
+  def comments
+    @comments = Comment.order("id DESC").paginate(:page => params[:page])
+    @comments_count = @comments.count
+  end
+  
 end

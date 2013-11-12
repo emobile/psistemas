@@ -5,3 +5,4 @@
 * Un administrador de sucursal le puede cambiar el rol a un administrador de compania
 * Editar info de compania cuando se edita main branch
 * No se puede seleccionar la imagen del usuario o compania al momento de crearlos
+* Poner los campos faltantes en los json builders

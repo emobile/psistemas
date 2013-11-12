@@ -37,6 +37,15 @@
     </li>
   <%end%>
 
+  <% if can? :index, Comment %>
+    <li class="action-nav-button">
+      <%= link_to comments_path, :class=>"tip", :title=>t(".comments") do%>
+        <i class="icon-comments"></i>
+      <%end%>
+      <span class="label label-black"><%= @comments_count %></span>
+    </li>
+  <%end%>
+
 
   <li class="action-nav-button">
     <a href="#" class="tip" title="New Project">
@@ -73,10 +82,4 @@
     <span class="label label-black">14</span>
   </li>
 
-  <li class="action-nav-button">
-    <a href="#" class="tip" title="Followers">
-      <i class="icon-twitter"></i>
-    </a>
-    <span class="label label-black">14</span>
-  </li>
 </ul>

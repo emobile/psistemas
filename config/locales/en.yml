@@ -1,4 +1,4 @@
-en:
+en: 
   close: "Close"
   hello: "Hello"  
   required: "Required"   
@@ -406,7 +406,11 @@ en:
       contact_info: "Contact Information"      
       actions: "Actions"
       form_reset: "Reset Form"
+      admin: "Administrator: "
+      phone1: "Phone: "
+      email1: "E-mail: "       
     shortcuts:
+      comments: "Comments"
       create_company: "New Company"
       create_branch: "New Branch"
       create_rol: "New Rol"
