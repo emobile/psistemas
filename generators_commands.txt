@@ -8,8 +8,8 @@ rails g scaffold client_branch name:string email1:string email2:string webpage:s
 rails g scaffold client name:string email1:string email2:string webpage:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string description:text company:references
 
 rails g scaffold bill name:string rfc:string email:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string client:references company:references
-rails d scaffold cellphone phone_number:string model:string brand:string color:string ope_system:string condition:text imei:string description:text user:references branch:references
-rails g scaffold truck model:string brand:string year:integer truck_type:string plate_no:string serial_no:string color:string wheels_no:integer other:string identifier:string branch:references
+rails d scaffold cellphone phone_number:string model:string brand:string color:string ope_system:string condition:text imei:string description:text user:references branch:references company:references
+rails g scaffold truck model:string brand:string year:integer truck_type:string plate_no:string serial_no:string color:string wheels_no:integer other:string identifier:string branch:references company:references
 rails g scaffold driver user:references truck:references branch:references
 rails g scaffold schedule branch:references driver:references client_branch:references client:references monday:boolean tuesday:boolean wednesday:boolean thursday:boolean friday:boolean saturday:boolean sunday:boolean
 
@@ -25,3 +25,5 @@ rails g user:references email:string comment:text app_name:string
 
 rails g scaffold company name:string email1:string email2:string webpage:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string description:text
 rails g scaffold branch name:string email1:string email2:string webpage:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string description:text company:references
+
+rails g status name:string description:text hierarchy:integer model_name:string 

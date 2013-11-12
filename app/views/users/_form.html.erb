@@ -90,7 +90,7 @@
                   <%= f.label :city %>
                   <%= f.text_field :city, :required => true, :placeholder => t(:required) %>
                 </li>
-                <%if signed_in? and (current_user.role.super_admin or current_user.role.company_admin or current_user.role.branch_admin)%>
+                <%if current_user.role.super_admin %>
                   <li class="field">
                     <%= f.label :company_id %>
                     <%= f.collection_select(:company_id, @companies, :id, :name, {}, { :class => 'chzn-select' }) %>
@@ -103,15 +103,32 @@
                     <%= f.label :role_id %>
                     <%= f.collection_select(:role_id, @roles, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>
+                <%elsif current_user.role.company_admin%>
+                  <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
                   <li class="field">
-    <%#= f.label :logo %>
-    <%#= f.file_field :logo, "data-url" => avatar_path %>
+                    <%= f.label :branch_id %>
+                    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>
                   <li class="field">
-                    <%= f.check_box :active, :class=>"icheck" %>
-                    <%= f.label :active %>
+                    <%= f.label :role_id %>
+                    <%= f.collection_select(:role_id, @roles, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+                  </li>
+                <%else%>
+                  <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
+                  <%= f.hidden_field :branch_id, :value => current_user.company_id, :readonly => true %>
+                  <li class="field">
+                    <%= f.label :role_id %>
+                    <%= f.collection_select(:role_id, @roles, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>
                 <%end%>
+                <li class="field">
+  <%#= f.label :logo %>
+  <%#= f.file_field :logo, "data-url" => avatar_path %>
+                </li>
+                <li class="field">
+                  <%= f.check_box :active, :class=>"icheck" %>
+                  <%= f.label :active %>
+                </li>
               </ul>
             </div>
           </div>

@@ -1,4 +1,10 @@
 Serviroute::Application.routes.draw do
+  resources :trucks
+
+  resources :cellphones
+
+  resources :statuses
+
   resources :error_reports
 
   resources :branches

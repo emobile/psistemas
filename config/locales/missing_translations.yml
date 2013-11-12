@@ -1,0 +1,11 @@
+---
+en:
+  cellphones:
+    index:
+      user: User
+      branch: Branch
+      company: Company
+  layouts:
+    shortcuts:
+      create_status: Create Status
+      create_cellphone: Create Cellphone

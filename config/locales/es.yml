@@ -415,6 +415,9 @@ es:
       create_branch: "Crear Sucursal"
       create_rol: "Crear Rol"
       create_user: "Crear Usuario"
+      create_status: "Crear Status"
+      create_cellphone: "Crear Celular"
+      create_truck: "Crear Camión"
       
   roles:
     show:
@@ -661,6 +664,87 @@ es:
       error_time: 'Hora'
       created_at: "Registrado el"
       updated_at: "Actualizado el"
+  statuses:
+    show:
+      id: 'Id: '
+      name: 'Name: '
+      description: 'Description: '
+      hierarchy: 'Hierarchy: '
+      model_name: 'Model Name: '
+      created_at: 'Created At: '
+      updated_at: 'Updated At: '
+    index:
+      id: 'Id'
+      name: 'Name'
+      description: 'Description'
+      hierarchy: 'Hierarchy'
+      model_name: 'Model Name'
+      created_at: 'Created At'
+      updated_at: 'Updated At'
+  cellphones:
+    show:
+      id: 'Id: '
+      phone_number: 'Phone Number: '
+      model: 'Model: '
+      brand: 'Brand: '
+      color: 'Color: '
+      ope_system: 'Ope System: '
+      condition: 'Condition: '
+      imei: 'Imei: '
+      description: 'Description: '
+      user_id: 'User: '
+      branch_id: 'Branch: '
+      company_id: 'Company: '
+      created_at: 'Created At: '
+      updated_at: 'Updated At: '
+    index:
+      id: 'Id'
+      phone_number: 'Phone Number'
+      model: 'Model'
+      brand: 'Brand'
+      color: 'Color'
+      ope_system: 'Ope System'
+      condition: 'Condition'
+      imei: 'Imei'
+      description: 'Description'
+      user_id: 'User'
+      branch_id: 'Branch'
+      company_id: 'Company'
+      created_at: 'Created At'
+      updated_at: 'Updated At'
+  trucks:
+    show:
+      id: 'Id: '
+      model: 'Model: '
+      brand: 'Brand: '
+      year: 'Year: '
+      truck_type: 'Truck Type: '
+      plate_no: 'Plate No: '
+      serial_no: 'Serial No: '
+      color: 'Color: '
+      wheels_no: 'Wheels No: '
+      other: 'Other: '
+      identifier: 'Identifier: '
+      branch_id: 'Branch: '
+      company_id: 'Company: '
+      created_at: 'Created At: '
+      updated_at: 'Updated At: '
+    index:
+      id: 'Id'
+      model: 'Model'
+      brand: 'Brand'
+      year: 'Year'
+      truck_type: 'Truck Type'
+      plate_no: 'Plate No'
+      serial_no: 'Serial No'
+      color: 'Color'
+      wheels_no: 'Wheels No'
+      other: 'Other'
+      identifier: 'Identifier'
+      branch_id: 'Branch'
+      company_id: 'Company'
+      created_at: 'Created At'
+      updated_at: 'Updated At'
   #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
   
   activerecord:
@@ -708,6 +792,12 @@ es:
       branches: 'Sucursales'
       error_report: 'Reporte de Error'
       error_reports: 'Reporte de Errores'
+      status: 'Status'
+      statuses: 'Statuses'
+      cellphone: 'Cellphone'
+      cellphones: 'Cellphones'
+      truck: 'Truck'
+      trucks: 'Trucks'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT
       
     attributes:
@@ -825,4 +915,43 @@ es:
         error_time: 'Hora: '
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
+      status:
+        id: 'Id: '
+        name: 'Name: '
+        description: 'Description: '
+        hierarchy: 'Hierarchy: '
+        model_name: 'Model Name: '
+        created_at: 'Created At: '
+        updated_at: 'Updated At: '
+      cellphone:
+        id: 'Id: '
+        phone_number: 'Phone Number: '
+        model: 'Model: '
+        brand: 'Brand: '
+        color: 'Color: '
+        ope_system: 'Ope System: '
+        condition: 'Condition: '
+        imei: 'Imei: '
+        description: 'Description: '
+        user_id: 'User: '
+        branch_id: 'Branch: '
+        company_id: 'Company: '
+        created_at: 'Created At: '
+        updated_at: 'Updated At: '
+      truck:
+        id: 'Id: '
+        model: 'Model: '
+        brand: 'Brand: '
+        year: 'Year: '
+        truck_type: 'Truck Type: '
+        plate_no: 'Plate No: '
+        serial_no: 'Serial No: '
+        color: 'Color: '
+        wheels_no: 'Wheels No: '
+        other: 'Other: '
+        identifier: 'Identifier: '
+        branch_id: 'Branch: '
+        company_id: 'Company: '
+        created_at: 'Created At: '
+        updated_at: 'Updated At: '
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT

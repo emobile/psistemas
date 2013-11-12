@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131112083414) do
+ActiveRecord::Schema.define(version: 20131112224110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,26 @@ ActiveRecord::Schema.define(version: 20131112083414) do
   end
 
   add_index "branches", ["company_id"], name: "index_branches_on_company_id", using: :btree
+
+  create_table "cellphones", force: true do |t|
+    t.string   "phone_number"
+    t.string   "model"
+    t.string   "brand"
+    t.string   "color"
+    t.string   "ope_system"
+    t.text     "condition"
+    t.string   "imei"
+    t.text     "description"
+    t.integer  "user_id"
+    t.integer  "branch_id"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cellphones", ["branch_id"], name: "index_cellphones_on_branch_id", using: :btree
+  add_index "cellphones", ["company_id"], name: "index_cellphones_on_company_id", using: :btree
+  add_index "cellphones", ["user_id"], name: "index_cellphones_on_user_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
@@ -126,6 +146,35 @@ ActiveRecord::Schema.define(version: 20131112083414) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "statuses", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "hierarchy"
+    t.string   "model_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trucks", force: true do |t|
+    t.string   "model"
+    t.string   "brand"
+    t.integer  "year"
+    t.string   "truck_type"
+    t.string   "plate_no"
+    t.string   "serial_no"
+    t.string   "color"
+    t.integer  "wheels_no"
+    t.string   "other"
+    t.string   "identifier"
+    t.integer  "branch_id"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trucks", ["branch_id"], name: "index_trucks_on_branch_id", using: :btree
+  add_index "trucks", ["company_id"], name: "index_trucks_on_company_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name",                            null: false

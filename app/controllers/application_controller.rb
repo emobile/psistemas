@@ -33,6 +33,9 @@ class ApplicationController < ActionController::Base
       roles
       users
       comments
+      statuses
+      cellphones
+      trucks
     end
   end
   

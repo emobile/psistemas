@@ -27,6 +27,14 @@
     </li>
   <%end%>
 
+  <% if can? :new, Status %>
+    <li class="action-nav-button">
+      <%= link_to new_status_path, :class=>"tip", :title=>t(".create_status") do%>
+        <i class="icon-star"></i>
+      <%end%>
+      <span class="label label-black"><%= @statuses_count %></span>
+    </li>
+  <%end%>
 
   <% if can? :new, User %>
     <li class="action-nav-button">
@@ -47,39 +55,22 @@
   <%end%>
 
 
-  <li class="action-nav-button">
-    <a href="#" class="tip" title="New Project">
-      <i class="icon-file-alt"></i>
-    </a>
-    <span class="label label-black">14</span>
-  </li>
+  <% if can? :new, Cellphone %>
+    <li class="action-nav-button">
+      <%= link_to new_cellphone_path, :class=>"tip", :title=>t(".create_cellphone") do%>
+        <i class="icon-phone"></i>
+      <%end%>
+      <span class="label label-black"><%= @cellphones_count %></span>
+    </li>
+  <%end%>
 
-  <li class="action-nav-button">
-    <a href="#" class="tip" title="Messages">
-      <i class="icon-comments-alt"></i>
-    </a>
-    <span class="label label-black">14</span>
-  </li>
-
-  <li class="action-nav-button">
-    <a href="#" class="tip" title="Files">
-      <i class="icon-folder-open-alt"></i>
-    </a>
-    <span class="label label-black">14</span>
-  </li>
-
-  <li class="action-nav-button">
-    <a href="#" class="tip" title="Users">
-      <i class="icon-user"></i>
-    </a>
-    <span class="label label-black">14</span>
-  </li>
-
-  <li class="action-nav-button">
-    <a href="#" class="tip" title="Friends">
-      <i class="icon-facebook-sign"></i>
-    </a>
-    <span class="label label-black">14</span>
-  </li>
+  <% if can? :new, Truck %>
+    <li class="action-nav-button">
+      <%= link_to new_truck_path, :class=>"tip", :title=>t(".create_truck") do%>
+        <i class="icon-truck"></i>
+      <%end%>
+      <span class="label label-black"><%= @trucks_count %></span>
+    </li>
+  <%end%>
 
 </ul>

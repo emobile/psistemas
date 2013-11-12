@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  phone_number: MyString
+  model: MyString
+  brand: MyString
+  color: MyString
+  ope_system: MyString
+  condition: MyText
+  imei: MyString
+  description: MyText
+  user_id: 
+  branch_id: 
+  company_id: 
+
+two:
+  phone_number: MyString
+  model: MyString
+  brand: MyString
+  color: MyString
+  ope_system: MyString
+  condition: MyText
+  imei: MyString
+  description: MyText
+  user_id: 
+  branch_id: 
+  company_id: 

@@ -46,7 +46,7 @@ module ApplicationHelper
         @roles = Role.order('id DESC').paginate(:page => params[:page])
       elsif current_user.role.company_admin
         @roles = Role.where(:super_admin => false).order('id DESC').paginate(:page => params[:page])
-      elsif current_user.role.branch_admin or current_user.role.routes_admin
+      else  
         @roles = Role.where(:super_admin => false, :company_admin => false).order('id DESC').paginate(:page => params[:page])
       end
     else 
@@ -67,7 +67,7 @@ module ApplicationHelper
     elsif current_user.role.company_admin
       @users = User.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
       @users_count = @users.count
-    elsif current_user.role.branch_admin or current_user.role.routes_admin
+    else  
       @users = User.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
       @users_count = @users.count
     end
@@ -77,5 +77,37 @@ module ApplicationHelper
     @comments = Comment.order("id DESC").paginate(:page => params[:page])
     @comments_count = @comments.count
   end
+  
+  def statuses
+    @statuses = Status.order('id DESC').paginate(:page => params[:page])
+    @statuses_count = @statuses.count
+  end
+  
+  def cellphones
+    if current_user.role.super_admin
+      @cellphones = Cellphone.order('id DESC').paginate(:page => params[:page])
+      @cellphones_count = @cellphones.count
+    elsif current_user.role.company_admin
+      @cellphones = Cellphone.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @cellphones_count = @cellphones.count
+    else  
+      @cellphones = Cellphone.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+      @cellphones_count = @cellphones.count
+    end
+  end
+  
+  def trucks
+    if current_user.role.super_admin
+      @trucks = Truck.order('id DESC').paginate(:page => params[:page])
+      @trucks_count = @trucks.count
+    elsif current_user.role.company_admin
+      @trucks = Truck.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @trucks_count = @trucks.count
+    else  
+      @trucks = Truck.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+      @trucks_count = @trucks.count
+    end
+  end
+  
   
 end

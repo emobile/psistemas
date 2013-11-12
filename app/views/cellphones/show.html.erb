@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header">
+        <ul class="nav nav-tabs nav-tabs-left">
+          <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+        </ul>
+        <div class="title"><%= "MODEL" %></div>
+      </div>
+
+      <div class="box-content">
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            <ul class="box-list">
+              <li>
+                <span><strong><%= t'.phone_number' %></strong> <%= @cellphone.phone_number %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.model' %></strong> <%= @cellphone.model %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.brand' %></strong> <%= @cellphone.brand %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.color' %></strong> <%= @cellphone.color %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.ope_system' %></strong> <%= @cellphone.ope_system %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.condition' %></strong> <%= @cellphone.condition %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.imei' %></strong> <%= @cellphone.imei %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.description' %></strong> <%= @cellphone.description %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.user_id' %></strong> <%= @cellphone.user.fullname %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.branch_id' %></strong> <%= @cellphone.branch.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.company_id' %></strong> <%= @cellphone.company.name %></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="box-footer padded">
+        <span class="pull-right">
+          <%= render "layouts/action_links" %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
