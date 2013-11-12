@@ -1,5 +1,5 @@
 class Role < ActiveRecord::Base
-  has_many :users
+  has_many :users, :dependent => :destroy 
   validates :description, :name, :presence => true
   validates :name, :description, :uniqueness => true
   validates_length_of :name, :maximum => 150

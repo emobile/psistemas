@@ -1,6 +1,7 @@
 class Branch < ActiveRecord::Base
   belongs_to :company
-  has_many :users
+  has_many :users, :dependent => :destroy
+  has_many :error_reports, :dependent => :destroy  
   validates :name, :email1, :phone1, :address1, :address2, :city, :state, :zip, :country, :company_id, :presence => true  
   validates :name, :uniqueness => true
   validates :phone1, :zip, :numericality => {:only_integer => true}

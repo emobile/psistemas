@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   belongs_to :role
   belongs_to :company
   belongs_to :branch  
-  has_many :comments
+  has_many :comments, :dependent => :destroy 
   validates :first_name, :last_name, :username, :phone1, :address1, :address2, :city, :state, :zip, :country, :branch_id, :company_id, :role_id, :presence => true
   validates :username, :uniqueness => true
   validates :phone1, :zip, :numericality => {:only_integer => true}

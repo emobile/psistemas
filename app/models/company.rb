@@ -1,7 +1,8 @@
 class Company < ActiveRecord::Base
   acts_as_avatarable  
-  has_many :users
-  has_many :branches
+  has_many :users, :dependent => :destroy
+  has_many :branches, :dependent => :destroy
+  has_many :error_reports, :dependent => :destroy   
   validates :name, :email1, :phone1, :address1, :address2, :city, :state, :zip, :country, :presence => true  
   validates :name, :uniqueness => true
   validates :phone1, :zip, :numericality => {:only_integer => true}
