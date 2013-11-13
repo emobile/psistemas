@@ -16,14 +16,9 @@
             <th><div><%= t'.phone_number' %></div></th>
             <th><div><%= t'.model' %></div></th>
             <th><div><%= t'.brand' %></div></th>
-            <th><div><%= t'.color' %></div></th>
-            <th><div><%= t'.ope_system' %></div></th>
-            <th><div><%= t'.condition' %></div></th>
             <th><div><%= t'.imei' %></div></th>
-            <th><div><%= t'.description' %></div></th>
             <th><div><%= t'.user_id' %></div></th>
             <th><div><%= t'.branch_id' %></div></th>
-            <th><div><%= t'.company_id' %></div></th>
             <th><div><%= t('layouts.application.actions') %></div></th>
             </tr>
             </thead>
@@ -39,14 +34,9 @@
                   <td><%= cellphone.phone_number %></td>
                   <td><%= cellphone.model %></td>
                   <td><%= cellphone.brand %></td>
-                  <td><%= cellphone.color %></td>
-                  <td><%= cellphone.ope_system %></td>
-                  <td><%= cellphone.condition %></td>
                   <td><%= cellphone.imei %></td>
-                  <td><%= cellphone.description %></td>
-                  <td><%= cellphone.user.fullname %></td>
+                  <td><%= cellphone.user.fullname if cellphone.user%></td>
                   <td><%= cellphone.branch.name %></td>
-                  <td><%= cellphone.company.name %></td>
                   <td><%= render "layouts/index_links" %></td>
                 </tr>
               <% end %>

@@ -4,8 +4,9 @@
       <div class="box-header">
         <ul class="nav nav-tabs nav-tabs-left">
           <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+          <li><a href="#details" data-toggle="tab"><i class="icon-exclamation-sign"></i><span><%=t('layouts.application.details')%></span></a></li>
         </ul>
-        <div class="title"><%= "MODEL" %></div>
+        <div class="title"><%= @cellphone.model_brand %></div>
       </div>
 
       <div class="box-content">
@@ -15,6 +16,26 @@
               <li>
                 <span><strong><%= t'.phone_number' %></strong> <%= @cellphone.phone_number %></span>
               </li>
+              <li>
+                <span><strong><%= t'.user_id' %></strong> <%= @cellphone.user.fullname if @cellphone.user %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.branch_id' %></strong> <%= @cellphone.branch.name if @cellphone.branch %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.company_id' %></strong> <%= @cellphone.company.name if @cellphone.company %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.created_at') %></strong><%=  I18n.l @cellphone.created_at, :format => :long if @cellphone.created_at%></span>
+              </li>
+              <li>
+                <span><strong><%= t('.updated_at') %></strong><%= I18n.l @cellphone.updated_at, :format => :long if  @cellphone.updated_at%></span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tab-pane" id="details">
+            <ul class="box-list">
               <li>
                 <span><strong><%= t'.model' %></strong> <%= @cellphone.model %></span>
               </li>
@@ -35,15 +56,6 @@
               </li>
               <li>
                 <span><strong><%= t'.description' %></strong> <%= @cellphone.description %></span>
-              </li>
-              <li>
-                <span><strong><%= t'.user_id' %></strong> <%= @cellphone.user.fullname %></span>
-              </li>
-              <li>
-                <span><strong><%= t'.branch_id' %></strong> <%= @cellphone.branch.name %></span>
-              </li>
-              <li>
-                <span><strong><%= t'.company_id' %></strong> <%= @cellphone.company.name %></span>
               </li>
             </ul>
           </div>

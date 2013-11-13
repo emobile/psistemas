@@ -9,3 +9,7 @@ en:
     shortcuts:
       create_status: Create Status
       create_cellphone: Create Cellphone
+es:
+  layouts:
+    application:
+      details: Details
