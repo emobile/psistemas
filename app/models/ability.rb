@@ -14,7 +14,8 @@ class Ability
         can :manage, Branch, :company_id => @user.company_id
         can :manage, User, :company_id => @user.company_id
         can :manage, Truck, :company_id => @user.company_id    
-        can :manage, Cellphone, :company_id => @user.company_id          
+        can :manage, Cellphone, :company_id => @user.company_id  
+        can :manage, Message, :company_id => @user.company_id           
         can [:new, :create, :show], Comment, :user_id  => @user.id
       elsif @user.role.branch_admin == true
         can [:index, :show], Branch 
@@ -22,7 +23,8 @@ class Ability
         can :manage, User, :branch_id => @user.branch_id
         can [:new, :create, :show], Comment, :user_id  => @user.id 
         can :manage, Truck, :branch_id => @user.branch_id 
-        can :manage, Cellphone, :branch_id => @user.branch_id 
+        can :manage, Cellphone, :branch_id => @user.branch_id
+        can :manage, Message, :branch_id => @user.branch_id 
       elsif @user.role.super_manager == true
       elsif @user.role.manager == true
       elsif @user.role.secretary == true

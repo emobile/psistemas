@@ -62,3 +62,17 @@ Truck.create(brand: "Volvo", model: "V4", branch_id: 3, company_id: 2, plate_no:
 Truck.create(brand: "Mercedes-Benz", model: "MB5", branch_id: 3, company_id: 2, plate_no: "as143", year: 2012)
 Truck.create(brand: "Dina", model: "D5", branch_id: 3, company_id: 2, plate_no: "as153", year: 2013)
 Truck.create(brand: "Volvo", model: "V5", branch_id: 3, company_id: 2, plate_no: "as163", year: 2014)
+
+
+Message.create(user_id: 1, branch_id: 1, company_id: 1, message: "Prueba 1")
+Message.create(user_id: 2, branch_id: 2, company_id: 1, message: "Prueba 1")
+Message.create(user_id: 3, branch_id: 2, company_id: 1, message: "Prueba 3")
+Message.create(user_id: 4, branch_id: 2, company_id: 1, message: "Prueba 4")
+Message.create(user_id: 1, branch_id: 1, company_id: 1, message: "Prueba 5")
+Message.create(user_id: 2, branch_id: 2, company_id: 1, message: "Prueba 6")
+Message.create(user_id: 3, branch_id: 2, company_id: 1, message: "Prueba 7")
+Message.create(user_id: 4, branch_id: 2, company_id: 1, message: "Prueba 8")
+Message.create(user_id: 1, branch_id: 1, company_id: 1, message: "Prueba 9")
+Message.create(user_id: 2, branch_id: 2, company_id: 1, message: "Prueba 10")
+Message.create(user_id: 3, branch_id: 2, company_id: 1, message: "Prueba 11")
+Message.create(user_id: 4, branch_id: 2, company_id: 1, message: "Prueba 12")

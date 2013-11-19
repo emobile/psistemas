@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131112224110) do
+ActiveRecord::Schema.define(version: 20131115065559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,19 @@ ActiveRecord::Schema.define(version: 20131112224110) do
   add_index "error_reports", ["branch_id"], name: "index_error_reports_on_branch_id", using: :btree
   add_index "error_reports", ["company_id"], name: "index_error_reports_on_company_id", using: :btree
   add_index "error_reports", ["user_id"], name: "index_error_reports_on_user_id", using: :btree
+
+  create_table "messages", force: true do |t|
+    t.text     "message"
+    t.integer  "user_id"
+    t.integer  "branch_id"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["branch_id"], name: "index_messages_on_branch_id", using: :btree
+  add_index "messages", ["company_id"], name: "index_messages_on_company_id", using: :btree
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name",                          null: false

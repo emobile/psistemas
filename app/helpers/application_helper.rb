@@ -109,5 +109,18 @@ module ApplicationHelper
     end
   end
   
+    def messages
+    if current_user.role.super_admin
+      @messages = Message.order('id DESC').paginate(:page => params[:page])
+      @messages_count = @messages.count
+    elsif current_user.role.company_admin
+      @messages = Message.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @messages_count = @messages.count
+    else  
+      @messages = Message.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+      @messages_count = @messages.count
+    end
+  end
+  
   
 end

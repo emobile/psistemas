@@ -745,6 +745,23 @@ es:
       company_id: 'Compañía'
       created_at: "Registrado el"
       updated_at: "Actualizado el"
+  messages:
+    show:
+      id: 'Id: '
+      message: 'Message: '
+      user_id: 'User: '
+      branch_id: 'Branch: '
+      company_id: 'Company: '
+      created_at: 'Created At: '
+      updated_at: 'Updated At: '
+    index:
+      id: 'Id'
+      message: 'Message'
+      user_id: 'User'
+      branch_id: 'Branch'
+      company_id: 'Company'
+      created_at: 'Created At'
+      updated_at: 'Updated At'
   #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
   
   activerecord:
@@ -798,6 +815,8 @@ es:
       cellphones: 'Celulares'
       truck: 'Vehículo'
       trucks: 'Vehículos'
+      message: 'Message'
+      messages: 'Messages'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT
       
     attributes:
@@ -954,4 +973,12 @@ es:
         company_id: 'Compañía: '
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
+      message:
+        id: 'Id: '
+        message: 'Message: '
+        user_id: 'User: '
+        branch_id: 'Branch: '
+        company_id: 'Company: '
+        created_at: 'Created At: '
+        updated_at: 'Updated At: '
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
