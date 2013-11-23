@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   include ApplicationHelper  
   protect_from_forgery with: :exception
-  before_filter :get_user_status, :set_action_icon, :set_locale#, :get_data_counters
+  before_filter :get_user_status, :set_action_icon, :set_locale, :get_data_counters
   
   before_filter :get_user_status
 
@@ -26,18 +26,18 @@ class ApplicationController < ActionController::Base
     end
   end
   
-#  def get_data_counters
-#    if signed_in?
-#      companies
-#      branches
-#      roles
-#      users
-#      comments
-#      statuses
-#      cellphones
-#      trucks
-#    end
-#  end
+  def get_data_counters
+    if signed_in?
+      companies
+      branches
+      roles
+      users
+      comments
+      statuses
+      cellphones
+      trucks
+    end
+  end
   
   def get_user_status
     if signed_in?

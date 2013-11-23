@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131115065559) do
+ActiveRecord::Schema.define(version: 20131122053233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,62 @@ ActiveRecord::Schema.define(version: 20131115065559) do
   add_index "cellphones", ["company_id"], name: "index_cellphones_on_company_id", using: :btree
   add_index "cellphones", ["user_id"], name: "index_cellphones_on_user_id", using: :btree
 
+  create_table "client_branches", force: true do |t|
+    t.string   "name"
+    t.string   "contact"
+    t.string   "email1"
+    t.string   "email2"
+    t.string   "webpage"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "fax"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "country"
+    t.text     "description"
+    t.integer  "client_id"
+    t.integer  "company_id"
+    t.integer  "branch_id"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "client_branches", ["branch_id"], name: "index_client_branches_on_branch_id", using: :btree
+  add_index "client_branches", ["client_id"], name: "index_client_branches_on_client_id", using: :btree
+  add_index "client_branches", ["company_id"], name: "index_client_branches_on_company_id", using: :btree
+
+  create_table "clients", force: true do |t|
+    t.string   "name"
+    t.string   "contact"
+    t.string   "email1"
+    t.string   "email2"
+    t.string   "webpage"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "fax"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "country"
+    t.text     "description"
+    t.integer  "company_id"
+    t.integer  "branch_id"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "clients", ["branch_id"], name: "index_clients_on_branch_id", using: :btree
+  add_index "clients", ["company_id"], name: "index_clients_on_company_id", using: :btree
+
   create_table "comments", force: true do |t|
     t.integer  "user_id"
     t.string   "email",      null: false
@@ -99,12 +155,19 @@ ActiveRecord::Schema.define(version: 20131115065559) do
     t.datetime "logo_updated_at"
   end
 
-  create_table "dogs", force: true do |t|
-    t.string   "name"
-    t.text     "description"
+  create_table "drivers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "truck_id"
+    t.integer  "branch_id"
+    t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "drivers", ["branch_id"], name: "index_drivers_on_branch_id", using: :btree
+  add_index "drivers", ["company_id"], name: "index_drivers_on_company_id", using: :btree
+  add_index "drivers", ["truck_id"], name: "index_drivers_on_truck_id", using: :btree
+  add_index "drivers", ["user_id"], name: "index_drivers_on_user_id", using: :btree
 
   create_table "error_reports", force: true do |t|
     t.integer  "user_id"
@@ -168,6 +231,27 @@ ActiveRecord::Schema.define(version: 20131115065559) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tasks", force: true do |t|
+    t.string   "name"
+    t.integer  "driver_id"
+    t.integer  "branch_id"
+    t.integer  "company_id"
+    t.boolean  "completed"
+    t.string   "priority"
+    t.date     "scheduled_date"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.text     "description"
+    t.text     "comments"
+    t.datetime "completed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["branch_id"], name: "index_tasks_on_branch_id", using: :btree
+  add_index "tasks", ["company_id"], name: "index_tasks_on_company_id", using: :btree
+  add_index "tasks", ["driver_id"], name: "index_tasks_on_driver_id", using: :btree
 
   create_table "trucks", force: true do |t|
     t.string   "model"

@@ -109,7 +109,7 @@ module ApplicationHelper
     end
   end
   
-    def messages
+  def messages
     if current_user.role.super_admin
       @messages = Message.order('id DESC').paginate(:page => params[:page])
       @messages_count = @messages.count

@@ -1,11 +1,7 @@
 ---
 es:
-  messages:
+  tasks:
     index:
-      user: User
+      driver: Driver
       branch: Branch
-en:
-  messages:
-    index:
-      user: User
-      branch: Branch
+      company: Company

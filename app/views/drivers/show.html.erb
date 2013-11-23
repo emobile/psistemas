@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header">
+        <ul class="nav nav-tabs nav-tabs-left">
+          <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+        </ul>
+        <div class="title"><%= @driver.driver_truck %></div>
+      </div>
+
+      <div class="box-content">
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            <ul class="box-list">
+              <li>
+                <span><strong><%= t'.user_id' %></strong> <%= @driver.user.fullname %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.truck_id' %></strong> <%= @driver.truck.modelbrand %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.branch_id' %></strong> <%= @driver.branch.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.company_id' %></strong> <%= @driver.company.name %></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="box-footer padded">
+        <span class="pull-right">
+          <%= render "layouts/action_links" %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

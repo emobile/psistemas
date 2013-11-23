@@ -115,7 +115,7 @@
                   </li>
                 <%else%>
                   <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
-                  <%= f.hidden_field :branch_id, :value => current_user.company_id, :readonly => true %>
+                  <%= f.hidden_field :branch_id, :value => current_user.branch_id, :readonly => true %>
                   <li class="field">
                     <%= f.label :role_id %>
                     <%= f.collection_select(:role_id, @roles, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>

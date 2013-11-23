@@ -1,4 +1,12 @@
 Serviroute::Application.routes.draw do
+  resources :client_branches
+
+  resources :clients
+
+  resources :tasks
+
+  resources :drivers
+
   resources :messages
 
   resources :trucks
