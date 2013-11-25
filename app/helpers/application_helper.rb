@@ -122,6 +122,32 @@ module ApplicationHelper
     end
   end
   
+  def clients
+    if current_user.role.super_admin
+      @clients = Client.order('id DESC').paginate(:page => params[:page])
+      @clients_count = @clients.count
+    elsif current_user.role.company_admin
+      @clients = Client.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @clients_count = @clients.count
+    else  
+      @clients = Client.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+      @clients_count = @clients.count
+    end
+  end
+  
+  def client_branches
+    if current_user.role.super_admin
+      @client_branches = ClientBranch.order('id DESC').paginate(:page => params[:page])
+      @client_branches_count = @client_branches.count
+    elsif current_user.role.company_admin
+      @client_branches = ClientBranch.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @client_branches_count = @client_branches.count
+    else  
+      @client_branches = ClientBranch.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+      @client_branches_count = @client_branches.count
+    end
+  end
+  
   def families
     if current_user.role.super_admin
       @families = Family.order('id DESC').paginate(:page => params[:page])

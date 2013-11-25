@@ -12,59 +12,37 @@
           <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
             <thead>
               <tr>
-                <th><div><%= t'.id' %></div></th>
-                          <th><div><%= t'.name' %></div></th>
-                          <th><div><%= t'.contact' %></div></th>
-                          <th><div><%= t'.email1' %></div></th>
-                          <th><div><%= t'.email2' %></div></th>
-                          <th><div><%= t'.webpage' %></div></th>
-                          <th><div><%= t'.phone1' %></div></th>
-                          <th><div><%= t'.phone2' %></div></th>
-                          <th><div><%= t'.fax' %></div></th>
-                          <th><div><%= t'.address1' %></div></th>
-                          <th><div><%= t'.address2' %></div></th>
-                          <th><div><%= t'.city' %></div></th>
-                          <th><div><%= t'.state' %></div></th>
-                          <th><div><%= t'.zip' %></div></th>
-                          <th><div><%= t'.country' %></div></th>
-                          <th><div><%= t'.description' %></div></th>
-                          <th><div><%= t'.company_id' %></div></th>
-                          <th><div><%= t'.branch_id' %></div></th>
-                          <th><div><%= t'.latitude' %></div></th>
-                          <th><div><%= t'.longitude' %></div></th>
-                        <th><div><%= t('layouts.application.actions') %></div></th>
+                <th><div><%= t('.id') %></div></th>
+            <th><div><%= t('.name') %></div></th>
+            <th><div><%= t('.contact') %></div></th>          
+            <th><div><%= t('.email1') %></div></th>
+            <th><div><%= t('.webpage') %></div></th>
+            <th><div><%= t('.phone1') %></div></th>
+            <th><div><%= t('.city') %></div></th>
+            <th><div><%= t('.state') %></div></th>
+            <th><div><%= t'.branch_id' %></div></th>
+            <th><div><%= t('layouts.application.actions') %></div></th>
             </tr>
             </thead>
             <tbody>
               <% @clients.each do |client| %>
-              <% @model = client %> 
-              <tr>
-                <%if can? :show, Client %>
-                <td><%=link_to client.id, client, :class => 'btn btn-mini btn-blue'%></td>
-                <%else%>
-                <td><%= label client.id, client.id, :class => 'btn btn-mini btn-blue'%></td>
-                <%end%>
-                                  <td><%= client.name %></td>
-                                  <td><%= client.contact %></td>
-                                  <td><%= client.email1 %></td>
-                                  <td><%= client.email2 %></td>
-                                  <td><%= client.webpage %></td>
-                                  <td><%= client.phone1 %></td>
-                                  <td><%= client.phone2 %></td>
-                                  <td><%= client.fax %></td>
-                                  <td><%= client.address1 %></td>
-                                  <td><%= client.address2 %></td>
-                                  <td><%= client.city %></td>
-                                  <td><%= client.state %></td>
-                                  <td><%= client.zip %></td>
-                                  <td><%= client.country %></td>
-                                  <td><%= client.description %></td>
-                                  <td><%= client.company %></td>
-                                  <td><%= client.branch %></td>
-                                  <td><%= client.latitude %></td>
-                                  <td><%= client.longitude %></td>
-                                <td><%= render "layouts/index_links" %></td>
-              </tr>
+                <% @model = client %> 
+                <tr>
+                  <%if can? :show, Client %>
+                    <td><%=link_to client.id, client, :class => 'btn btn-mini btn-blue'%></td>
+                  <%else%>
+                    <td><%= label client.id, client.id, :class => 'btn btn-mini btn-blue'%></td>
+                  <%end%>
+                  <td><%= client.name %></td>
+                  <td><%= client.contact %></td>
+                  <td><%= client.email1 %></td>
+                  <td><%= client.webpage %></td>
+                  <td><%= number_to_phone(client.phone1, area_code: true) %></td>
+                  <td><%= client.city %></td>
+                  <td><%= client.state %></td>
+                  <td><%= client.branch.name %></td>
+                  <td><%= render "layouts/index_links" %></td>
+                </tr>
               <% end %>
             </tbody>
           </table>

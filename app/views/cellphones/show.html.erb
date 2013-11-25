@@ -14,7 +14,7 @@
           <div class="tab-pane active" id="home">
             <ul class="box-list">
               <li>
-                <span><strong><%= t'.phone_number' %></strong> <%= @cellphone.phone_number %></span>
+                <span><strong><%= t'.phone_number' %></strong> <%= number_to_phone(@cellphone.phone_number, area_code: true) %></span>
               </li>
               <li>
                 <span><strong><%= t'.user_id' %></strong> <%= @cellphone.user.fullname if @cellphone.user %></span>

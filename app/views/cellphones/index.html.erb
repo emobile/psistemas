@@ -31,7 +31,7 @@
                   <%else%>
                     <td><%= label cellphone.id, cellphone.id, :class => 'btn btn-mini btn-blue'%></td>
                   <%end%>
-                  <td><%= cellphone.phone_number %></td>
+                  <td><%= number_to_phone(cellphone.phone_number, area_code: true) %></td>
                   <td><%= cellphone.model %></td>
                   <td><%= cellphone.brand %></td>
                   <td><%= cellphone.imei %></td>

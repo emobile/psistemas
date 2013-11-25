@@ -34,6 +34,37 @@
           <div class="row">
             <div class="col-lg-6">
               <ul class="padded separate-sections">
+                <%if current_user.role.super_admin %>
+                  <li class="field">
+                    <%= f.label :company_id %>
+                    <%= f.collection_select(:company_id, @companies, :id, :name, {}, { :class => 'chzn-select' }) %>
+                  </li>
+                  <li class="field">
+                    <%= f.label :branch_id %>
+                    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+                  </li>
+                  <li class="field">
+                    <%= f.label :client_id %>
+                    <%= f.collection_select(:client_id, @clients, :id, :name, {}, { :class => 'chzn-select' }) %>
+                  </li>
+                <%elsif current_user.role.company_admin%>
+                  <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
+                  <li class="field">
+                    <%= f.label :branch_id %>
+                    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+                  </li>
+                  <li class="field">
+                    <%= f.label :client_id %>
+                    <%= f.collection_select(:client_id, @clients, :id, :name, {}, { :class => 'chzn-select' }) %>
+                  </li>
+                <%else%>
+                  <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
+                  <%= f.hidden_field :branch_id, :value => current_user.branch_id, :readonly => true %>
+                  <li class="field">
+                    <%= f.label :client_id %>
+                    <%= f.collection_select(:client_id, @clients, :id, :name, {}, { :class => 'chzn-select' }) %>
+                  </li>              
+                <%end%>
                 <li class="field">
                   <%= f.label :name %>
                   <%= f.text_field :name, :required => true, :placeholder => t(:required) %>
@@ -48,11 +79,11 @@
                 </li>
                 <li class="field">
                   <%= f.label :email2 %>
-                  <%= f.text_field :email2, :required => true, :placeholder => t(:required) %>
+                  <%= f.text_field :email2%>
                 </li>
                 <li class="field">
                   <%= f.label :webpage %>
-                  <%= f.text_field :webpage, :required => true, :placeholder => t(:required) %>
+                  <%= f.text_field :webpage %>
                 </li>
                 <li class="field">
                   <%= f.label :phone1 %>
@@ -60,12 +91,18 @@
                 </li>
                 <li class="field">
                   <%= f.label :phone2 %>
-                  <%= f.text_field :phone2, :required => true, :placeholder => t(:required) %>
+                  <%= f.text_field :phone2%>
                 </li>
                 <li class="field">
                   <%= f.label :fax %>
-                  <%= f.text_field :fax, :required => true, :placeholder => t(:required) %>
+                  <%= f.text_field :fax%>
                 </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-6">
+
+              <ul class="padded separate-sections">
                 <li class="field">
                   <%= f.label :address1 %>
                   <%= f.text_field :address1, :required => true, :placeholder => t(:required) %>
@@ -75,48 +112,25 @@
                   <%= f.text_field :address2, :required => true, :placeholder => t(:required) %>
                 </li>
                 <li class="field">
-                  <%= f.label :city %>
-                  <%= f.text_field :city, :required => true, :placeholder => t(:required) %>
-                </li>
-                <li class="field">
-                  <%= f.label :state %>
-                  <%= f.text_field :state, :required => true, :placeholder => t(:required) %>
-                </li>
-                <li class="field">
                   <%= f.label :zip %>
                   <%= f.number_field :zip, :required => true, :placeholder => t(:required) %>
                 </li>
                 <li class="field">
                   <%= f.label :country %>
-                  <%= f.text_field :country, :required => true, :placeholder => t(:required) %>
+                  <%= f.country_select(:country, [ "Mexico", "United States", "Peru" ], {}, { :class => 'chzn-select' })%>
+                </li>
+                <li class="field">
+                  <%= f.label :state %>
+                  <%= f.select :state, mx_states, {}, { :class => 'chzn-select' }%>
+                </li>
+                <li class="field">
+                  <%= f.label :city %>
+                  <%= f.text_field :city, :required => true, :placeholder => t(:required) %>
                 </li>
                 <li class="field">
                   <%= f.label :description %>
-                  <%= f.text_area :description, :required => true, :placeholder => t(:required) %>
+                  <%= f.text_area :description, :rows=>"3" %>
                 </li>
-                <li class="field">
-                  <%= f.label :client_id %>
-                  <%= f.text_field :client_id, :required => true, :placeholder => t(:required) %>
-                </li>
-                <%if current_user.role.super_admin %>
-                  <li class="field">
-                    <%= f.label :company_id %>
-                    <%= f.collection_select(:company_id, @companies, :id, :name, {}, { :class => 'chzn-select' }) %>
-                  </li>
-                  <li class="field">
-                    <%= f.label :branch_id %>
-                    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
-                  </li>
-                <%elsif current_user.role.company_admin%>
-                  <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
-                  <li class="field">
-                    <%= f.label :branch_id %>
-                    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
-                  </li>
-                <%else%>
-                  <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
-                  <%= f.hidden_field :branch_id, :value => current_user.branch_id, :readonly => true %>
-                <%end%>
                 <li class="field">
                   <%= f.label :latitude %>
                   <%= f.text_field :latitude, :required => true, :placeholder => t(:required) %>
@@ -125,11 +139,6 @@
                   <%= f.label :longitude %>
                   <%= f.text_field :longitude, :required => true, :placeholder => t(:required) %>
                 </li>
-              </ul>
-            </div>
-
-            <div class="col-lg-6">
-              <ul class="padded separate-sections">
               </ul>
             </div>
           </div>

@@ -4,73 +4,126 @@
       <div class="box-header">
         <ul class="nav nav-tabs nav-tabs-left">
           <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+          <li><a href="#contact-info" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('layouts.application.contact_info')%></span></a></li>
+          <li><a href="#location" data-toggle="tab"><i class="icon-map-marker"></i> <span><%=t('layouts.application.location')%></span></a></li>        
         </ul>
-        <div class="title"><%= "MODEL" %></div>
+        <div class="title"><%= @client.name %></div>
       </div>
 
       <div class="box-content">
         <div class="tab-content">
           <div class="tab-pane active" id="home">
             <ul class="box-list">
-                              <li>
-                  <span><strong><%= t'.name' %></strong> <%= @client.name %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.contact' %></strong> <%= @client.contact %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.email1' %></strong> <%= @client.email1 %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.email2' %></strong> <%= @client.email2 %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.webpage' %></strong> <%= @client.webpage %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.phone1' %></strong> <%= @client.phone1 %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.phone2' %></strong> <%= @client.phone2 %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.fax' %></strong> <%= @client.fax %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.address1' %></strong> <%= @client.address1 %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.address2' %></strong> <%= @client.address2 %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.city' %></strong> <%= @client.city %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.state' %></strong> <%= @client.state %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.zip' %></strong> <%= @client.zip %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.country' %></strong> <%= @client.country %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.description' %></strong> <%= @client.description %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.company_id' %></strong> <%= @client.company %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.branch_id' %></strong> <%= @client.branch %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.latitude' %></strong> <%= @client.latitude %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.longitude' %></strong> <%= @client.longitude %></span>
-                </li>
-                          </ul>
+              <li>
+                <span><strong><%= t'.name' %></strong> <%= @client.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.description') %></strong><%= @client.description %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.company_id' %></strong> <%= @client.company.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.branch_id' %></strong> <%= @client.branch.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.created_at') %></strong><%=  I18n.l @client.created_at, :format => :long if @client.created_at%></span>
+              </li>
+              <li>
+                <span><strong><%= t('.updated_at') %></strong><%= I18n.l @client.updated_at, :format => :long if  @client.updated_at%></span>
+              </li>
+            </ul>
           </div>
+          <div class="tab-pane" id="contact-info">
+            <ul class="box-list">
+              <li>
+                <span><strong><%= t'.contact' %></strong> <%= @client.contact %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.email1' %></strong> <%= @client.email1 %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.email2' %></strong> <%= @client.email2 %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.webpage' %></strong> <%= @client.webpage %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.phone1' %></strong> <%= number_to_phone(@client.phone1, area_code: true) %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.phone2' %></strong> <%= number_to_phone(@client.phone2, area_code: true) %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.fax' %></strong> <%= number_to_phone(@client.fax, area_code: true) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('layouts.application.fulladdress') %></strong><%= @client.fulladdress %></span>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane" id="location">
+            <ul class="box-list">
+              <li>
+                <span><strong><%= t'layouts.application.coordinates' %></strong>(<%= @client.latitude %>, <%= @client.longitude %>)</span>
+              </li>
+              <li>
+                <span><strong><%= t('layouts.application.fulladdress') %></strong><%= @client.fulladdress %></span>
+              </li>
+            </ul>
+          </div>
+          <%if @client.latitude and @client.longitude %>
+            <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+            <article>
+              <span id="status"></span>
+            </article>
+            <script>
+              function success(position) {
+                var s = document.querySelector('#status');
+                if (s.className == 'success') {
+                  // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
+                  return;
+                }
+
+                s.innerHTML = "";
+                s.className = 'success';
+
+                var mapcanvas = document.createElement('div');
+                mapcanvas.id = 'mapcanvas';
+                mapcanvas.style.height = '300px';
+                mapcanvas.style.width = '100%';
+                document.querySelector('article').appendChild(mapcanvas);
+                var myOptions = {
+                  zoom: 17,
+                  center: new google.maps.LatLng(<%= @client.latitude %>, <%= @client.longitude %>),
+                  mapTypeControl: false,
+                  navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+                var initlatlng = new google.maps.LatLng(<%= @client.latitude %>, <%= @client.longitude %>);
+                var marker = new google.maps.Marker({
+                  position: initlatlng,
+                  map: map,
+                  icon: "/assets/ok.png",
+                  title: "<%= @client.fulladdress %>"
+                });
+              }
+
+              function error(msg) {
+                var s = document.querySelector('#status');
+                s.innerHTML = typeof msg == 'string' ? msg : "failed";
+                s.className = 'fail';
+              }
+
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(success, error);
+              } else {
+                error('not supported');
+              }
+
+            </script>
+          <%end%>
         </div>
       </div>
       <div class="box-footer padded">

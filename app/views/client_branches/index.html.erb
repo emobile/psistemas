@@ -3,7 +3,7 @@
     <div class="box">
       <div class="box-header"><span class="title"><%= t("activerecord.models.#{controller_name}") %></span>
         <ul class="box-toolbar">
-          <li><span class="label label-blue"><% @client_branches_count %></span></li>
+          <li><span class="label label-blue"><% @clients_count %></span></li>
         </ul>
       </div>
       <div class="box-content">
@@ -12,61 +12,37 @@
           <table cellpadding="0" cellspacing="0" border="0" class="dTable responsive">
             <thead>
               <tr>
-                <th><div><%= t'.id' %></div></th>
-                          <th><div><%= t'.name' %></div></th>
-                          <th><div><%= t'.contact' %></div></th>
-                          <th><div><%= t'.email1' %></div></th>
-                          <th><div><%= t'.email2' %></div></th>
-                          <th><div><%= t'.webpage' %></div></th>
-                          <th><div><%= t'.phone1' %></div></th>
-                          <th><div><%= t'.phone2' %></div></th>
-                          <th><div><%= t'.fax' %></div></th>
-                          <th><div><%= t'.address1' %></div></th>
-                          <th><div><%= t'.address2' %></div></th>
-                          <th><div><%= t'.city' %></div></th>
-                          <th><div><%= t'.state' %></div></th>
-                          <th><div><%= t'.zip' %></div></th>
-                          <th><div><%= t'.country' %></div></th>
-                          <th><div><%= t'.description' %></div></th>
-                          <th><div><%= t'.client_id' %></div></th>
-                          <th><div><%= t'.company_id' %></div></th>
-                          <th><div><%= t'.branch_id' %></div></th>
-                          <th><div><%= t'.latitude' %></div></th>
-                          <th><div><%= t'.longitude' %></div></th>
-                        <th><div><%= t('layouts.application.actions') %></div></th>
+                <th><div><%= t('.id') %></div></th>
+            <th><div><%= t('.name') %></div></th>
+            <th><div><%= t('.contact') %></div></th>          
+            <th><div><%= t('.email1') %></div></th>
+            <th><div><%= t('.webpage') %></div></th>
+            <th><div><%= t('.phone1') %></div></th>
+            <th><div><%= t('.city') %></div></th>
+            <th><div><%= t('.state') %></div></th>
+            <th><div><%= t'.branch_id' %></div></th>
+            <th><div><%= t('layouts.application.actions') %></div></th>
             </tr>
             </thead>
             <tbody>
               <% @client_branches.each do |client_branch| %>
-              <% @model = client_branch %> 
-              <tr>
-                <%if can? :show, ClientBranch %>
-                <td><%=link_to client_branch.id, client_branch, :class => 'btn btn-mini btn-blue'%></td>
-                <%else%>
-                <td><%= label client_branch.id, client_branch.id, :class => 'btn btn-mini btn-blue'%></td>
-                <%end%>
-                                  <td><%= client_branch.name %></td>
-                                  <td><%= client_branch.contact %></td>
-                                  <td><%= client_branch.email1 %></td>
-                                  <td><%= client_branch.email2 %></td>
-                                  <td><%= client_branch.webpage %></td>
-                                  <td><%= client_branch.phone1 %></td>
-                                  <td><%= client_branch.phone2 %></td>
-                                  <td><%= client_branch.fax %></td>
-                                  <td><%= client_branch.address1 %></td>
-                                  <td><%= client_branch.address2 %></td>
-                                  <td><%= client_branch.city %></td>
-                                  <td><%= client_branch.state %></td>
-                                  <td><%= client_branch.zip %></td>
-                                  <td><%= client_branch.country %></td>
-                                  <td><%= client_branch.description %></td>
-                                  <td><%= client_branch.client %></td>
-                                  <td><%= client_branch.company %></td>
-                                  <td><%= client_branch.branch %></td>
-                                  <td><%= client_branch.latitude %></td>
-                                  <td><%= client_branch.longitude %></td>
-                                <td><%= render "layouts/index_links" %></td>
-              </tr>
+                <% @model = client_branch %> 
+                <tr>
+                  <%if can? :show, Client %>
+                    <td><%=link_to client_branch.id, client_branch, :class => 'btn btn-mini btn-blue'%></td>
+                  <%else%>
+                    <td><%= label client_branch.id, client_branch.id, :class => 'btn btn-mini btn-blue'%></td>
+                  <%end%>
+                  <td><%= client_branch.name %></td>
+                  <td><%= client_branch.contact %></td>
+                  <td><%= client_branch.email1 %></td>
+                  <td><%= client_branch.webpage %></td>
+                  <td><%= number_to_phone(client_branch.phone1, area_code: true) %></td>
+                  <td><%= client_branch.city %></td>
+                  <td><%= client_branch.state %></td>
+                  <td><%= client_branch.branch.name %></td>
+                  <td><%= render "layouts/index_links" %></td>
+                </tr>
               <% end %>
             </tbody>
           </table>

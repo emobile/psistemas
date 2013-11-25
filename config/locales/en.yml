@@ -408,7 +408,11 @@ en:
       form_reset: "Reset Form"
       admin: "Administrator: "
       phone1: "Phone: "
-      email1: "E-mail: "       
+      email1: "E-mail: "
+      details: "Details: "
+      location: "Location"
+      fulladdress: "Address: "
+      coordinates: "Coordinates: "      
     shortcuts:
       comments: "Comments"
       create_company: "New Company"

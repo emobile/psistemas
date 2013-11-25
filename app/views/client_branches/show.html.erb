@@ -4,76 +4,129 @@
       <div class="box-header">
         <ul class="nav nav-tabs nav-tabs-left">
           <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+          <li><a href="#contact-info" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('layouts.application.contact_info')%></span></a></li>
+          <li><a href="#location" data-toggle="tab"><i class="icon-map-marker"></i> <span><%=t('layouts.application.location')%></span></a></li>        
         </ul>
-        <div class="title"><%= "MODEL" %></div>
+        <div class="title"><%= @client_branch.name %></div>
       </div>
 
       <div class="box-content">
         <div class="tab-content">
           <div class="tab-pane active" id="home">
             <ul class="box-list">
-                              <li>
-                  <span><strong><%= t'.name' %></strong> <%= @client_branch.name %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.contact' %></strong> <%= @client_branch.contact %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.email1' %></strong> <%= @client_branch.email1 %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.email2' %></strong> <%= @client_branch.email2 %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.webpage' %></strong> <%= @client_branch.webpage %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.phone1' %></strong> <%= @client_branch.phone1 %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.phone2' %></strong> <%= @client_branch.phone2 %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.fax' %></strong> <%= @client_branch.fax %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.address1' %></strong> <%= @client_branch.address1 %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.address2' %></strong> <%= @client_branch.address2 %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.city' %></strong> <%= @client_branch.city %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.state' %></strong> <%= @client_branch.state %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.zip' %></strong> <%= @client_branch.zip %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.country' %></strong> <%= @client_branch.country %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.description' %></strong> <%= @client_branch.description %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.client_id' %></strong> <%= @client_branch.client %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.company_id' %></strong> <%= @client_branch.company %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.branch_id' %></strong> <%= @client_branch.branch %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.latitude' %></strong> <%= @client_branch.latitude %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.longitude' %></strong> <%= @client_branch.longitude %></span>
-                </li>
-                          </ul>
+              <li>
+                <span><strong><%= t'.name' %></strong> <%= @client_branch.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.description') %></strong><%= @client_branch.description %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.client_id' %></strong> <%= @client_branch.client.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.company_id' %></strong> <%= @client_branch.company.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.branch_id' %></strong> <%= @client_branch.branch.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.created_at') %></strong><%=  I18n.l @client_branch.created_at, :format => :long if @client_branch.created_at%></span>
+              </li>
+              <li>
+                <span><strong><%= t('.updated_at') %></strong><%= I18n.l @client_branch.updated_at, :format => :long if  @client_branch.updated_at%></span>
+              </li>
+            </ul>
           </div>
+          <div class="tab-pane" id="contact-info">
+            <ul class="box-list">
+              <li>
+                <span><strong><%= t'.contact' %></strong> <%= @client_branch.contact %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.email1' %></strong> <%= @client_branch.email1 %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.email2' %></strong> <%= @client_branch.email2 %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.webpage' %></strong> <%= @client_branch.webpage %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.phone1' %></strong> <%= number_to_phone(@client_branch.phone1, area_code: true) %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.phone2' %></strong> <%= number_to_phone(@client_branch.phone2, area_code: true) %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.fax' %></strong> <%= number_to_phone(@client_branch.fax, area_code: true) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('layouts.application.fulladdress') %></strong><%= @client_branch.fulladdress %></span>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane" id="location">
+            <ul class="box-list">
+              <li>
+                <span><strong><%= t'layouts.application.coordinates' %></strong>(<%= @client_branch.latitude %>, <%= @client_branch.longitude %>)</span>
+              </li>
+              <li>
+                <span><strong><%= t('layouts.application.fulladdress') %></strong><%= @client_branch.fulladdress %></span>
+              </li>
+            </ul>
+          </div>
+          <%if @client_branch.latitude and @client_branch.longitude %>
+            <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+            <article>
+              <span id="status"></span>
+            </article>
+            <script>
+              function success(position) {
+                var s = document.querySelector('#status');
+                if (s.className == 'success') {
+                  // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
+                  return;
+                }
+
+                s.innerHTML = "";
+                s.className = 'success';
+
+                var mapcanvas = document.createElement('div');
+                mapcanvas.id = 'mapcanvas';
+                mapcanvas.style.height = '300px';
+                mapcanvas.style.width = '100%';
+                document.querySelector('article').appendChild(mapcanvas);
+                var myOptions = {
+                  zoom: 17,
+                  center: new google.maps.LatLng(<%= @client_branch.latitude %>, <%= @client_branch.longitude %>),
+                  mapTypeControl: false,
+                  navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+                var initlatlng = new google.maps.LatLng(<%= @client_branch.latitude %>, <%= @client_branch.longitude %>);
+                var marker = new google.maps.Marker({
+                  position: initlatlng,
+                  map: map,
+                  icon: "/assets/ok.png",
+                  title: "<%= @client_branch.fulladdress %>"
+                });
+              }
+
+              function error(msg) {
+                var s = document.querySelector('#status');
+                s.innerHTML = typeof msg == 'string' ? msg : "failed";
+                s.className = 'fail';
+              }
+
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(success, error);
+              } else {
+                error('not supported');
+              }
+
+            </script>
+          <%end%>
         </div>
       </div>
       <div class="box-footer padded">

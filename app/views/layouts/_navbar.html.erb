@@ -42,7 +42,7 @@
         <ul class="dropdown-menu">
           <% @models = Dir['app/models/*.rb'].map { |f| File.basename(f, '.*').camelize.constantize.name } %>
           <% @models -= %w{Ability} %>
-          <% @models.each do |model|%>
+          <% @models.sort.each do |model|%>
             <%if can? :index, eval(model)%>
               <li><%=link_to eval("t('activerecord.models.#{model.underscore.downcase.pluralize}')"), eval("#{model.underscore.pluralize.downcase}_path") %></li>
             <%end%>

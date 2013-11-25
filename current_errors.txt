@@ -6,3 +6,5 @@
 * Editar info de compania cuando se edita main branch
 * No se puede seleccionar la imagen del usuario o compania al momento de crearlos
 * Poner los campos faltantes en los json builders
+* Poner el campo de main_client_branch en client_branches
+* Crear automaticamente lasucursal principal del cliente al dar de alta un cliente

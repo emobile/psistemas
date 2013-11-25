@@ -403,12 +403,16 @@ es:
       show_my_account: "Mi Cuenta"
       leave_a_comment: "Soporte Técnico"
     application:
-      contact_info: "Información de Contactoo"      
+      contact_info: "Información de Contacto"      
       actions: "Acciones"
       form_reset: "Resetear Forma"
       admin: "Administrador: "
       phone1: "Teléfono: "
-      email1: "Correo Electrónico: "      
+      email1: "Correo Electrónico: "
+      details: "Detalles: "
+      location: "Ubicación"
+      fulladdress: "Dirección: "
+      coordinates: "Coordenadas: "      
     shortcuts:
       comments: "Comentarios"
       create_company: "Crear Compañía"
@@ -429,13 +433,13 @@ es:
       super_admin: "Súper Administrador: "
       company_admin: "Administrador de Compañía: "
       branch_admin: "Administrador de Sucursal: "      
-      super_manager: "Administrador de Compañía de Clientee: "
-      manager: "Administrador de Sucursal de Clientee: "      
+      super_manager: "Administrador de Compañía de Cliente: "
+      manager: "Administrador de Sucursal de Cliente: "      
       routes_admin: "Administrador de Rutas: "
       seller: "Vendedor: "      
       secretary: "Secretaría(o): "
       driver: "Conductor: "
-      client: "Clientee: "
+      client: "Cliente: "
       guess: "Invitado: " 
       other: "Otro: "  
       created_at: "Registrado el: "
@@ -448,13 +452,13 @@ es:
       super_admin: "Súper Administrador"
       company_admin: "Administrador de Compañía"
       branch_admin: "Administrador de Sucursal"      
-      super_manager: "Administrador de Compañía de Clientee"
-      manager: "Administrador de Sucursal de Clientee"      
+      super_manager: "Administrador de Compañía de Cliente"
+      manager: "Administrador de Sucursal de Cliente"      
       routes_admin: "Administrador de Rutas"
       seller: "Vendedor"      
       secretary: "Secretaría(o)"
       driver: "Conductor"
-      client: "Clientee"
+      client: "Cliente"
       guess: "Invitado"
       other: "Otro"       
       created_at: "Registrado el"
@@ -467,7 +471,7 @@ es:
     change_avatar: "Cambiar Imagen: "
     show:
       id: "Id: "
-      contact_info: "Información de Contactoo"
+      contact_info: "Información de Contacto"
       user_type: "Tipo de  Usuario"
       change_picture: "Cambiar Imagen"      
       fullname: "Nombre: "
@@ -546,7 +550,7 @@ es:
       id: 'Id: '
       name: 'Nombre: '
       change_logo: 'Cambiar Logo'
-      contact_name:  'Contactoo: '
+      contact_name:  'Contacto: '
       email1: 'Correo Electrónico Principal: '
       email2: 'Correo Electrónico Alternativo: '
       webpage: 'Página Web: '
@@ -567,7 +571,7 @@ es:
       id: 'Id'
       name: 'Nombre'
       change_logo: 'Cambiar Logo'
-      contact_name:  'Contactoo'
+      contact_name:  'Contacto'
       email1: 'Correo Electrónico Principal'
       email2: 'Correo Electrónico Alternativo'
       webpage: 'Página Web'
@@ -590,7 +594,7 @@ es:
       name: 'Nombre: '
       main_branch: "Sucursal Matriz: "      
       change_logo: 'Cambiar Logo'
-      contact_name:  'Contactoo: '     
+      contact_name:  'Contacto: '     
       email1: 'Correo Electrónico Principal: '
       email2: 'Correo Electrónico Alternativo: '
       webpage: 'Página Web: '
@@ -613,7 +617,7 @@ es:
       name: 'Nombre'
       main_branch: "Sucursal Matriz"    
       change_logo: 'Cambiar Logo'
-      contact_name:  'Contactoo'
+      contact_name:  'Contacto'
       email1: 'Correo Electrónico Principal'
       email2: 'Correo Electrónico Alternativo'
       webpage: 'Página Web'
@@ -819,7 +823,7 @@ es:
       contact: 'Contacto: '
       email1: 'Correo Electrónico: '
       email2: 'Correo Electrónico Alternativo: '
-      webpage: 'Pagina Web: '
+      webpage: 'Página Web: '
       phone1: 'Teléfono: '
       phone2: 'Celular: '
       fax: 'Fax: '
@@ -842,7 +846,7 @@ es:
       contact: 'Contacto'
       email1: 'Correo Electrónico'
       email2: 'Correo Electrónico Alternativo'
-      webpage: 'Pagina Web'
+      webpage: 'Página Web'
       phone1: 'Teléfono'
       phone2: 'Celular'
       fax: 'Fax'
@@ -866,7 +870,7 @@ es:
       contact: 'Contacto: '
       email1: 'Correo Electrónico: '
       email2: 'Correo Electrónico Alternativo: '
-      webpage: 'Pagina Web: '
+      webpage: 'Página Web: '
       phone1: 'Teléfono: '
       phone2: 'Celular: '
       fax: 'Fax: '
@@ -890,7 +894,7 @@ es:
       contact: 'Contacto'
       email1: 'Correo Electrónico'
       email2: 'Correo Electrónico Alternativo'
-      webpage: 'Pagina Web'
+      webpage: 'Página Web'
       phone1: 'Teléfono'
       phone2: 'Celular'
       fax: 'Fax'
@@ -1011,10 +1015,10 @@ es:
       drivers: 'Conductores'
       task: 'Tarea'
       tasks: 'Tareas'
-      client: 'Clientee'
-      clients: 'Clientees'
-      client_branch: 'Sucursal de Clientee'
-      client_branches: 'Sucursales de Clientees'
+      client: 'Cliente'
+      clients: 'Clientes'
+      client_branch: 'Sucursal de Cliente'
+      client_branches: 'Sucursales de Clientes'
       family: 'Familia'
       families: 'Familias'
       subfamily: 'Subfamilia'
@@ -1056,13 +1060,13 @@ es:
         super_admin: "Súper Administrador: "
         company_admin: "Administrador de Compañía: "
         branch_admin: "Administrador de Sucursal: "       
-        super_manager: "Administrador de Compañía de Clientee: "
-        manager: "Administrador de Sucursal de Clientee: "      
+        super_manager: "Administrador de Compañía de Cliente: "
+        manager: "Administrador de Sucursal de Cliente: "      
         routes_admin: "Administrador de Rutas: "
         seller: "Vendedor: "      
         secretary: "Secretaría(o): "
         driver: "Conductor: "
-        client: "Clientee: "
+        client: "Cliente: "
         guess: "Invitado: "
         other: "Otro: "          
         created_at: "Registrado el: "
@@ -1082,7 +1086,7 @@ es:
         id: 'Id: '
         name: 'Nombre: '
         change_logo: 'Cambiar Logo: '
-        contact_name: 'Contactoo: '
+        contact_name: 'Contacto: '
         email1: 'Correo Electrónico Principal: '
         email2: 'Correo Electrónico Alternativo: '
         webpage: 'Página Web: '
@@ -1102,7 +1106,7 @@ es:
         id: 'Id: '
         name: 'Nombre: '
         change_logo: 'Cambiar Logo: '
-        contact_name: 'Contactoo: '
+        contact_name: 'Contacto: '
         main_branch: "Sucursal Matriz: "
         email1: 'Correo Electrónico Principal: '
         email2: 'Correo Electrónico Alternativo: '
@@ -1213,7 +1217,7 @@ es:
         contact: 'Contacto: '
         email1: 'Correo Electrónico: '
         email2: 'Correo Electrónico Alternativo: '
-        webpage: 'Pagina Web: '
+        webpage: 'Página Web: '
         phone1: 'Teléfono: '
         phone2: 'Celular: '
         fax: 'Fax: '
@@ -1236,7 +1240,7 @@ es:
         contact: 'Contacto: '
         email1: 'Correo Electrónico: '
         email2: 'Correo Electrónico Alternativo: '
-        webpage: 'Pagina Web: '
+        webpage: 'Página Web: '
         phone1: 'Teléfono: '
         phone2: 'Celular: '
         fax: 'Fax: '

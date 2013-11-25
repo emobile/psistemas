@@ -36,6 +36,8 @@ class ApplicationController < ActionController::Base
       statuses
       cellphones
       trucks
+      clients
+      client_branches
     end
   end
   

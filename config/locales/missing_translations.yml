@@ -1,7 +1,0 @@
----
-es:
-  tasks:
-    index:
-      driver: Driver
-      branch: Branch
-      company: Company
