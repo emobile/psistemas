@@ -21,6 +21,8 @@ class Ability
         can :manage, Task, :company_id => @user.company_id 
         can :manage, Client, :company_id => @user.company_id         
         can :manage, ClientBranch, :company_id => @user.company_id 
+        can :manage, Family, :company_id => @user.company_id 
+        can :manage, Subfamily, :company_id => @user.company_id 
                         
       elsif @user.role.branch_admin == true
         can [:index, :show], Branch 
@@ -34,6 +36,8 @@ class Ability
         can :manage, Task, :branch_id => @user.branch_id 
         can :manage, Client, :branch_id => @user.branch_id 
         can :manage, ClientBranch, :branch_id => @user.branch_id 
+        can :manage, Family, :branch_id => @user.branch_id 
+        can :manage, Subfamily, :branch_id => @user.branch_id 
       elsif @user.role.super_manager == true
       elsif @user.role.manager == true
       elsif @user.role.secretary == true

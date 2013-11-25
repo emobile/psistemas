@@ -122,5 +122,31 @@ module ApplicationHelper
     end
   end
   
+  def families
+    if current_user.role.super_admin
+      @families = Family.order('id DESC').paginate(:page => params[:page])
+      @families_count = @families.count
+    elsif current_user.role.company_admin
+      @families = Family.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @families_count = @families.count
+    else  
+      @families = Family.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+      @families_count = @families.count
+    end
+  end
+  
+  def subfamilies
+    if current_user.role.super_admin
+      @subfamilies = Subfamily.order('id DESC').paginate(:page => params[:page])
+      @subfamilies_count = @subfamilies.count
+    elsif current_user.role.company_admin
+      @subfamilies = Subfamily.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @subfamilies_count = @subfamilies.count
+    else  
+      @subfamilies = Subfamily.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+      @subfamilies_count = @subfamilies.count
+    end
+  end
+  
   
 end
