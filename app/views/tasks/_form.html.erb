@@ -16,87 +16,98 @@
       <div class="box-content">
 
         <%= form_for(@task, :html => {:class => "fill-up", :id => "fill-up"}) do |f| %>
-        <% if @task.errors.any? %>
-        <div id="error_explanation">
-          <% if @task.errors.count == 1 %>
-          <h2><%= t('activerecord.errors.template.header.one', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) %></h2>
-          <% else %>
-          <h2><%= t('activerecord.errors.template.header.other', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"), :count => @task.errors.count) %></h2>
+          <% if @task.errors.any? %>
+            <div id="error_explanation">
+              <% if @task.errors.count == 1 %>
+                <h2><%= t('activerecord.errors.template.header.one', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}")) %></h2>
+              <% else %>
+                <h2><%= t('activerecord.errors.template.header.other', model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}"), :count => @task.errors.count) %></h2>
+              <% end %>
+              <ul>
+                <% @task.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
           <% end %>
-          <ul>
-            <% @task.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-        <% end %>
 
-        <div class="row">
-          <div class="col-lg-6">
-            <ul class="padded separate-sections">
-                              <li class="field">
-                                      <%= f.label :name %>
-                    <%= f.text_field :name, :required => true, :placeholder => t(:required) %>
-                                  </li>
-                              <li class="field">
-                                      <%= f.label :driver %>
-                    <%= f.text_field :driver, :required => true, :placeholder => t(:required) %>
-                                  </li>
-                              <li class="field">
-                                      <%= f.label :branch %>
-                    <%= f.text_field :branch, :required => true, :placeholder => t(:required) %>
-                                  </li>
-                              <li class="field">
-                                      <%= f.label :company %>
-                    <%= f.text_field :company, :required => true, :placeholder => t(:required) %>
-                                  </li>
-                              <li class="field">
-                                      <%= f.label :completed %>
-                    <%= f.check_box :completed, :required => true, :placeholder => t(:required) %>
-                                  </li>
-                              <li class="field">
-                                      <%= f.label :priority %>
-                    <%= f.text_field :priority, :required => true, :placeholder => t(:required) %>
-                                  </li>
-                              <li class="field">
-                                      <%= f.label :scheduled_date %>
-                    <%= f.date_select :scheduled_date, :required => true, :placeholder => t(:required) %>
-                                  </li>
-                              <li class="field">
-                                      <%= f.label :latitude %>
-                    <%= f.text_field :latitude, :required => true, :placeholder => t(:required) %>
-                                  </li>
-                              <li class="field">
-                                      <%= f.label :longitude %>
-                    <%= f.text_field :longitude, :required => true, :placeholder => t(:required) %>
-                                  </li>
-                              <li class="field">
-                                      <%= f.label :description %>
-                    <%= f.text_area :description, :required => true, :placeholder => t(:required) %>
-                                  </li>
-                              <li class="field">
-                                      <%= f.label :comments %>
-                    <%= f.text_area :comments, :required => true, :placeholder => t(:required) %>
-                                  </li>
-                              <li class="field">
-                                      <%= f.label :completed_at %>
-                    <%= f.datetime_select :completed_at, :required => true, :placeholder => t(:required) %>
-                                  </li>
-                          </ul>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul class="padded separate-sections">
+                <li class="field">
+                  <%= f.label :name %>
+                  <%= f.text_field :name, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :driver_id %>
+                  <%= f.text_field :driver_id, :required => true, :placeholder => t(:required) %>
+                </li>
+                <%if current_user.role.super_admin %>
+                  <li class="field">
+                    <%= f.label :company_id %>
+                    <%= f.collection_select(:company_id, @companies, :id, :name, {}, { :class => 'chzn-select' }) %>
+                  </li>
+                  <li class="field">
+                    <%= f.label :branch_id %>
+                    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+                  </li>
+                <%elsif current_user.role.company_admin%>
+                  <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
+                  <li class="field">
+                    <%= f.label :branch_id %>
+                    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+                  </li>
+                <%else%>
+                  <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
+                  <%= f.hidden_field :branch_id, :value => current_user.branch_id, :readonly => true %>
+                <%end%>
+                <li class="field">
+                  <%= f.label :completed %>
+                  <%= f.check_box :completed, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :priority %>
+                  <%= f.text_field :priority, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :scheduled_date %>
+                  <%= f.date_select :scheduled_date, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :latitude %>
+                  <%= f.text_field :latitude, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :longitude %>
+                  <%= f.text_field :longitude, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :description %>
+                  <%= f.text_area :description, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :comments %>
+                  <%= f.text_area :comments, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :completed_at %>
+                  <%= f.datetime_select :completed_at, :required => true, :placeholder => t(:required) %>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-6">
+              <ul class="padded separate-sections">
+              </ul>
+            </div>
           </div>
 
-          <div class="col-lg-6">
-            <ul class="padded separate-sections">
-            </ul>
+          <div class="form-actions">
+            <%=f.button  :class=>"btn btn-blue", :title => t("actions.form_#{action_name}",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
+              <i class="icon-circle-arrow-up"></i> <%= t("actions.form_#{action_name}",  model: t("activerecord.models.#{controller_name.singularize}")) %>
+            <%end%>
+            <%= render "layouts/action_links" %>
           </div>
-        </div>
-
-        <div class="form-actions">
-          <%=f.button  :class=>"btn btn-blue", :title => t("actions.form_#{action_name}",  model: t("activerecord.models.#{controller_name.singularize}")) do%>
-          <i class="icon-circle-arrow-up"></i> <%= t("actions.form_#{action_name}",  model: t("activerecord.models.#{controller_name.singularize}")) %>
-          <%end%>
-          <%= render "layouts/action_links" %>
-        </div>
         <% end %>
       </div>
     </div>

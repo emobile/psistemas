@@ -31,7 +31,7 @@
 
                 <div class="field">
                   <%= f.label :user_id %><br>
-                  <%= f.text_field :user, :value => current_user.fullname, :readonly => true  %>
+                  <%= f.text_field :user_id, :value => current_user.fullname, :readonly => true  %>
                   <%= f.hidden_field :user_id, :value => current_user.id, :readonly => true  %>
                 </div>
                 <div class="field">
