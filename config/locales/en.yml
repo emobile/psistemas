@@ -908,6 +908,50 @@ en:
       longitude: 'Longitude'
       created_at: 'Created At'
       updated_at: 'Updated At'
+  families:
+    show:
+      id: 'Id: '
+      name: 'Name: '
+      description: 'Description: '
+      company_id: 'Company: '
+      branch_id: 'Branch: '
+      client_id: 'Client: '
+      client_branch_id: 'Client Branch: '
+      created_at: 'Created At: '
+      updated_at: 'Updated At: '
+    index:
+      id: 'Id'
+      name: 'Name'
+      description: 'Description'
+      company_id: 'Company'
+      branch_id: 'Branch'
+      client_id: 'Client'
+      client_branch_id: 'Client Branch'
+      created_at: 'Created At'
+      updated_at: 'Updated At'
+  subfamilies:
+    show:
+      id: 'Id: '
+      name: 'Name: '
+      description: 'Description: '
+      family_id: 'Family: '
+      company_id: 'Company: '
+      branch_id: 'Branch: '
+      client_id: 'Client: '
+      client_branch_id: 'Client Branch: '
+      created_at: 'Created At: '
+      updated_at: 'Updated At: '
+    index:
+      id: 'Id'
+      name: 'Name'
+      description: 'Description'
+      family_id: 'Family'
+      company_id: 'Company'
+      branch_id: 'Branch'
+      client_id: 'Client'
+      client_branch_id: 'Client Branch'
+      created_at: 'Created At'
+      updated_at: 'Updated At'
   #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
   
   activerecord:
@@ -971,6 +1015,10 @@ en:
       clients: 'Clients'
       client_branch: 'Client Branch'
       client_branches: 'Client Branches'
+      family: 'Family'
+      families: 'Families'
+      subfamily: 'Subfamily'
+      subfamilies: 'Subfamilies'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT
     
     attributes:
@@ -1204,6 +1252,27 @@ en:
         branch_id: 'Branch: '
         latitude: 'Latitude: '
         longitude: 'Longitude: '
+        created_at: 'Created At: '
+        updated_at: 'Updated At: '
+      family:
+        id: 'Id: '
+        name: 'Name: '
+        description: 'Description: '
+        company_id: 'Company: '
+        branch_id: 'Branch: '
+        client_id: 'Client: '
+        client_branch_id: 'Client Branch: '
+        created_at: 'Created At: '
+        updated_at: 'Updated At: '
+      subfamily:
+        id: 'Id: '
+        name: 'Name: '
+        description: 'Description: '
+        family_id: 'Family: '
+        company_id: 'Company: '
+        branch_id: 'Branch: '
+        client_id: 'Client: '
+        client_branch_id: 'Client Branch: '
         created_at: 'Created At: '
         updated_at: 'Updated At: '
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT

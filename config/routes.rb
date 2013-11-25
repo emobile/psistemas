@@ -1,4 +1,8 @@
 Serviroute::Application.routes.draw do
+  resources :subfamilies
+
+  resources :families
+
   resources :client_branches
 
   resources :clients

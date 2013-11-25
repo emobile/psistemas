@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122053233) do
+ActiveRecord::Schema.define(version: 20131125183835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,6 +190,22 @@ ActiveRecord::Schema.define(version: 20131122053233) do
   add_index "error_reports", ["company_id"], name: "index_error_reports_on_company_id", using: :btree
   add_index "error_reports", ["user_id"], name: "index_error_reports_on_user_id", using: :btree
 
+  create_table "families", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "company_id"
+    t.integer  "branch_id"
+    t.integer  "client_id"
+    t.integer  "client_branch_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "families", ["branch_id"], name: "index_families_on_branch_id", using: :btree
+  add_index "families", ["client_branch_id"], name: "index_families_on_client_branch_id", using: :btree
+  add_index "families", ["client_id"], name: "index_families_on_client_id", using: :btree
+  add_index "families", ["company_id"], name: "index_families_on_company_id", using: :btree
+
   create_table "messages", force: true do |t|
     t.text     "message"
     t.integer  "user_id"
@@ -231,6 +247,24 @@ ActiveRecord::Schema.define(version: 20131122053233) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "subfamilies", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "family_id"
+    t.integer  "company_id"
+    t.integer  "branch_id"
+    t.integer  "client_id"
+    t.integer  "client_branch_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subfamilies", ["branch_id"], name: "index_subfamilies_on_branch_id", using: :btree
+  add_index "subfamilies", ["client_branch_id"], name: "index_subfamilies_on_client_branch_id", using: :btree
+  add_index "subfamilies", ["client_id"], name: "index_subfamilies_on_client_id", using: :btree
+  add_index "subfamilies", ["company_id"], name: "index_subfamilies_on_company_id", using: :btree
+  add_index "subfamilies", ["family_id"], name: "index_subfamilies_on_family_id", using: :btree
 
   create_table "tasks", force: true do |t|
     t.string   "name"

@@ -55,3 +55,5 @@ gem "i18n-missing_translations"
 gem 'i18n-tasks', '~> 0.1.0'#rake i18n:missing
 gem 'avatars_for_rails'
 gem 'country_select'
+gem 'mysql2'
+gem 'therubyracer'
