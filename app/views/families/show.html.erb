@@ -4,33 +4,44 @@
       <div class="box-header">
         <ul class="nav nav-tabs nav-tabs-left">
           <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+          <li><a href="#description" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('.description')%></span></a></li>
         </ul>
-        <div class="title"><%= "MODEL" %></div>
+        <div class="title"><%= @family.name %></div>
       </div>
 
       <div class="box-content">
         <div class="tab-content">
           <div class="tab-pane active" id="home">
             <ul class="box-list">
-                              <li>
-                  <span><strong><%= t'.name' %></strong> <%= @family.name %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.description' %></strong> <%= @family.description %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.company_id' %></strong> <%= @family.company.name %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.branch_id' %></strong> <%= @family.branch.name %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.client_id' %></strong> <%= @family.client %></span>
-                </li>
-                              <li>
-                  <span><strong><%= t'.client__branch_id' %></strong> <%= @family.client_branch %></span>
-                </li>
-                          </ul>
+              <li>
+                <span><strong><%= t'.name' %></strong> <%= @family.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.company_id' %></strong> <%= @family.company.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.branch_id' %></strong> <%= @family.branch.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.client_id' %></strong> <%= @family.client.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.client_branch_id' %></strong> <%= @family.client_branch.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.created_at') %></strong><%=  I18n.l @family.created_at, :format => :long if @family.created_at%></span>
+              </li>
+              <li>
+                <span><strong><%= t('.updated_at') %></strong><%= I18n.l @family.updated_at, :format => :long if  @family.updated_at%></span>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane" id="description">
+            <ul class="box-list">
+              <li>
+                <span><%= @family.description %></span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

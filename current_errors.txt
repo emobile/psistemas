@@ -8,3 +8,5 @@
 * Poner los campos faltantes en los json builders
 * Poner el campo de main_client_branch en client_branches
 * Crear automaticamente lasucursal principal del cliente al dar de alta un cliente
+* Anadir destinatario a mensajes
+* Que subfamilia herede todos los datos de la familia

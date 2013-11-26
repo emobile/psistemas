@@ -38,6 +38,8 @@ class ApplicationController < ActionController::Base
       trucks
       clients
       client_branches
+      families
+      subfamilies
     end
   end
   

@@ -40,8 +40,13 @@
                 </li>
                 <li class="field">
                   <%= f.label :description %>
-                  <%= f.text_area :description, :required => true, :placeholder => t(:required) %>
+                  <%= f.text_area :description, :required => true, :placeholder => t(:required), :rows=>"4" %>
                 </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-6">
+              <ul class="padded separate-sections">
                 <%if current_user.role.super_admin %>
                   <li class="field">
                     <%= f.label :company_id %>
@@ -63,17 +68,12 @@
                 <%end%>
                 <li class="field">
                   <%= f.label :client_id %>
-                  <%= f.text_field :client_id, :required => true, :placeholder => t(:required) %>
+                  <%= f.collection_select(:client_id, @clients, :id, :name, {}, { :class => 'chzn-select' }) %>
                 </li>
                 <li class="field">
                   <%= f.label :client_branch_id %>
-                  <%= f.text_field :client_branch_id, :required => true, :placeholder => t(:required) %>
+                  <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {}, { :class => 'chzn-select' }) %>
                 </li>
-              </ul>
-            </div>
-
-            <div class="col-lg-6">
-              <ul class="padded separate-sections">
               </ul>
             </div>
           </div>

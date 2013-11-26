@@ -13,32 +13,30 @@
             <thead>
               <tr>
                 <th><div><%= t'.id' %></div></th>
-                          <th><div><%= t'.name' %></div></th>
-                          <th><div><%= t'.description' %></div></th>
-                          <th><div><%= t'.company_id' %></div></th>
-                          <th><div><%= t'.branch_id' %></div></th>
-                          <th><div><%= t'.client_id' %></div></th>
-                          <th><div><%= t'.client__branch_id' %></div></th>
-                        <th><div><%= t('layouts.application.actions') %></div></th>
+            <th><div><%= t'.name' %></div></th>
+            <th><div><%= t'.company_id' %></div></th>
+            <th><div><%= t'.branch_id' %></div></th>
+            <th><div><%= t'.client_id' %></div></th>
+            <th><div><%= t'.client_branch_id' %></div></th>
+            <th><div><%= t('layouts.application.actions') %></div></th>
             </tr>
             </thead>
             <tbody>
               <% @families.each do |family| %>
-              <% @model = family %> 
-              <tr>
-                <%if can? :show, Family %>
-                <td><%=link_to family.id, family, :class => 'btn btn-mini btn-blue'%></td>
-                <%else%>
-                <td><%= label family.id, family.id, :class => 'btn btn-mini btn-blue'%></td>
-                <%end%>
-                                  <td><%= family.name %></td>
-                                  <td><%= family.description %></td>
-                                  <td><%= family.company.name %></td>
-                                  <td><%= family.branch.name %></td>
-                                  <td><%= family.client %></td>
-                                  <td><%= family.client_branch %></td>
-                                <td><%= render "layouts/index_links" %></td>
-              </tr>
+                <% @model = family %> 
+                <tr>
+                  <%if can? :show, Family %>
+                    <td><%=link_to family.id, family, :class => 'btn btn-mini btn-blue'%></td>
+                  <%else%>
+                    <td><%= label family.id, family.id, :class => 'btn btn-mini btn-blue'%></td>
+                  <%end%>
+                  <td><%= family.name %></td>
+                  <td><%= family.company.name %></td>
+                  <td><%= family.branch.name %></td>
+                  <td><%= family.client.name %></td>
+                  <td><%= family.client_branch.name %></td>
+                  <td><%= render "layouts/index_links" %></td>
+                </tr>
               <% end %>
             </tbody>
           </table>

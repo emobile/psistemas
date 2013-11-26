@@ -13,44 +13,44 @@
             <thead>
               <tr>
                 <th><div><%= t'.id' %></div></th>
-                          <th><div><%= t'.model' %></div></th>
-                          <th><div><%= t'.brand' %></div></th>
-                          <th><div><%= t'.year' %></div></th>
-                          <th><div><%= t'.truck_type' %></div></th>
-                          <th><div><%= t'.plate_no' %></div></th>
-                          <th><div><%= t'.serial_no' %></div></th>
-                          <th><div><%= t'.color' %></div></th>
-                          <th><div><%= t'.wheels_no' %></div></th>
-                          <th><div><%= t'.other' %></div></th>
-                          <th><div><%= t'.identifier' %></div></th>
-                          <th><div><%= t'.branch_id' %></div></th>
-                          <th><div><%= t'.company_id' %></div></th>
-                        <th><div><%= t('layouts.application.actions') %></div></th>
+            <th><div><%= t'.model' %></div></th>
+            <th><div><%= t'.brand' %></div></th>
+            <th><div><%= t'.year' %></div></th>
+            <th><div><%= t'.truck_type' %></div></th>
+            <th><div><%= t'.plate_no' %></div></th>
+            <th><div><%= t'.serial_no' %></div></th>
+            <th><div><%= t'.color' %></div></th>
+            <th><div><%= t'.wheels_no' %></div></th>
+            <th><div><%= t'.other' %></div></th>
+            <th><div><%= t'.identifier' %></div></th>
+            <th><div><%= t'.branch_id' %></div></th>
+            <th><div><%= t'.company_id' %></div></th>
+            <th><div><%= t('layouts.application.actions') %></div></th>
             </tr>
             </thead>
             <tbody>
               <% @trucks.each do |truck| %>
-              <% @model = truck %> 
-              <tr>
-                <%if can? :show, Truck %>
-                <td><%=link_to truck.id, truck, :class => 'btn btn-mini btn-blue'%></td>
-                <%else%>
-                <td><%= label truck.id, truck.id, :class => 'btn btn-mini btn-blue'%></td>
-                <%end%>
-                                  <td><%= truck.model %></td>
-                                  <td><%= truck.brand %></td>
-                                  <td><%= truck.year %></td>
-                                  <td><%= truck.truck_type %></td>
-                                  <td><%= truck.plate_no %></td>
-                                  <td><%= truck.serial_no %></td>
-                                  <td><%= truck.color %></td>
-                                  <td><%= truck.wheels_no %></td>
-                                  <td><%= truck.other %></td>
-                                  <td><%= truck.identifier %></td>
-                                  <td><%= truck.branch.name %></td>
-                                  <td><%= truck.company.name %></td>
-                                <td><%= render "layouts/index_links" %></td>
-              </tr>
+                <% @model = truck %> 
+                <tr>
+                  <%if can? :show, Truck %>
+                    <td><%=link_to truck.id, truck, :class => 'btn btn-mini btn-blue'%></td>
+                  <%else%>
+                    <td><%= label truck.id, truck.id, :class => 'btn btn-mini btn-blue'%></td>
+                  <%end%>
+                  <td><%= truck.model %></td>
+                  <td><%= truck.brand %></td>
+                  <td><%= truck.year %></td>
+                  <td><%= truck.truck_type %></td>
+                  <td><%= truck.plate_no %></td>
+                  <td><%= truck.serial_no %></td>
+                  <td><%= truck.color %></td>
+                  <td><%= truck.wheels_no %></td>
+                  <td><%= truck.other %></td>
+                  <td><%= truck.identifier %></td>
+                  <td><%= truck.branch.name %></td>
+                  <td><%= truck.company.name %></td>
+                  <td><%= render "layouts/index_links" %></td>
+                </tr>
               <% end %>
             </tbody>
           </table>

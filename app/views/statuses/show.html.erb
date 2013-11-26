@@ -4,6 +4,7 @@
       <div class="box-header">
         <ul class="nav nav-tabs nav-tabs-left">
           <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+          <li><a href="#description" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('.description')%></span></a></li>
         </ul>
         <div class="title"><%= @status.name %></div>
       </div>
@@ -16,13 +17,17 @@
                 <span><strong><%= t'.name' %></strong> <%= @status.name %></span>
               </li>
               <li>
-                <span><strong><%= t'.description' %></strong> <%= @status.description %></span>
-              </li>
-              <li>
                 <span><strong><%= t'.hierarchy' %></strong> <%= @status.hierarchy %></span>
               </li>
               <li>
                 <span><strong><%= t'.model_name' %></strong> <%= @status.model_name %></span>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-pane" id="description">
+            <ul class="box-list">
+              <li>
+                <span><%= @status.description %></span>
               </li>
             </ul>
           </div>

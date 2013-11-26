@@ -5,7 +5,7 @@
         <ul class="nav nav-tabs nav-tabs-left">
           <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
         </ul>
-        <div class="title"><%= "MODEL" %></div>
+        <div class="title"><%= @message.user.fullname %></div>
       </div>
 
       <div class="box-content">
@@ -16,7 +16,7 @@
                 <span><strong><%= t'.message' %></strong> <%= @message.message %></span>
               </li>
               <li>
-                <span><strong><%= t'.user_id' %></strong> <%= @message.user %></span>
+                <span><strong><%= t'.user_id' %></strong> <%= @message.user.fullname %></span>
               </li>
               <li>
                 <span><strong><%= t'.branch_id' %></strong> <%= @message.branch.name %></span>
