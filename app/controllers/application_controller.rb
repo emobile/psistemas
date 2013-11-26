@@ -3,7 +3,19 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   include ApplicationHelper  
   protect_from_forgery with: :exception
-  before_filter :get_user_status, :set_action_icon, :set_locale, :get_data_counters
+  before_filter :get_user_status, :set_action_icon, :set_locale, :get_data_counters, :get_models
+    
+  def get_models
+    @models = Dir['app/models/*.rb'].map { |f| File.basename(f, '.*').camelize.constantize.name }
+    @models -= %w{Ability} 
+    models = []
+    x = 0
+    @models.each do |model|
+      models[x] = {'name' => model, 'human_name' => t("activerecord.models.#{model.underscore.downcase.pluralize}")}
+      x += 1
+    end
+    @models = models.sort_by { |m| m["human_name"] } 
+  end
   
   before_filter :get_user_status
 

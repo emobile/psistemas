@@ -2,7 +2,5 @@
 es:
   activerecord:
     models:
-      mobile_services: Mobile Services
-  subfamilies:
-    index:
-      family: Family
+      orders: Ordenes
+      routes: Rutas

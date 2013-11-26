@@ -43,12 +43,10 @@
     </a>
 
     <ul id="mykbxbJQ5V" class="collapse ">
-      <% @models = Dir['app/models/*.rb'].map { |f| File.basename(f, '.*').camelize.constantize.name } %>
-      <% @models -= %w{Ability ErrorReport Comment} %>
 
       <% @models.each do |model|%>
-        <li class=""><%=link_to eval("#{model.underscore.pluralize.downcase}_path"), title: eval("t('activerecord.models.#{model.underscore.downcase.pluralize}')") do%>
-            <i class="icon-circle-arrow-right"></i><%=eval("t('activerecord.models.#{model.underscore.downcase.pluralize}')")%>
+        <li class=""><%=link_to eval("#{model["name"].underscore.pluralize.downcase}_path"), title: model["human_name"] do%>
+            <i class="icon-circle-arrow-right"></i><%=model["human_name"]%>
           <%end%></li>
       <%end%> 
 
