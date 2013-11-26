@@ -1,0 +1,5 @@
+---
+es:
+  activerecord:
+    models:
+      mobile_services: Mobile Services

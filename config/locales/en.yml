@@ -253,9 +253,10 @@ en:
   time:
     am: am
     formats:
-      default: ! '%a, %d de %b de %Y a las %H:%M:%S %Z'
-      long: ! '%A, %d de %B de %Y a las %I:%M %p'
-      short: ! '%d de %b a las %H:%M hrs'
+      default: ! '%a, %d de %b, %Y at %H:%M:%S %Z'
+      long: ! '%A, %d de %B, %Y at %I:%M %p'
+      short: ! '%d de %b at %H:%M hrs'
+      long_no_time: ! '%A, %d de %B, %Y'      
     pm: pm
   actions:
     show: "Show %{model}"
