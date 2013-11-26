@@ -1,4 +1,5 @@
 Serviroute::Application.routes.draw do
+  get "mobile_services/index"
   resources :subfamilies
 
   resources :families

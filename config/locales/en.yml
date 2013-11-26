@@ -409,7 +409,7 @@ en:
       admin: "Administrator: "
       phone1: "Phone: "
       email1: "E-mail: "
-      details: "Details: "
+      details: "Details"
       location: "Location"
       fulladdress: "Address: "
       coordinates: "Coordinates: "      
