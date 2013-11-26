@@ -411,6 +411,7 @@ en:
       phone1: "Phone: "
       email1: "E-mail: "
       details: "Details"
+      comment: "Comentario"       
       location: "Location"
       fulladdress: "Address: "
       coordinates: "Coordinates: "      
@@ -649,7 +650,7 @@ en:
       branch_id: 'Branch: '
       company_id: 'Company: '
       description: 'Description: '
-      backtrace: 'Backtrace: '
+      backtrace: 'Backtrace'
       error_time: 'Error Time: '
       created_at: 'Created At: '
       updated_at: 'Updated At: '

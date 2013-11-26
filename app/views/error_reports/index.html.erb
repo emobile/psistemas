@@ -27,10 +27,10 @@
                 <% @model = error_report %> 
                 <tr>
                   <%if can? :show, ErrorReport %>                  
-                    <td><button class="btn btn-mini btn-blue"><%=link_to error_report.id, error_report, :class => 'button'%></button></td>
+                    <td><%=link_to error_report.id, error_report, :class => 'btn btn-mini btn-blue'%></td>
                   <%else%>
-                    <td><button class="btn btn-mini btn-blue"><%= label error_report.id, error_report.id, :class => 'button'%></button></td>
-                    <%end%>
+                    <td><%= label error_report.id, error_report.id, :class => 'btn btn-mini btn-blue'%></td>
+                  <%end%>
                   <td><%= error_report.user.fullname %></td>
 
                   <td><%= error_report.controller_name %></td>

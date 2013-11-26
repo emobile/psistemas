@@ -34,47 +34,6 @@
           <div class="row">
             <div class="col-lg-6">
               <ul class="padded separate-sections">
-                <li class="field">
-                  <%= f.label :phone_number %>
-                  <%= f.text_field :phone_number, :required => true, :placeholder => t(:required) %>
-                </li>
-                <li class="field">
-                  <%= f.label :model %>
-                  <%= f.text_field :model, :required => true, :placeholder => t(:required) %>
-                </li>
-                <li class="field">
-                  <%= f.label :brand %>
-                  <%= f.text_field :brand, :required => true, :placeholder => t(:required) %>
-                </li>
-                <li class="field">
-                  <%= f.label :color %>
-                  <%= f.text_field :color, :required => true, :placeholder => t(:required) %>
-                </li>
-                <li class="field">
-                  <%= f.label :ope_system %>
-                  <%= f.text_field :ope_system, :required => true, :placeholder => t(:required) %>
-                </li>
-              </ul>
-            </div>
-
-            <div class="col-lg-6">
-              <ul class="padded separate-sections">
-                <li class="field">
-                  <%= f.label :condition %>
-                  <%= f.text_area :condition, :required => true, :placeholder => t(:required) %>
-                </li>
-                <li class="field">
-                  <%= f.label :imei %>
-                  <%= f.text_field :imei, :required => true, :placeholder => t(:required) %>
-                </li>
-                <li class="field">
-                  <%= f.label :description %>
-                  <%= f.text_area :description, :required => true, :placeholder => t(:required) %>
-                </li>
-                <li class="field">
-                  <%= f.label :user_id %>
-                  <%= f.collection_select(:user_id, @users, :id, :fullname, {:prompt => true}, { :class => 'chzn-select' }) %>
-                </li>
                 <%if current_user.role.super_admin %>
                   <li class="field">
                     <%= f.label :company_id %>
@@ -94,6 +53,47 @@
                   <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
                   <%= f.hidden_field :branch_id, :value => current_user.branch_id, :readonly => true %>
                 <%end%>
+                <li class="field">
+                  <%= f.label :phone_number %>
+                  <%= f.text_field :phone_number, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :model %>
+                  <%= f.text_field :model, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :brand %>
+                  <%= f.text_field :brand, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :color %>
+                  <%= f.text_field :color %>
+                </li>
+                <li class="field">
+                  <%= f.label :ope_system %>
+                  <%= f.text_field :ope_system %>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-6">
+              <ul class="padded separate-sections">
+                <li class="field">
+                  <%= f.label :imei %>
+                  <%= f.text_field :imei, :required => true, :placeholder => t(:required) %>
+                </li>
+                <li class="field">
+                  <%= f.label :condition %>
+                  <%= f.text_area :condition %>
+                </li>
+                <li class="field">
+                  <%= f.label :description %>
+                  <%= f.text_area :description %>
+                </li>
+                <li class="field">
+                  <%= f.label :user_id %>
+                  <%= f.collection_select(:user_id, @users, :id, :fullname, {:prompt => true}, { :class => 'chzn-select' }) %>
+                </li>
               </ul>
             </div>
           </div>

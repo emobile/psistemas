@@ -411,9 +411,11 @@ es:
       phone1: "Teléfono: "
       email1: "Correo Electrónico: "
       details: "Detalles"
+      comment: "Comentario"      
       location: "Ubicación"
       fulladdress: "Dirección: "
-      coordinates: "Coordenadas: "      
+      coordinates: "Coordenadas: "
+      description: "Descripción"      
     shortcuts:
       comments: "Comentarios"
       create_company: "Crear Compañía"
@@ -649,7 +651,7 @@ es:
       branch_id: 'Sucursal: '
       company_id: 'Compañía: '
       description: 'Descripción: '
-      backtrace: 'Error (Backtrace): '
+      backtrace: 'Error (Backtrace)'
       error_time: 'Hora: '
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
