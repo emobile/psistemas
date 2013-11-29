@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131125183835) do
+ActiveRecord::Schema.define(version: 20131129184200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -194,16 +194,10 @@ ActiveRecord::Schema.define(version: 20131125183835) do
     t.string   "name"
     t.text     "description"
     t.integer  "company_id"
-    t.integer  "branch_id"
-    t.integer  "client_id"
-    t.integer  "client_branch_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "families", ["branch_id"], name: "index_families_on_branch_id", using: :btree
-  add_index "families", ["client_branch_id"], name: "index_families_on_client_branch_id", using: :btree
-  add_index "families", ["client_id"], name: "index_families_on_client_id", using: :btree
   add_index "families", ["company_id"], name: "index_families_on_company_id", using: :btree
 
   create_table "messages", force: true do |t|
@@ -248,21 +242,39 @@ ActiveRecord::Schema.define(version: 20131125183835) do
     t.datetime "updated_at"
   end
 
+  create_table "stocks", force: true do |t|
+    t.string   "name"
+    t.string   "email1"
+    t.string   "email2"
+    t.string   "webpage"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "fax"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "country"
+    t.text     "description"
+    t.integer  "company_id"
+    t.integer  "branch_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stocks", ["branch_id"], name: "index_stocks_on_branch_id", using: :btree
+  add_index "stocks", ["company_id"], name: "index_stocks_on_company_id", using: :btree
+
   create_table "subfamilies", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "family_id"
     t.integer  "company_id"
-    t.integer  "branch_id"
-    t.integer  "client_id"
-    t.integer  "client_branch_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "subfamilies", ["branch_id"], name: "index_subfamilies_on_branch_id", using: :btree
-  add_index "subfamilies", ["client_branch_id"], name: "index_subfamilies_on_client_branch_id", using: :btree
-  add_index "subfamilies", ["client_id"], name: "index_subfamilies_on_client_id", using: :btree
   add_index "subfamilies", ["company_id"], name: "index_subfamilies_on_company_id", using: :btree
   add_index "subfamilies", ["family_id"], name: "index_subfamilies_on_family_id", using: :btree
 

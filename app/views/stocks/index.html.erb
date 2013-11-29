@@ -3,7 +3,7 @@
     <div class="box">
       <div class="box-header"><span class="title"><%= t("activerecord.models.#{controller_name}") %></span>
         <ul class="box-toolbar">
-          <li><span class="label label-blue"><% @subfamilies_count %></span></li>
+          <li><span class="label label-blue"><% @stocks_count %></span></li>
         </ul>
       </div>
       <div class="box-content">
@@ -14,23 +14,29 @@
               <tr>
                 <th><div><%= t'.id' %></div></th>
             <th><div><%= t'.name' %></div></th>
-            <th><div><%= t'.family_id' %></div></th>
+            <th><div><%= t'.email1' %></div></th>
+            <th><div><%= t'layouts.application.fulladdress' %></div></th>
             <th><div><%= t'.company_id' %></div></th>
+            <th><div><%= t'.branch_id' %></div></th>
+            <th><div><%= t'.description' %></div></th>
             <th><div><%= t('layouts.application.actions') %></div></th>
             </tr>
             </thead>
             <tbody>
-              <% @subfamilies.each do |subfamily| %>
-                <% @model = subfamily %> 
+              <% @stocks.each do |stock| %>
+                <% @model = stock %> 
                 <tr>
-                  <%if can? :show, Subfamily %>
-                    <td><%=link_to subfamily.id, subfamily, :class => 'btn btn-mini btn-blue'%></td>
+                  <%if can? :show, Stock %>
+                    <td><%=link_to stock.id, stock, :class => 'btn btn-mini btn-blue'%></td>
                   <%else%>
-                    <td><%= label subfamily.id, subfamily.id, :class => 'btn btn-mini btn-blue'%></td>
+                    <td><%= label stock.id, stock.id, :class => 'btn btn-mini btn-blue'%></td>
                   <%end%>
-                  <td><%= subfamily.name %></td>
-                  <td><%= subfamily.family.name %></td>
-                  <td><%= subfamily.company.name %></td>
+                  <td><%= stock.name %></td>
+                  <td><%= stock.email1 %></td>
+                  <td><%= stock.fulladdress %></td>
+                  <td><%= stock.company.name %></td>
+                  <td><%= stock.branch.name %></td>
+                  <td><%= stock.description %></td>
                   <td><%= render "layouts/index_links" %></td>
                 </tr>
               <% end %>

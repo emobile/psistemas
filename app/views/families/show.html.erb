@@ -20,15 +20,6 @@
                 <span><strong><%= t'.company_id' %></strong> <%= @family.company.name %></span>
               </li>
               <li>
-                <span><strong><%= t'.branch_id' %></strong> <%= @family.branch.name %></span>
-              </li>
-              <li>
-                <span><strong><%= t'.client_id' %></strong> <%= @family.client.name %></span>
-              </li>
-              <li>
-                <span><strong><%= t'.client_branch_id' %></strong> <%= @family.client_branch.name %></span>
-              </li>
-              <li>
                 <span><strong><%= t('.created_at') %></strong><%=  I18n.l @family.created_at, :format => :long if @family.created_at%></span>
               </li>
               <li>
