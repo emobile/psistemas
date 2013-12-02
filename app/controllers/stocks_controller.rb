@@ -62,6 +62,6 @@ def set_stock
 
     # Only allow a trusted parameter "white list" through.
     def stock_params
-      params.require(:stock).permit(:name, :email1, :email2, :webpage, :phone1, :phone2, :fax, :address1, :address2, :city, :state, :zip, :country, :description, :company_id, :branch_id)
+      params.require(:stock).permit(:name, :contact, :email1, :email2, :webpage, :phone1, :phone2, :fax, :address1, :address2, :city, :state, :zip, :country, :description, :company_id, :branch_id)
   end
 end
