@@ -15,9 +15,6 @@
                 <th><div><%= t'.id' %></div></th>
             <th><div><%= t'.name' %></div></th>
             <th><div><%= t'.company_id' %></div></th>
-            <th><div><%= t'.branch_id' %></div></th>
-            <th><div><%= t'.client_id' %></div></th>
-            <th><div><%= t'.client_branch_id' %></div></th>
             <th><div><%= t('layouts.application.actions') %></div></th>
             </tr>
             </thead>
@@ -32,9 +29,6 @@
                   <%end%>
                   <td><%= family.name %></td>
                   <td><%= family.company.name %></td>
-                  <td><%= family.branch.name %></td>
-                  <td><%= family.client.name %></td>
-                  <td><%= family.client_branch.name %></td>
                   <td><%= render "layouts/index_links" %></td>
                 </tr>
               <% end %>

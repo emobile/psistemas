@@ -4,7 +4,7 @@
       <div class="box-header">
         <ul class="nav nav-tabs nav-tabs-left">
           <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
-          <li><a href="#description" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('.description')%></span></a></li>
+          <li><a href="#description" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('layouts.application.description')%></span></a></li>
         </ul>
         <div class="title"><%= @status.name %></div>
       </div>
@@ -20,7 +20,7 @@
                 <span><strong><%= t'.hierarchy' %></strong> <%= @status.hierarchy %></span>
               </li>
               <li>
-                <span><strong><%= t'.model_name' %></strong> <%= @status.model_name %></span>
+                <span><strong><%= t'.model_name' %></strong> <%= t("activerecord.models.#{@status.model_name.pluralize}") %></span>
               </li>
             </ul>
           </div>

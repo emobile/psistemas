@@ -10,3 +10,7 @@
 * Crear automaticamente lasucursal principal del cliente al dar de alta un cliente
 * Anadir destinatario a mensajes
 * Que subfamilia herede todos los datos de la familia
+* El boton de reset form no borra los comoselct ni los checkboxes
+
+SCAFFOLD LISTOS
+* cellphones

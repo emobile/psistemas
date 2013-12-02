@@ -411,9 +411,11 @@ es:
       phone1: "Teléfono: "
       email1: "Correo Electrónico: "
       details: "Detalles"
+      comment: "Comentario"      
       location: "Ubicación"
       fulladdress: "Dirección: "
-      coordinates: "Coordenadas: "      
+      coordinates: "Coordenadas: "
+      description: "Descripción"      
     shortcuts:
       comments: "Comentarios"
       create_company: "Crear Compañía"
@@ -551,7 +553,7 @@ es:
       id: 'Id: '
       name: 'Nombre: '
       change_logo: 'Cambiar Logo'
-      contact_name:  'Contacto: '
+      contact:  'Contacto: '
       email1: 'Correo Electrónico Principal: '
       email2: 'Correo Electrónico Alternativo: '
       webpage: 'Página Web: '
@@ -572,7 +574,7 @@ es:
       id: 'Id'
       name: 'Nombre'
       change_logo: 'Cambiar Logo'
-      contact_name:  'Contacto'
+      contact:  'Contacto'
       email1: 'Correo Electrónico Principal'
       email2: 'Correo Electrónico Alternativo'
       webpage: 'Página Web'
@@ -595,7 +597,7 @@ es:
       name: 'Nombre: '
       main_branch: "Sucursal Matriz: "      
       change_logo: 'Cambiar Logo'
-      contact_name:  'Contacto: '     
+      contact:  'Contacto: '     
       email1: 'Correo Electrónico Principal: '
       email2: 'Correo Electrónico Alternativo: '
       webpage: 'Página Web: '
@@ -618,7 +620,7 @@ es:
       name: 'Nombre'
       main_branch: "Sucursal Matriz"    
       change_logo: 'Cambiar Logo'
-      contact_name:  'Contacto'
+      contact:  'Contacto'
       email1: 'Correo Electrónico Principal'
       email2: 'Correo Electrónico Alternativo'
       webpage: 'Página Web'
@@ -649,7 +651,7 @@ es:
       branch_id: 'Sucursal: '
       company_id: 'Compañía: '
       description: 'Descripción: '
-      backtrace: 'Error (Backtrace): '
+      backtrace: 'Error (Backtrace)'
       error_time: 'Hora: '
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
@@ -957,6 +959,70 @@ es:
       client_branch_id: 'Sucursal del Cliente'
       created_at: 'Registrada el'
       updated_at: 'Actualizada el'
+  storages:
+    show:
+      id: 'Id: '
+      name: 'Nombre: '     
+      contact:  'Contacto: '     
+      email1: 'Correo Electrónico Principal: '
+      email2: 'Correo Electrónico Alternativo: '
+      webpage: 'Página Web: '
+      phone1: "Teléfono: "
+      phone2: "Teléfono Alternativo: "
+      fax: "Fax: "
+      fulladdress: "Dirección: "        
+      address1: "Calle: "
+      address2: "Colonia: "
+      city: "Ciudad: "
+      state: "Estado: "
+      zip: "Código Postal: "
+      country: "País: "
+      description: 'Descripción: '
+      company_id: 'Compañía: '
+      branch_id: 'Sucursal: '
+      created_at: "Registrada el: "
+      updated_at: "Actualizada el: "
+    index:
+      id: 'Id'
+      name: 'Nombre'
+      contact:  'Contacto'
+      email1: 'Correo Electrónico Principal'
+      email2: 'Correo Electrónico Alternativo'
+      webpage: 'Página Web'
+      phone1: "Teléfono"
+      phone2: "Teléfono Alternativo"
+      fax: "Fax"
+      fulladdress: "Dirección"        
+      address1: "Calle"
+      address2: "Colonia"
+      city: "Ciudad"
+      state: "Estado"
+      zip: "Código Postal"
+      country: "País"
+      description: 'Descripción'
+      company_id: 'Compañía'
+      branch_id: 'Sucursal'      
+      created_at: "Registrada el"
+      updated_at: "Actualizada el"
+  products:
+    show:
+      id: 'Id: '
+      name: 'Nombre: '
+      description: 'Descripción: '
+      company_id: 'Compañía: '
+      branch_id: 'Sucursal: '
+      storage_id: 'Almacén: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      id: 'Id'
+      name: 'Nombre'
+      description: 'Descripción'
+      company_id: 'Compañía'
+      branch_id: 'Sucursal'
+      storage_id: 'Almacén'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
   #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
   
   activerecord:
@@ -1024,6 +1090,10 @@ es:
       families: 'Familias'
       subfamily: 'Subfamilia'
       subfamilies: 'Subfamilias'
+      storage: 'Almacén'
+      storages: 'Almacenes'
+      product: 'Producto'
+      products: 'Productos'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT
       
     attributes:
@@ -1087,7 +1157,7 @@ es:
         id: 'Id: '
         name: 'Nombre: '
         change_logo: 'Cambiar Logo: '
-        contact_name: 'Contacto: '
+        contact: 'Contacto: '
         email1: 'Correo Electrónico Principal: '
         email2: 'Correo Electrónico Alternativo: '
         webpage: 'Página Web: '
@@ -1107,7 +1177,7 @@ es:
         id: 'Id: '
         name: 'Nombre: '
         change_logo: 'Cambiar Logo: '
-        contact_name: 'Contacto: '
+        contact: 'Contacto: '
         main_branch: "Sucursal Matriz: "
         email1: 'Correo Electrónico Principal: '
         email2: 'Correo Electrónico Alternativo: '
@@ -1280,4 +1350,34 @@ es:
         client_branch_id: 'Sucursal del Cliente: '
         created_at: 'Registrada el: '
         updated_at: 'Actualizada el: '
+      storage:
+        id: 'Id: '
+        name: 'Nombre: '
+        contact: 'Contacto: '
+        email1: 'Correo Electrónico Principal: '
+        email2: 'Correo Electrónico Alternativo: '
+        webpage: 'Página Web: '
+        phone1: "Teléfono: "
+        phone2: "Teléfono Alternativo: "
+        fax: "Fax: "
+        address1: "Calle: "
+        address2: "Colonia: "
+        city: "Ciudad: "
+        state: "Estado: "
+        zip: "Código Postal: "
+        country: "País: "
+        description: 'Descripción: '
+        company_id: 'Compañía: '
+        branch_id: 'Sucursal: '        
+        created_at: "Registrada el: "
+        updated_at: "Actualizada el: "
+      product:
+        id: 'Id: '
+        name: 'Nombre: '
+        description: 'Descripción: '
+        company_id: 'Compañía: '
+        branch_id: 'Sucursal: '
+        storage_id: 'Almacén: '
+        created_at: 'Registrado el: '
+        updated_at: 'Actualizado el: '
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT

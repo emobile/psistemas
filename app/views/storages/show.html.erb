@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header">
+        <ul class="nav nav-tabs nav-tabs-left">
+          <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+          <li><a href="#contact_info" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('layouts.application.contact_info')%></span></a></li>
+        </ul>
+        <div class="title"><%= @storage.name %></div>
+      </div>
+
+      <div class="box-content">
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            <ul class="box-list">
+              <li>
+                <span><strong><%= t('.name') %></strong><%= @storage.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.company_id') %></strong><%= @storage.company.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.branch_id') %></strong><%= @storage.branch.name %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.description') %></strong><%= @storage.description %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.created_at') %></strong><%=  I18n.l @storage.created_at, :format => :long if @storage.created_at%></span>
+              </li>
+              <li>
+                <span><strong><%= t('.updated_at') %></strong><%= I18n.l @storage.updated_at, :format => :long if  @storage.updated_at%></span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tab-pane" id="contact_info">
+            <ul class="box-list">
+              <li>
+                <span><strong><%= t('.contact') %></strong><%= @storage.contact %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.email1') %></strong><%= mail_to @storage.email1, @storage.email1 %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.email2') %></strong><%= mail_to @storage.email2, @storage.email2 %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.webpage') %></strong><%= link_to @storage.webpage, @storage.webpage %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.phone1') %></strong><%= number_to_phone(@storage.phone1, area_code: true)  %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.phone2') %></strong><%= number_to_phone(@storage.phone2, area_code: true)  %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.fax') %></strong><%= number_to_phone(@storage.fax, area_code: true) %></span>
+              </li>
+              <li>
+                <span><strong><%= t('.fulladdress') %></strong><%= @storage.fulladdress %></span>
+              </li>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="box-footer padded">
+        <span class="pull-right">
+          <%= render "layouts/action_links" %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

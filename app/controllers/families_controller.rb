@@ -62,6 +62,6 @@ def set_family
 
     # Only allow a trusted parameter "white list" through.
     def family_params
-      params.require(:family).permit(:name, :description, :company_id, :branch_id, :client_id, :client_branch_id)
+      params.require(:family).permit(:name, :description, :company_id)
   end
 end

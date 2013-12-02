@@ -56,24 +56,9 @@
                     <%= f.label :branch_id %>
                     <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>
-                <%elsif current_user.role.company_admin%>
-                  <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
-                  <li class="field">
-                    <%= f.label :branch_id %>
-                    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
-                  </li>
                 <%else%>
                   <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
-                  <%= f.hidden_field :branch_id, :value => current_user.branch_id, :readonly => true %>
                 <%end%>
-                <li class="field">
-                  <%= f.label :client_id %>
-                  <%= f.collection_select(:client_id, @clients, :id, :name, {}, { :class => 'chzn-select' }) %>
-                </li>
-                <li class="field">
-                  <%= f.label :client_branch_id %>
-                  <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {}, { :class => 'chzn-select' }) %>
-                </li>
               </ul>
             </div>
           </div>

@@ -4,7 +4,7 @@
       <div class="box-header">
         <ul class="nav nav-tabs nav-tabs-left">
           <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
-          <li><a href="#description" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('.description')%></span></a></li>
+          <li><a href="#comment" data-toggle="tab"><i class="icon-comment"></i> <span><%=t('layouts.application.comment')%></span></a></li>
         </ul>
         <div class="title"><%= @comment.user.fullname %></div>
       </div>
@@ -31,7 +31,7 @@
             </ul>
           </div>
 
-          <div class="tab-pane" id="description">
+          <div class="tab-pane" id="comment">
             <ul class="box-list">
               <li>
                 <span><%= @comment.comment %></span>

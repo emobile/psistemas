@@ -11,27 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131125183835) do
+ActiveRecord::Schema.define(version: 20131202194013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "branches", force: true do |t|
-    t.string   "name",                         null: false
-    t.string   "contact_name",                 null: false
-    t.string   "email1",                       null: false
+    t.string   "name",                        null: false
+    t.string   "contact",                     null: false
+    t.string   "email1",                      null: false
     t.string   "email2"
     t.string   "webpage"
-    t.string   "phone1",                       null: false
+    t.string   "phone1",                      null: false
     t.string   "phone2"
     t.string   "fax"
-    t.string   "address1",                     null: false
-    t.string   "address2",                     null: false
-    t.string   "city",                         null: false
-    t.string   "state",                        null: false
-    t.integer  "zip",                          null: false
-    t.string   "country",                      null: false
-    t.boolean  "main_branch",  default: false, null: false
+    t.string   "address1",                    null: false
+    t.string   "address2",                    null: false
+    t.string   "city",                        null: false
+    t.string   "state",                       null: false
+    t.integer  "zip",                         null: false
+    t.string   "country",                     null: false
+    t.boolean  "main_branch", default: false, null: false
     t.text     "description"
     t.integer  "company_id"
     t.datetime "created_at"
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 20131125183835) do
 
   create_table "companies", force: true do |t|
     t.string   "name",              null: false
-    t.string   "contact_name",      null: false
+    t.string   "contact",           null: false
     t.string   "email1",            null: false
     t.string   "email2"
     t.string   "webpage"
@@ -194,16 +194,10 @@ ActiveRecord::Schema.define(version: 20131125183835) do
     t.string   "name"
     t.text     "description"
     t.integer  "company_id"
-    t.integer  "branch_id"
-    t.integer  "client_id"
-    t.integer  "client_branch_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "families", ["branch_id"], name: "index_families_on_branch_id", using: :btree
-  add_index "families", ["client_branch_id"], name: "index_families_on_client_branch_id", using: :btree
-  add_index "families", ["client_id"], name: "index_families_on_client_id", using: :btree
   add_index "families", ["company_id"], name: "index_families_on_company_id", using: :btree
 
   create_table "messages", force: true do |t|
@@ -218,6 +212,20 @@ ActiveRecord::Schema.define(version: 20131125183835) do
   add_index "messages", ["branch_id"], name: "index_messages_on_branch_id", using: :btree
   add_index "messages", ["company_id"], name: "index_messages_on_company_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "company_id"
+    t.integer  "branch_id"
+    t.integer  "storage_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "products", ["branch_id"], name: "index_products_on_branch_id", using: :btree
+  add_index "products", ["company_id"], name: "index_products_on_company_id", using: :btree
+  add_index "products", ["storage_id"], name: "index_products_on_storage_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name",                          null: false
@@ -248,21 +256,40 @@ ActiveRecord::Schema.define(version: 20131125183835) do
     t.datetime "updated_at"
   end
 
+  create_table "storages", force: true do |t|
+    t.string   "name"
+    t.string   "contact"
+    t.string   "email1"
+    t.string   "email2"
+    t.string   "webpage"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "fax"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "country"
+    t.text     "description"
+    t.integer  "company_id"
+    t.integer  "branch_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "storages", ["branch_id"], name: "index_storages_on_branch_id", using: :btree
+  add_index "storages", ["company_id"], name: "index_storages_on_company_id", using: :btree
+
   create_table "subfamilies", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "family_id"
     t.integer  "company_id"
-    t.integer  "branch_id"
-    t.integer  "client_id"
-    t.integer  "client_branch_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "subfamilies", ["branch_id"], name: "index_subfamilies_on_branch_id", using: :btree
-  add_index "subfamilies", ["client_branch_id"], name: "index_subfamilies_on_client_branch_id", using: :btree
-  add_index "subfamilies", ["client_id"], name: "index_subfamilies_on_client_id", using: :btree
   add_index "subfamilies", ["company_id"], name: "index_subfamilies_on_company_id", using: :btree
   add_index "subfamilies", ["family_id"], name: "index_subfamilies_on_family_id", using: :btree
 

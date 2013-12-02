@@ -26,6 +26,12 @@ rails g user:references email:string comment:text app_name:string
 rails g scaffold company name:string email1:string email2:string webpage:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string description:text
 rails g scaffold branch name:string email1:string email2:string webpage:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string description:text company:references
 
+
+rails g scaffold storage name:string contact:string email1:string email2:string webpage:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string description:text company:references branch:references
+
+
 rails g scaffold status name:string description:text hierarchy:integer model_name:string 
 
 rails g scaffold message message:text user:references
+
+rails g scaffold product name:string description:text company:references branch:references storage:references

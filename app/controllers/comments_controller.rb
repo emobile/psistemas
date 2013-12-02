@@ -31,6 +31,9 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        ["webmaster@emobile.com.mx", "jtorres@emobile.com.mx", "dchacon@emobile.com.mx"].each do |email|
+          SupportMailer.new_comment(@comment, email).deliver!
+        end
         format.html { redirect_to @comment, notice: t("actions.created.male",  model: t("activerecord.models.#{controller_name.singularize.gsub(" ", "")}").downcase) }
         format.json { render action: 'show', status: :created, location: @comment }
       else
@@ -69,13 +72,13 @@ class CommentsController < ApplicationController
   end
   
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
-      params.require(:comment).permit(:user_id, :email, :comment, :app_name, :branch_id, :company_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def comment_params
+    params.require(:comment).permit(:user_id, :email, :comment, :app_name, :branch_id, :company_id)
+  end
 end

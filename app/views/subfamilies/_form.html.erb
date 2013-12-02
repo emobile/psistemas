@@ -35,10 +35,6 @@
             <div class="col-lg-6">
               <ul class="padded separate-sections">
                 <li class="field">
-                  <%= f.label :family_id %>
-                  <%= f.collection_select(:family_id, @families, :id, :name, {}, { :class => 'chzn-select' }) %>
-                </li>
-                <li class="field">
                   <%= f.label :name %>
                   <%= f.text_field :name, :required => true, :placeholder => t(:required) %>
                 </li>
@@ -50,6 +46,10 @@
             </div>
             <div class="col-lg-6">
               <ul class="padded separate-sections">
+                <li class="field">
+                  <%= f.label :family_id %>
+                  <%= f.collection_select(:family_id, @families, :id, :name, {}, { :class => 'chzn-select' }) %>
+                </li>
                 <%if current_user.role.super_admin %>
                   <li class="field">
                     <%= f.label :company_id %>
@@ -59,24 +59,9 @@
                     <%= f.label :branch_id %>
                     <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>
-                <%elsif current_user.role.company_admin%>
-                  <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
-                  <li class="field">
-                    <%= f.label :branch_id %>
-                    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
-                  </li>
                 <%else%>
                   <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
-                  <%= f.hidden_field :branch_id, :value => current_user.branch_id, :readonly => true %>
                 <%end%>
-                <li class="field">
-                  <%= f.label :client_id %>
-                  <%= f.collection_select(:client_id, @clients, :id, :name, {}, { :class => 'chzn-select' }) %>
-                </li>
-                <li class="field">
-                  <%= f.label :client_branch_id %>
-                  <%= f.collection_select(:client_branch_id, @client_branches, :id, :name, {}, { :class => 'chzn-select' }) %>
-                </li>
               </ul>
             </div>
           </div>

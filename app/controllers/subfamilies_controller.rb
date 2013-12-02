@@ -62,6 +62,6 @@ def set_subfamily
 
     # Only allow a trusted parameter "white list" through.
     def subfamily_params
-      params.require(:subfamily).permit(:name, :description, :family_id, :company_id, :branch_id, :client_id, :client_branch_id)
+      params.require(:subfamily).permit(:name, :description, :family_id, :company_id)
   end
 end

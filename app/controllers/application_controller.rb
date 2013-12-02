@@ -42,6 +42,7 @@ class ApplicationController < ActionController::Base
     if signed_in?
       companies
       branches
+      storages
       roles
       users
       comments

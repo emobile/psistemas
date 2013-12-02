@@ -1,59 +1,90 @@
-<p>
-  <b><%= t'.user_id' %></b> <%= @error_report.user.name %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header">
+        <ul class="nav nav-tabs nav-tabs-left">
+          <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+          <li><a href="#backtrace" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('.backtrace')%></span></a></li>
+        </ul>
+        <div class="title"><%= @error_report.user.fullname if @error_report.user%></div>
+      </div>
 
-<p>
-  <b><%= t'.controller_name' %></b> <%= @error_report.controller_name %>
-</p>
+      <div class="box-content">
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            <ul class="box-list">
 
-<p>
-  <b><%= t'.action_name' %></b> <%= @error_report.action_name %>
-</p>
+              <li>
+                <span><strong><%= t'.user_id' %></strong> <%= @error_report.user.fullname if @error_report.user%></span>
+              </li>
 
-<p>
-  <b><%= t'.line_number' %></b> <%= @error_report.line_number %>
-</p>
+              <li>
+                <span><strong><%= t'.controller_name' %></strong> <%= @error_report.controller_name %></span>
+              </li>
 
-<p>
-  <b><%= t'.referrer_url' %></b> <%= @error_report.referrer_url %>
-</p>
+              <li>
+                <span><strong><%= t'.action_name' %></strong> <%= @error_report.action_name %></span>
+              </li>
 
-<p>
-  <b><%= t'.original_path' %></b> <%= @error_report.original_path %>
-</p>
+              <li>
+                <span><strong><%= t'.line_number' %></strong> <%= @error_report.line_number %></span>
+              </li>
 
-<p>
-  <b><%= t'.environment' %></b> <%= @error_report.environment %>
-</p>
+              <li>
+                <span><strong><%= t'.referrer_url' %></strong> <%= @error_report.referrer_url %></span>
+              </li>
 
-<p>
-  <b><%= t'.branch_id' %></b> <%= @error_report.branch.name %>
-</p>
+              <li>
+                <span><strong><%= t'.original_path' %></strong> <%= @error_report.original_path %></span>
+              </li>
 
-<p>
-  <b><%= t'.company_id' %></b> <%= @error_report.company.name %>
-</p>
+              <li>
+                <span><strong><%= t'.environment' %></strong> <%= @error_report.environment %></span>
+              </li>
 
-<p>
-  <b><%= t'.description' %></b> <%= @error_report.description %>
-</p>
+              <li>
+                <span><strong><%= t'.branch_id' %></strong> <%= @error_report.branch.name if @error_report.branch%></span>
+              </li>
 
-<p>
-  <b><%= t'.backtrace' %></b> <%= @error_report.backtrace %>
-</p>
+              <li>
+                <span><strong><%= t'.company_id' %></strong> <%= @error_report.company.name if @error_report.company%></span>
+              </li>
 
-<p>
-  <b><%= t'.error_time' %></b> <%=  I18n.l @error_report.error_time, :format => :long %>
-</p>
+              <li>
+                <span><strong><%= t'.description' %></strong> <%= @error_report.description %></span>
+              </li>
+              
+              <li>
+                <span><strong><%= t'.error_time' %></strong> <%=  I18n.l @error_report.error_time, :format => :long if @error_report.error_time%></span>
+              </li>
 
-<p>
-  <b><%= t('.created_at') %></b>
-  <%=  I18n.l @error_report.created_at, :format => :long %>
-</p>
+              <li>
+                <span><strong><%= t('.created_at') %></strong>
+                  <%=  I18n.l @error_report.created_at, :format => :long if @error_report.created_at%></span>
+              </li>
 
-<p>
-  <b><%= t('.updated_at') %></b>
-  <%= I18n.l @error_report.updated_at, :format => :long %>
-</p>
+              <li>
+                <span><strong><%= t('.updated_at') %></strong>
+                  <%= I18n.l @error_report.updated_at, :format => :long if @error_report.updated_at%></span>
+              </li>
+            </ul>
+          </div>
 
-<%= render "layouts/action_links" %>
+          <div class="tab-pane" id="backtrace">
+            <ul class="box-list">
+              <li>
+                <span><%= @error_report.backtrace %></span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <div class="box-footer padded">
+        <span class="pull-right">
+          <%= render "layouts/action_links" %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

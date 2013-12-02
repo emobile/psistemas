@@ -45,9 +45,11 @@
     <ul id="mykbxbJQ5V" class="collapse ">
 
       <% @models.each do |model|%>
-        <li class=""><%=link_to eval("#{model["name"].underscore.pluralize.downcase}_path"), title: model["human_name"] do%>
-            <i class="icon-circle-arrow-right"></i><%=model["human_name"]%>
-          <%end%></li>
+        <%if can? :index, eval(model["name"]) %>
+          <li class=""><%=link_to eval("#{model["name"].underscore.pluralize.downcase}_path"), title: model["human_name"] do%>
+              <i class="icon-circle-arrow-right"></i><%=model["human_name"]%>
+            <%end%></li>
+        <%end%> 
       <%end%> 
 
 

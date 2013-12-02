@@ -41,9 +41,11 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=t('.shortcuts')%><b class="caret"></b></a>
         <ul class="dropdown-menu">
           <% @models.each do |model|%>
-            <li class=""><%=link_to eval("#{model["name"].underscore.pluralize.downcase}_path"), title: model["human_name"] do%>
-                <i class="icon-circle-arrow-right"></i><%=model["human_name"]%>
-              <%end%></li>
+            <%if can? :index, eval(model["name"]) %>
+              <li class=""><%=link_to eval("#{model["name"].underscore.pluralize.downcase}_path"), title: model["human_name"] do%>
+                  <i class="icon-circle-arrow-right"></i><%=model["human_name"]%>
+                <%end%></li>
+            <%end%> 
           <%end%>
         </ul>
       </li>
