@@ -958,7 +958,7 @@ en:
       client_branch_id: 'Client Branch'
       created_at: 'Created At'
       updated_at: 'Updated At'
-  stocks:
+  storages:
     show:
       id: 'Id: '
       name: 'Name: '
@@ -997,6 +997,25 @@ en:
       description: 'Description'
       company_id: 'Company'
       branch_id: 'Branch'
+      created_at: 'Created At'
+      updated_at: 'Updated At'
+  products:
+    show:
+      id: 'Id: '
+      name: 'Name: '
+      description: 'Description: '
+      company_id: 'Company: '
+      branch_id: 'Branch: '
+      storage_id: 'Storage: '
+      created_at: 'Created At: '
+      updated_at: 'Updated At: '
+    index:
+      id: 'Id'
+      name: 'Name'
+      description: 'Description'
+      company_id: 'Company'
+      branch_id: 'Branch'
+      storage_id: 'Storage'
       created_at: 'Created At'
       updated_at: 'Updated At'
   #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
@@ -1066,8 +1085,10 @@ en:
       families: 'Families'
       subfamily: 'Subfamily'
       subfamilies: 'Subfamilies'
-      stock: 'Stock'
-      stocks: 'Stocks'
+      storage: 'storage'
+      storages: 'storages'
+      product: 'Product'
+      products: 'Products'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT
     
     attributes:
@@ -1324,7 +1345,7 @@ en:
         client_branch_id: 'Client Branch: '
         created_at: 'Created At: '
         updated_at: 'Updated At: '
-      stock:
+      storage:
         id: 'Id: '
         name: 'Name: '
         email1: 'Email1: '
@@ -1342,6 +1363,15 @@ en:
         description: 'Description: '
         company_id: 'Company: '
         branch_id: 'Branch: '
+        created_at: 'Created At: '
+        updated_at: 'Updated At: '
+      product:
+        id: 'Id: '
+        name: 'Name: '
+        description: 'Description: '
+        company_id: 'Company: '
+        branch_id: 'Branch: '
+        storage_id: 'Storage: '
         created_at: 'Created At: '
         updated_at: 'Updated At: '
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT

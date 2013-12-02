@@ -4,7 +4,3 @@ es:
     models:
       orders: Ordenes
       routes: Rutas
-  stocks:
-    index:
-      company: Company
-      branch: Branch

@@ -34,7 +34,7 @@
         <div class="box-header">
           <ul class="nav nav-tabs nav-tabs-left">
             <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
-            <li><a href="#description" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('layouts.application.contact_info')%></span></a></li>
+            <li><a href="#contact_info" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('layouts.application.contact_info')%></span></a></li>
           </ul>
           <div class="title"><%= @branch.name %></div>
         </div>
@@ -64,7 +64,7 @@
               </ul>
             </div>
 
-            <div class="tab-pane" id="description">
+            <div class="tab-pane" id="contact_info">
               <ul class="box-list">
                 <li>
                   <span><strong><%= t('.contact') %></strong><%= @branch.contact %></span>

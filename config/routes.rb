@@ -1,5 +1,7 @@
 Serviroute::Application.routes.draw do
-  resources :stocks
+  resources :products
+
+  resources :storages
 
   get "mobile_services/index"
   get "mobile_services/get_driver_info"

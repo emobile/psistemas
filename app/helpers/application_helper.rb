@@ -39,6 +39,19 @@ module ApplicationHelper
     end
   end
   
+  def storages
+    if current_user.role.super_admin
+      @storages = Storage.order('id DESC').paginate(:page => params[:page])
+      @storages_count = @storages.count
+    elsif current_user.role.company_admin
+      @storages = Storage.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @storages_count = @storages.count
+    else
+      @storages = Storage.where(:id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+      @storages_count = Storage.where(:company_id => current_user.company_id).count
+    end
+  end
+  
   def roles
     @roles_count = Role.count
     if controller_name == "roles" and action_name == "index" 

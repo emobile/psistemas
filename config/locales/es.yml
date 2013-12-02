@@ -959,7 +959,7 @@ es:
       client_branch_id: 'Sucursal del Cliente'
       created_at: 'Registrada el'
       updated_at: 'Actualizada el'
-  stocks:
+  storages:
     show:
       id: 'Id: '
       name: 'Nombre: '     
@@ -1004,6 +1004,25 @@ es:
       branch_id: 'Sucursal'      
       created_at: "Registrada el"
       updated_at: "Actualizada el"
+  products:
+    show:
+      id: 'Id: '
+      name: 'Nombre: '
+      description: 'Descripción: '
+      company_id: 'Compañía: '
+      branch_id: 'Sucursal: '
+      storage_id: 'Almacén: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      id: 'Id'
+      name: 'Nombre'
+      description: 'Descripción'
+      company_id: 'Compañía'
+      branch_id: 'Sucursal'
+      storage_id: 'Almacén'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
   #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
   
   activerecord:
@@ -1071,8 +1090,10 @@ es:
       families: 'Familias'
       subfamily: 'Subfamilia'
       subfamilies: 'Subfamilias'
-      stock: 'Almacén'
-      stocks: 'Almacenes'
+      storage: 'Almacén'
+      storages: 'Almacenes'
+      product: 'Producto'
+      products: 'Productos'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT
       
     attributes:
@@ -1329,7 +1350,7 @@ es:
         client_branch_id: 'Sucursal del Cliente: '
         created_at: 'Registrada el: '
         updated_at: 'Actualizada el: '
-      stock:
+      storage:
         id: 'Id: '
         name: 'Nombre: '
         contact: 'Contacto: '
@@ -1350,4 +1371,13 @@ es:
         branch_id: 'Sucursal: '        
         created_at: "Registrada el: "
         updated_at: "Actualizada el: "
+      product:
+        id: 'Id: '
+        name: 'Nombre: '
+        description: 'Descripción: '
+        company_id: 'Compañía: '
+        branch_id: 'Sucursal: '
+        storage_id: 'Almacén: '
+        created_at: 'Registrado el: '
+        updated_at: 'Actualizado el: '
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
