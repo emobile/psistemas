@@ -1,4 +1,12 @@
 Serviroute::Application.routes.draw do
+  resources :measurement_units
+
+  resources :prices
+
+  resources :client_types
+
+  resources :stocks
+
   resources :products
 
   resources :storages

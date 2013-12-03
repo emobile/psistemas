@@ -49,10 +49,13 @@ class ApplicationController < ActionController::Base
       statuses
       cellphones
       trucks
+      client_types
       clients
       client_branches
       families
       subfamilies
+      products
+      measurement_units
     end
   end
   

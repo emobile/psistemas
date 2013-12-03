@@ -5,7 +5,7 @@ class CreateSubfamilies < ActiveRecord::Migration
       t.text :description
       t.references :family, index: true
       t.references :company, index: true
-
+      
       t.timestamps
     end
   end

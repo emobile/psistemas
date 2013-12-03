@@ -310,7 +310,7 @@ es:
         updated_at: "Actualizado el"
         last_sign_in_at: "Acceso por última vez el día"
         company_id: "Compañía"
-        branch_id: "Sucursal"
+        branch_id: "Oficina"
     registrations:
       new:
         fullname: "Nombre: "
@@ -335,7 +335,7 @@ es:
         updated_at: "Actualizado el: "
         last_sign_in_at: "Acceso por última vez el día: "
         company_id: "Compañía: "
-        branch_id: "Sucursal: "        
+        branch_id: "Oficina: "        
     confirmations:
       resend: "Reenviar instrucciones de confirmación" 
     links:
@@ -419,7 +419,7 @@ es:
     shortcuts:
       comments: "Comentarios"
       create_company: "Crear Compañía"
-      create_branch: "Crear Sucursal"
+      create_branch: "Crear Oficina"
       create_rol: "Crear Rol"
       create_user: "Crear Usuario"
       create_status: "Crear Status"
@@ -435,9 +435,9 @@ es:
       description: "Descripción: "
       super_admin: "Súper Administrador: "
       company_admin: "Administrador de Compañía: "
-      branch_admin: "Administrador de Sucursal: "      
+      branch_admin: "Administrador de Oficina: "      
       super_manager: "Administrador de Compañía de Cliente: "
-      manager: "Administrador de Sucursal de Cliente: "      
+      manager: "Administrador de Oficina de Cliente: "      
       routes_admin: "Administrador de Rutas: "
       seller: "Vendedor: "      
       secretary: "Secretaría(o): "
@@ -454,9 +454,9 @@ es:
       description: "Descripción"
       super_admin: "Súper Administrador"
       company_admin: "Administrador de Compañía"
-      branch_admin: "Administrador de Sucursal"      
+      branch_admin: "Administrador de Oficina"      
       super_manager: "Administrador de Compañía de Cliente"
-      manager: "Administrador de Sucursal de Cliente"      
+      manager: "Administrador de Oficina de Cliente"      
       routes_admin: "Administrador de Rutas"
       seller: "Vendedor"      
       secretary: "Secretaría(o)"
@@ -500,7 +500,7 @@ es:
       updated_at: "Actualizado el: "
       last_sign_in_at: "Acceso por última vez el día : "
       company_id: "Compañía: "
-      branch_id: "Sucursal: "      
+      branch_id: "Oficina: "      
     index:
       id: "Id "      
       fullname: "Nombre"
@@ -526,7 +526,7 @@ es:
       updated_at: "Actualizado el"
       last_sign_in_at: "Acceso por última vez el día"
       company_id: "Compañía"
-      branch_id: "Sucursal"      
+      branch_id: "Oficina"      
   comments:
     show:
       id: "Id: "
@@ -535,7 +535,7 @@ es:
       comment: "Comentario: "
       app_name: "Aplicación: "
       company_id: 'Compañía: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
     index:
@@ -545,7 +545,7 @@ es:
       comment: "Comentario "
       app_name: "Aplicación"
       company_id: 'Compañía'
-      branch_id: 'Sucursal'
+      branch_id: 'Oficina'
       created_at: "Registrado el"
       updated_at: "Actualizado el"
   companies:
@@ -595,7 +595,7 @@ es:
     show:
       id: 'Id: '
       name: 'Nombre: '
-      main_branch: "Sucursal Matriz: "      
+      main_branch: "Oficina Matriz: "      
       change_logo: 'Cambiar Logo'
       contact:  'Contacto: '     
       email1: 'Correo Electrónico Principal: '
@@ -618,7 +618,7 @@ es:
     index:
       id: 'Id'
       name: 'Nombre'
-      main_branch: "Sucursal Matriz"    
+      main_branch: "Oficina Matriz"    
       change_logo: 'Cambiar Logo'
       contact:  'Contacto'
       email1: 'Correo Electrónico Principal'
@@ -648,7 +648,7 @@ es:
       referrer_url: 'URL Referida: '
       original_path: 'URL de Destino: '
       environment: 'Ambiente: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       company_id: 'Compañía: '
       description: 'Descripción: '
       backtrace: 'Error (Backtrace)'
@@ -664,7 +664,7 @@ es:
       referrer_url: 'URL Referida'
       original_path: 'URL de Destino'
       environment: 'Ambiente'
-      branch_id: 'Sucursal'
+      branch_id: 'Oficina'
       company_id: 'Compañía'
       description: 'Descripción'
       backtrace: 'Error (Backtrace)'
@@ -700,7 +700,7 @@ es:
       imei: 'IMEI: '
       description: 'Descripción: '
       user_id: 'Usuario: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       company_id: 'Compañía: '
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
@@ -715,7 +715,7 @@ es:
       imei: 'IMEI'
       description: 'Descripción'
       user_id: 'Usuario'
-      branch_id: 'Sucursal'
+      branch_id: 'Oficina'
       company_id: 'Compañía'
       created_at: "Registrado el"
       updated_at: "Actualizado el"
@@ -732,7 +732,7 @@ es:
       wheels_no: 'Numéro de Ejes: '
       other: 'Otro: '
       identifier: 'Número Económico: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       company_id: 'Compañía: '
       created_at: "Registrado el: "
       updated_at: "Actualizado el: "
@@ -748,7 +748,7 @@ es:
       wheels_no: 'Numéro de Ejes'
       other: 'Otro'
       identifier: 'Número Económico'
-      branch_id: 'Sucursal'
+      branch_id: 'Oficina'
       company_id: 'Compañía'
       created_at: "Registrado el"
       updated_at: "Actualizado el"
@@ -757,7 +757,7 @@ es:
       id: 'Id: '
       message: 'Mensaje: '
       user_id: 'Usuario: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       company_id: 'Compañía: '
       created_at: 'Registrada el: '
       updated_at: 'Actualizada el: '
@@ -765,7 +765,7 @@ es:
       id: 'Id'
       message: 'Mensaje'
       user_id: 'Usuario'
-      branch_id: 'Sucursal'
+      branch_id: 'Oficina'
       company_id: 'Compañía'
       created_at: 'Registrada el'
       updated_at: 'Actualizada el'
@@ -774,7 +774,7 @@ es:
       id: 'Id: '
       user_id: 'Usuario: '
       truck_id: 'Vehículo: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       company_id: 'Compañía: '
       created_at: 'Registrada el: '
       updated_at: 'Actualizada el: '
@@ -782,7 +782,7 @@ es:
       id: 'Id'
       user_id: 'Usuario'
       truck_id: 'Vehículo'
-      branch_id: 'Sucursal'
+      branch_id: 'Oficina'
       company_id: 'Compañía'
       created_at: 'Registrada el'
       updated_at: 'Actualizada el'
@@ -791,7 +791,7 @@ es:
       id: 'Id: '
       name: 'Nombre: '
       driver_id: 'Conductor: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       company_id: 'Compañía: '
       completed: 'Completada: '
       priority: 'Prioridad: '
@@ -807,7 +807,7 @@ es:
       id: 'Id'
       name: 'Nombre'
       driver_id: 'Conductor'
-      branch_id: 'Sucursal'
+      branch_id: 'Oficina'
       company_id: 'Compañía'
       completed: 'Completada'
       priority: 'Prioridad'
@@ -838,7 +838,7 @@ es:
       country: 'País: '
       description: 'Descripción: '
       company_id: 'Compañía: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       latitude: 'Latitud: '
       longitude: 'Longitud: '
       created_at: 'Registrada el: '
@@ -861,7 +861,7 @@ es:
       country: 'País'
       description: 'Descripción'
       company_id: 'Compañía'
-      branch_id: 'Sucursal'
+      branch_id: 'Oficina'
       latitude: 'Latitud'
       longitude: 'Longitud'
       created_at: 'Registrada el'
@@ -886,7 +886,7 @@ es:
       description: 'Descripción: '
       client_id: 'Cliente: '
       company_id: 'Compañía: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       latitude: 'Latitud: '
       longitude: 'Longitud: '
       created_at: 'Registrada el: '
@@ -910,7 +910,7 @@ es:
       description: 'Descripción'
       client_id: 'Cliente'
       company_id: 'Compañía'
-      branch_id: 'Sucursal'
+      branch_id: 'Oficina'
       latitude: 'Latitud'
       longitude: 'Longitud'
       created_at: 'Registrada el'
@@ -921,9 +921,9 @@ es:
       name: 'Nombre: '
       description: 'Descripción: '
       company_id: 'Compañía: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       client_id: 'Cliente: '
-      client_branch_id: 'Sucursal del Cliente: '
+      client_branch_id: 'Oficina del Cliente: '
       created_at: 'Registrada el: '
       updated_at: 'Actualizada el: '
     index:
@@ -931,9 +931,9 @@ es:
       name: 'Nombre'
       description: 'Descripción'
       company_id: 'Compañía'
-      branch_id: 'Sucursal'
+      branch_id: 'Oficina'
       client_id: 'Cliente'
-      client_branch_id: 'Sucursal del Cliente'
+      client_branch_id: 'Oficina del Cliente'
       created_at: 'Registrada el'
       updated_at: 'Actualizada el'
   subfamilies:
@@ -943,9 +943,9 @@ es:
       description: 'Descripción: '
       family_id: 'Familia: '
       company_id: 'Compañía: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       client_id: 'Cliente: '
-      client_branch_id: 'Sucursal del Cliente: '
+      client_branch_id: 'Oficina del Cliente: '
       created_at: 'Registrada el: '
       updated_at: 'Actualizada el: '
     index:
@@ -954,9 +954,9 @@ es:
       description: 'Descripción'
       family_id: 'Familia'
       company_id: 'Compañía'
-      branch_id: 'Sucursal'
+      branch_id: 'Oficina'
       client_id: 'Cliente'
-      client_branch_id: 'Sucursal del Cliente'
+      client_branch_id: 'Oficina del Cliente'
       created_at: 'Registrada el'
       updated_at: 'Actualizada el'
   storages:
@@ -979,7 +979,7 @@ es:
       country: "País: "
       description: 'Descripción: '
       company_id: 'Compañía: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       created_at: "Registrada el: "
       updated_at: "Actualizada el: "
     index:
@@ -1001,7 +1001,7 @@ es:
       country: "País"
       description: 'Descripción'
       company_id: 'Compañía'
-      branch_id: 'Sucursal'      
+      branch_id: 'Oficina'      
       created_at: "Registrada el"
       updated_at: "Actualizada el"
   products:
@@ -1010,7 +1010,7 @@ es:
       name: 'Nombre: '
       description: 'Descripción: '
       company_id: 'Compañía: '
-      branch_id: 'Sucursal: '
+      branch_id: 'Oficina: '
       storage_id: 'Almacén: '
       created_at: 'Registrado el: '
       updated_at: 'Actualizado el: '
@@ -1019,8 +1019,84 @@ es:
       name: 'Nombre'
       description: 'Descripción'
       company_id: 'Compañía'
-      branch_id: 'Sucursal'
+      branch_id: 'Oficina'
       storage_id: 'Almacén'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+  stocks:
+    show:
+      id: 'Id: '
+      company_id: 'Compañía: '
+      branch_id: 'Oficina: '
+      storage_id: 'Almacén: '
+      product_id: 'Producto: '
+      quantity: 'Cantidad: '
+      unit: 'Unidad: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      id: 'Id'
+      company_id: 'Compañía'
+      branch_id: 'Oficina'
+      storage_id: 'Almacén'
+      product_id: 'Producto'
+      quantity: 'Cantidad'
+      unit: 'Unidad'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+  client_types:
+    show:
+      id: 'Id: '
+      name: 'Nombre: '
+      description: 'Descripción: '
+      company_id: 'Compañía: '
+      branch_id: 'Oficina: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      id: 'Id'
+      name: 'Nombre'
+      description: 'Descripción'
+      company_id: 'Compañía'
+      branch_id: 'Oficina'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+  prices:
+    show:
+      id: 'Id: '
+      price: 'Precio: '
+      description: 'Descripción: '
+      company_id: 'Compañía: '
+      branch_id: 'Oficina: '
+      product_id: 'Producto: '
+      client_type_id: 'Tipo de Cliente: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      id: 'Id'
+      price: 'Precio'
+      description: 'Descripción'
+      company_id: 'Compañía'
+      branch_id: 'Oficina'
+      product_id: 'Producto'
+      client_type_id: 'Tipo de Cliente'
+      created_at: 'Registrado el'
+      updated_at: 'Actualizado el'
+  measurement_units:
+    show:
+      id: 'Id: '
+      name: 'Nombre: '
+      description: 'Descripción: '
+      company_id: 'Compañía: '
+      branch_id: 'Oficina: '
+      created_at: 'Registrado el: '
+      updated_at: 'Actualizado el: '
+    index:
+      id: 'Id'
+      name: 'Nombre'
+      description: 'Descripción'
+      company_id: 'Compañía'
+      branch_id: 'Oficina'
       created_at: 'Registrado el'
       updated_at: 'Actualizado el'
   #END OF VIEWS VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT
@@ -1066,8 +1142,8 @@ es:
       unlocks: "Desbloquear Cuentas"
       company: 'Compañía'
       companies: 'Compañías'
-      branch: 'Sucursal'
-      branches: 'Sucursales'
+      branch: 'Oficina'
+      branches: 'Oficinas'
       error_report: 'Reporte de Error'
       error_reports: 'Reporte de Errores'
       status: 'Estatus'
@@ -1084,8 +1160,8 @@ es:
       tasks: 'Tareas'
       client: 'Cliente'
       clients: 'Clientes'
-      client_branch: 'Sucursal de Cliente'
-      client_branches: 'Sucursales de Clientes'
+      client_branch: 'Oficina de Cliente'
+      client_branches: 'Oficinas de Clientes'
       family: 'Familia'
       families: 'Familias'
       subfamily: 'Subfamilia'
@@ -1094,6 +1170,14 @@ es:
       storages: 'Almacenes'
       product: 'Producto'
       products: 'Productos'
+      stock: 'Inventario'
+      stocks: 'Inventarios'
+      client_type: 'Tipo de Cliente'
+      client_types: 'Tipos de Clientes'
+      price: 'Precio'
+      prices: 'Precios'
+      measurement_unit: 'Unidad de Medida'
+      measurement_units: 'Unidades de Medida'
       #END OF MODELS DO NOT DELETE OR MOVE OR TAB THIS COMMENT
       
     attributes:
@@ -1123,16 +1207,16 @@ es:
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
         company_id: "Compañía: "
-        branch_id: "Sucursal: "         
+        branch_id: "Oficina: "         
       role:
         name: "Nombre: "
         protected: "Protegido: "
         description: "Descripción: "
         super_admin: "Súper Administrador: "
         company_admin: "Administrador de Compañía: "
-        branch_admin: "Administrador de Sucursal: "       
+        branch_admin: "Administrador de Oficina: "       
         super_manager: "Administrador de Compañía de Cliente: "
-        manager: "Administrador de Sucursal de Cliente: "      
+        manager: "Administrador de Oficina de Cliente: "      
         routes_admin: "Administrador de Rutas: "
         seller: "Vendedor: "      
         secretary: "Secretaría(o): "
@@ -1150,7 +1234,7 @@ es:
         comment: "Comentario: "
         app_name: "Aplicación: "
         company_id: 'Compañía: '
-        branch_id: 'Sucursal: '
+        branch_id: 'Oficina: '
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
       company:
@@ -1178,7 +1262,7 @@ es:
         name: 'Nombre: '
         change_logo: 'Cambiar Logo: '
         contact: 'Contacto: '
-        main_branch: "Sucursal Matriz: "
+        main_branch: "Oficina Matriz: "
         email1: 'Correo Electrónico Principal: '
         email2: 'Correo Electrónico Alternativo: '
         webpage: 'Página Web: '
@@ -1204,7 +1288,7 @@ es:
         referrer_url: 'URL Referida: '
         original_path: 'URL de Destino: '
         environment: 'Ambiente: '
-        branch_id: 'Sucursal: '
+        branch_id: 'Oficina: '
         company_id: 'Compañía: '
         description: 'Descripción: '
         backtrace: 'Error (Backtrace): '
@@ -1230,7 +1314,7 @@ es:
         imei: 'IMEI: '
         description: 'Descripción: '
         user_id: 'Usuario: '
-        branch_id: 'Sucursal: '
+        branch_id: 'Oficina: '
         company_id: 'Compañía: '
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
@@ -1246,7 +1330,7 @@ es:
         wheels_no: 'Numéro de Ejes: '
         other: 'Otro: '
         identifier: 'Número Económico: '
-        branch_id: 'Sucursal: '
+        branch_id: 'Oficina: '
         company_id: 'Compañía: '
         created_at: "Registrado el: "
         updated_at: "Actualizado el: "
@@ -1254,7 +1338,7 @@ es:
         id: 'Id: '
         message: 'Mensaje: '
         user_id: 'Usuario: '
-        branch_id: 'Sucursal: '
+        branch_id: 'Oficina: '
         company_id: 'Compañía: '
         created_at: 'Registrada el: '
         updated_at: 'Actualizada el: '
@@ -1262,7 +1346,7 @@ es:
         id: 'Id: '
         user_id: 'Usuario: '
         truck_id: 'Vehículo: '
-        branch_id: 'Sucursal: '
+        branch_id: 'Oficina: '
         company_id: 'Compañía: '
         created_at: 'Registrada el: '
         updated_at: 'Actualizada el: '
@@ -1270,7 +1354,7 @@ es:
         id: 'Id: '
         name: 'Nombre: '
         driver_id: 'Conductor: '
-        branch_id: 'Sucursal: '
+        branch_id: 'Oficina: '
         company_id: 'Compañía: '
         completed: 'Completada: '
         priority: 'Prioridad: '
@@ -1300,7 +1384,7 @@ es:
         country: 'País: '
         description: 'Descripción: '
         company_id: 'Compañía: '
-        branch_id: 'Sucursal: '
+        branch_id: 'Oficina: '
         latitude: 'Latitud: '
         longitude: 'Longitud: '
         created_at: 'Registrada el: '
@@ -1324,7 +1408,7 @@ es:
         description: 'Descripción: '
         client_id: 'Cliente: '
         company_id: 'Compañía: '
-        branch_id: 'Sucursal: '
+        branch_id: 'Oficina: '
         latitude: 'Latitud: '
         longitude: 'Longitud: '
         created_at: 'Registrada el: '
@@ -1334,9 +1418,9 @@ es:
         name: 'Nombre: '
         description: 'Descripción: '
         company_id: 'Compañía: '
-        branch_id: 'Sucursal: '
+        branch_id: 'Oficina: '
         client_id: 'Cliente: '
-        client_branch_id: 'Sucursal del Cliente: '
+        client_branch_id: 'Oficina del Cliente: '
         created_at: 'Registrada el: '
         updated_at: 'Actualizada el: '
       subfamily:
@@ -1345,9 +1429,9 @@ es:
         description: 'Descripción: '
         family_id: 'Familia: '
         company_id: 'Compañía: '
-        branch_id: 'Sucursal: '
+        branch_id: 'Oficina: '
         client_id: 'Cliente: '
-        client_branch_id: 'Sucursal del Cliente: '
+        client_branch_id: 'Oficina del Cliente: '
         created_at: 'Registrada el: '
         updated_at: 'Actualizada el: '
       storage:
@@ -1368,7 +1452,7 @@ es:
         country: "País: "
         description: 'Descripción: '
         company_id: 'Compañía: '
-        branch_id: 'Sucursal: '        
+        branch_id: 'Oficina: '        
         created_at: "Registrada el: "
         updated_at: "Actualizada el: "
       product:
@@ -1376,8 +1460,44 @@ es:
         name: 'Nombre: '
         description: 'Descripción: '
         company_id: 'Compañía: '
-        branch_id: 'Sucursal: '
+        branch_id: 'Oficina: '
         storage_id: 'Almacén: '
+        created_at: 'Registrado el: '
+        updated_at: 'Actualizado el: '
+      stock:
+        id: 'Id: '
+        company_id: 'Compañía: '
+        branch_id: 'Oficina: '
+        storage_id: 'Almacén: '
+        product_id: 'Producto: '
+        quantity: 'Cantidad: '
+        unit: 'Unidad: '
+        created_at: 'Registrado el: '
+        updated_at: 'Actualizado el: '
+      client_type:
+        id: 'Id: '
+        name: 'Nombre: '
+        description: 'Descripción: '
+        company_id: 'Compañía: '
+        branch_id: 'Oficina: '
+        created_at: 'Registrado el: '
+        updated_at: 'Actualizado el: '
+      price:
+        id: 'Id: '
+        price: 'Precio: '
+        description: 'Descripción: '
+        company_id: 'Compañía: '
+        branch_id: 'Oficina: '
+        product_id: 'Producto: '
+        client_type_id: 'Tipo de Cliente: '
+        created_at: 'Registrado el: '
+        updated_at: 'Actualizado el: '
+      measurement_unit:
+        id: 'Id: '
+        name: 'Nombre: '
+        description: 'Descripción: '
+        company_id: 'Compañía: '
+        branch_id: 'Oficina: '
         created_at: 'Registrado el: '
         updated_at: 'Actualizado el: '
       #END OF FORM VARIABLES DO NOT DELETE OR MOVE OR TAB THIS COMMENT

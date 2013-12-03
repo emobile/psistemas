@@ -56,6 +56,10 @@
                   <%= f.hidden_field :branch_id, :value => current_user.branch_id, :readonly => true %>
                 <%end%>
                 <li class="field">
+                  <%= f.label :client_type_id %>
+                  <%= f.collection_select(:client_type_id, @client_types, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+                </li>
+                <li class="field">
                   <%= f.label :name %>
                   <%= f.text_field :name, :required => true, :placeholder => t(:required) %>
                 </li>

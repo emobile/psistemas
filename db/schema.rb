@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202194013) do
+ActiveRecord::Schema.define(version: 20131202221629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,18 @@ ActiveRecord::Schema.define(version: 20131202194013) do
   add_index "client_branches", ["client_id"], name: "index_client_branches_on_client_id", using: :btree
   add_index "client_branches", ["company_id"], name: "index_client_branches_on_company_id", using: :btree
 
+  create_table "client_types", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "company_id"
+    t.integer  "branch_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "client_types", ["branch_id"], name: "index_client_types_on_branch_id", using: :btree
+  add_index "client_types", ["company_id"], name: "index_client_types_on_company_id", using: :btree
+
   create_table "clients", force: true do |t|
     t.string   "name"
     t.string   "contact"
@@ -107,6 +119,7 @@ ActiveRecord::Schema.define(version: 20131202194013) do
     t.text     "description"
     t.integer  "company_id"
     t.integer  "branch_id"
+    t.integer  "client_type_id"
     t.string   "latitude"
     t.string   "longitude"
     t.datetime "created_at"
@@ -114,6 +127,7 @@ ActiveRecord::Schema.define(version: 20131202194013) do
   end
 
   add_index "clients", ["branch_id"], name: "index_clients_on_branch_id", using: :btree
+  add_index "clients", ["client_type_id"], name: "index_clients_on_client_type_id", using: :btree
   add_index "clients", ["company_id"], name: "index_clients_on_company_id", using: :btree
 
   create_table "comments", force: true do |t|
@@ -200,6 +214,18 @@ ActiveRecord::Schema.define(version: 20131202194013) do
 
   add_index "families", ["company_id"], name: "index_families_on_company_id", using: :btree
 
+  create_table "measurement_units", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "company_id"
+    t.integer  "branch_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "measurement_units", ["branch_id"], name: "index_measurement_units_on_branch_id", using: :btree
+  add_index "measurement_units", ["company_id"], name: "index_measurement_units_on_company_id", using: :btree
+
   create_table "messages", force: true do |t|
     t.text     "message"
     t.integer  "user_id"
@@ -213,19 +239,39 @@ ActiveRecord::Schema.define(version: 20131202194013) do
   add_index "messages", ["company_id"], name: "index_messages_on_company_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
-  create_table "products", force: true do |t|
-    t.string   "name"
+  create_table "prices", force: true do |t|
+    t.float    "price"
     t.text     "description"
+    t.integer  "client_type_id"
     t.integer  "company_id"
     t.integer  "branch_id"
-    t.integer  "storage_id"
+    t.integer  "product_id"
+    t.integer  "measurement_unit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "products", ["branch_id"], name: "index_products_on_branch_id", using: :btree
+  add_index "prices", ["branch_id"], name: "index_prices_on_branch_id", using: :btree
+  add_index "prices", ["client_type_id"], name: "index_prices_on_client_type_id", using: :btree
+  add_index "prices", ["company_id"], name: "index_prices_on_company_id", using: :btree
+  add_index "prices", ["measurement_unit_id"], name: "index_prices_on_measurement_unit_id", using: :btree
+  add_index "prices", ["product_id"], name: "index_prices_on_product_id", using: :btree
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "company_id"
+    t.integer  "storage_id"
+    t.integer  "family_id"
+    t.integer  "subfamily_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   add_index "products", ["company_id"], name: "index_products_on_company_id", using: :btree
+  add_index "products", ["family_id"], name: "index_products_on_family_id", using: :btree
   add_index "products", ["storage_id"], name: "index_products_on_storage_id", using: :btree
+  add_index "products", ["subfamily_id"], name: "index_products_on_subfamily_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name",                          null: false
@@ -255,6 +301,23 @@ ActiveRecord::Schema.define(version: 20131202194013) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "stocks", force: true do |t|
+    t.integer  "company_id"
+    t.integer  "branch_id"
+    t.integer  "storage_id"
+    t.integer  "product_id"
+    t.integer  "price_id"
+    t.float    "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stocks", ["branch_id"], name: "index_stocks_on_branch_id", using: :btree
+  add_index "stocks", ["company_id"], name: "index_stocks_on_company_id", using: :btree
+  add_index "stocks", ["price_id"], name: "index_stocks_on_price_id", using: :btree
+  add_index "stocks", ["product_id"], name: "index_stocks_on_product_id", using: :btree
+  add_index "stocks", ["storage_id"], name: "index_stocks_on_storage_id", using: :btree
 
   create_table "storages", force: true do |t|
     t.string   "name"

@@ -1,0 +1,47 @@
+<div class="col-lg-6">
+  <ul class="padded separate-sections">
+    <%if current_user.role.super_admin %>
+      <li class="field">
+        <%= f.label :company_id %>
+        <%= f.collection_select(:company_id, @companies, :id, :name, {}, { :class => 'chzn-select' }) %>
+      </li>
+      <li class="field">
+        <%= f.label :branch_id %>
+        <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+      </li>
+    <%elsif current_user.role.company_admin%>
+      <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
+      <li class="field">
+        <%= f.label :branch_id %>
+        <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+      </li>
+    <%else%>
+      <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
+      <%= f.hidden_field :branch_id, :value => current_user.branch_id, :readonly => true %>
+    <%end%>
+    <li class="field">
+      <%= f.label :client_type_id %>
+      <%= f.collection_select(:client_type_id, @client_types, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
+    </li>
+  </ul>
+</div>
+<div class="col-lg-6">
+  <ul class="padded separate-sections">
+    <li class="field">
+      <%= f.label :price %>
+      <%= f.text_field :price, :required => true, :placeholder => t(:required) %>
+    </li>
+    <li class="field">
+      <%= f.label :measurement_unit_id %>
+      <%= f.collection_select(:measurement_unit_id, @measurement_units, :id, :name, {}, { :class => 'chzn-select' }) %>
+    </li>
+    <li class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, :required => true, :placeholder => t(:required) %>
+    </li>
+    <li class="field">
+      <%= f.link_to_remove "[ - ]", :class=>"btn btn-red"%>
+    </li>
+  </ul>
+</div>
+

@@ -24,10 +24,11 @@ class CompaniesController < ApplicationController
   # POST /companies
   def create
     @company = Company.new(company_params)
-    @branch = Branch.new(company_params)
     if @company.save
+      @branch = @company.branches.build(company_params)
       @branch.save
-      @branch.update_attributes(:company_id => @company.id, :main_branch => true)
+      @storage = @branch.storages.build(company_params)
+      @storage.save
       redirect_to @company, notice:  t("actions.created.female",  model: t("activerecord.models.#{controller_name.singularize}").downcase)
     else
       render action: 'new'

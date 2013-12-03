@@ -14,9 +14,9 @@
               <tr>
                 <th><div><%= t'.id' %></div></th>
             <th><div><%= t'.name' %></div></th>
+            <th><div><%= t'.family_id' %></div></th>
+            <th><div><%= t'.subfamily_id' %></div></th>
             <th><div><%= t'.company_id' %></div></th>
-            <th><div><%= t'.branch_id' %></div></th>
-            <th><div><%= t'.storage_id' %></div></th>
             <th><div><%= t('layouts.application.actions') %></div></th>
             </tr>
             </thead>
@@ -30,9 +30,9 @@
                     <td><%= label product.id, product.id, :class => 'btn btn-mini btn-blue'%></td>
                   <%end%>
                   <td><%= product.name %></td>
+                  <td><%= product.family.name if product.family %></td>
+                  <td><%= product.subfamily.name if product.subfamily %></td>
                   <td><%= product.company.name if product.company %></td>
-                  <td><%= product.branch.name if product.branch %></td>
-                  <td><%= product.storage.name if product.storage %></td>
                   <td><%= render "layouts/index_links" %></td>
                 </tr>
               <% end %>

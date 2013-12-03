@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @product.prices.build
   end
 
   # GET /products/1/edit
@@ -24,44 +25,44 @@ class ProductsController < ApplicationController
   # POST /products
   def create
     @product = Product.new(product_params)
-if @product.save
+    if @product.save
       redirect_to @product, notice:  t("actions.created.male",  model: t("activerecord.models.#{controller_name.singularize}").downcase)
-else
-  render action: 'new'
-end
-end
-
-# PATCH/PUT /products/1
-def update
-if @product.update(product_params)
-      redirect_to @product, notice:  t("actions.updated.male",  model: t("activerecord.models.#{controller_name.singularize}").downcase)
-else
-  render action: 'edit'
-end
-end
-
-# DELETE /products/1
-def destroy
-@product.destroy
-    redirect_to products_url, notice:  t("actions.destroyed.male",  model: t("activerecord.models.#{controller_name.singularize}").downcase)
-end
-  
-def get_data
-products
-end
-
-def set_icon
-    @icon = "exclamation-sign"
-end
-  
-private
-# Use callbacks to share common setup or constraints between actions.
-def set_product
-      @product = Product.find(params[:id])
+    else
+      render action: 'new'
     end
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def product_params
-      params.require(:product).permit(:name, :description, :company_id, :branch_id, :storage_id)
+  # PATCH/PUT /products/1
+  def update
+    if @product.update(product_params)
+      redirect_to @product, notice:  t("actions.updated.male",  model: t("activerecord.models.#{controller_name.singularize}").downcase)
+    else
+      render action: 'edit'
+    end
+  end
+
+  # DELETE /products/1
+  def destroy
+    @product.destroy
+    redirect_to products_url, notice:  t("actions.destroyed.male",  model: t("activerecord.models.#{controller_name.singularize}").downcase)
+  end
+  
+  def get_data
+    products
+  end
+
+  def set_icon
+    @icon = "exclamation-sign"
+  end
+  
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def product_params
+    params.require(:product).permit(:name, :description, :company_id, :branch_id, :storage_id, :family_id, :subfamily_id, prices_attributes: [:price, :description, :company_id, :branch_id, :product_id, :client_type_id, :measurement_unit_id])
   end
 end

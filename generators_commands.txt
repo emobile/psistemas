@@ -35,3 +35,11 @@ rails g scaffold status name:string description:text hierarchy:integer model_nam
 rails g scaffold message message:text user:references
 
 rails g scaffold product name:string description:text company:references branch:references storage:references
+
+rails g scaffold stock company:references branch:references storage:references product:references quantity:float unit:string
+
+rails g scaffold client_type name:string description:text company:references branch:references 
+
+rails g scaffold prices price:float measurement_unit:references description:text company:references branch:references product:references client_type:references
+
+rails g scaffold measurement_unit name:string description:text company:references branch:references

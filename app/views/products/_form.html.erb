@@ -15,7 +15,7 @@
 
       <div class="box-content">
 
-        <%= form_for(@product, :html => {:class => "fill-up", :id => "fill-up"}) do |f| %>
+        <%= nested_form_for(@product, :html => {:class => "fill-up", :id => "fill-up"}) do |f| %>
           <% if @product.errors.any? %>
             <div id="error_explanation">
               <% if @product.errors.count == 1 %>
@@ -39,32 +39,17 @@
                     <%= f.label :company_id %><br>
                     <%= f.collection_select(:company_id, @companies, :id, :name, {}, { :class => 'chzn-select' }) %>
                   </li>
-                  <li class="field">
-                    <%= f.label :branch_id %><br>
-                    <%= f.collection_select(:branch_id, @branches, :id, :name, {}, { :class => 'chzn-select' }) %>
-                  </li>
-                  <li class="field">
-                    <%= f.label :storage_id %><br>
-                    <%= f.collection_select(:storage_id, @storages, :id, :name, {}, { :class => 'chzn-select' }) %>
-                  </li>
-                <%elsif current_user.role.company_admin%>
-                  <li class="field">
-                    <%= f.label :branch_id %><br>
-                    <%= f.collection_select(:branch_id, @branches, :id, :name, {}, { :class => 'chzn-select' }) %>          
-                  </li>
-                  <li class="field">
-                    <%= f.label :storage_id %><br>
-                    <%= f.collection_select(:storage_id, @storages, :id, :name, {}, { :class => 'chzn-select' }) %>
-                  </li>
-                  <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
                 <%else%> 
-                  <li class="field">
-                    <%= f.label :storage_id %><br>
-                    <%= f.collection_select(:storage_id, @storages, :id, :name, {}, { :class => 'chzn-select' }) %>
-                  </li>
-                  <%= f.hidden_field :branch_id, :value => current_user.branch_id, :readonly => true %>
                   <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
                 <%end%>
+                <li class="field">
+                  <%= f.label :family_id %><br>
+                  <%= f.collection_select(:family_id, @families, :id, :name, {}, { :class => 'chzn-select' }) %>
+                </li>
+                <li class="field">
+                  <%= f.label :subfamily_id %><br>
+                  <%= f.collection_select(:subfamily_id, @subfamilies, :id, :name, {}, { :class => 'chzn-select' }) %>
+                </li>
               </ul>
             </div>
 
@@ -81,6 +66,15 @@
               </ul>
             </div>
           </div>
+
+          <div class="row">
+            <%= f.fields_for :prices %>
+            <li class="field">
+              <%= f.link_to_add "[ + ]", :prices, :class=>"btn btn-blue", :style=>"margin-left: 40px; margin-top: -50px;"%>
+            </li>
+          </div>
+
+
 
           <div class="form-actions">
             <%=f.button  :class=>"btn btn-blue", :title => t("actions.form_#{action_name}",  model: t("activerecord.models.#{controller_name.singularize}")) do%>

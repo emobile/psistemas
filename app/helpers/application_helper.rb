@@ -148,6 +148,19 @@ module ApplicationHelper
     end
   end
   
+  def client_types
+    if current_user.role.super_admin
+      @client_types = ClientType.order('id DESC').paginate(:page => params[:page])
+      @client_types_count = @client_types.count
+    elsif current_user.role.company_admin
+      @client_types = ClientType.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @client_types_count = @client_types.count
+    else  
+      @client_types = ClientType.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+      @client_types_count = @client_types.count
+    end
+  end
+  
   def client_branches
     if current_user.role.super_admin
       @client_branches = ClientBranch.order('id DESC').paginate(:page => params[:page])
@@ -187,5 +200,27 @@ module ApplicationHelper
     end
   end
   
+  def products
+    if current_user.role.super_admin
+      @products = Product.order('id DESC').paginate(:page => params[:page])
+      @products_count = @products.count
+    else
+      @products = Product.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @products_count = @products.count
+    end
+  end
+  
+  def measurement_units
+    if current_user.role.super_admin
+      @measurement_units = MeasurementUnit.order('id DESC').paginate(:page => params[:page])
+      @measurement_units_count = @measurement_units.count
+    elsif current_user.role.company_admin
+      @measurement_units = MeasurementUnit.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @measurement_units_count = @measurement_units.count
+    else  
+      @measurement_units = MeasurementUnit.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+      @measurement_units_count = @measurement_units.count
+    end
+  end
   
 end

@@ -18,6 +18,7 @@ class CreateClients < ActiveRecord::Migration
       t.text :description
       t.references :company, index: true
       t.references :branch, index: true
+      t.references :client_type, index: true      
       t.string :latitude
       t.string :longitude
 

@@ -4,9 +4,9 @@ class CreateProducts < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.references :company, index: true
-      t.references :branch, index: true
-      t.references :storage, index: true
-
+      t.references :family, index: true
+      t.references :subfamily, index: true
+      
       t.timestamps
     end
   end

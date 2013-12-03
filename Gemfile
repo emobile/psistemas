@@ -57,3 +57,4 @@ gem 'avatars_for_rails'
 gem 'country_select'
 gem 'mysql2'
 gem 'therubyracer'
+gem "nested_form"

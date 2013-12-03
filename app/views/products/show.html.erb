@@ -4,8 +4,10 @@
       <div class="box-header">
         <ul class="nav nav-tabs nav-tabs-left">
           <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
+          <li><a href="#description" data-toggle="tab"><i class="icon-info-sign"></i> <span><%=t('layouts.application.description')%></span></a></li>
+          <li><a href="#prices" data-toggle="tab"><i class="icon-shopping-cart"></i> <span><%=t('layouts.application.prices')%></span></a></li>
         </ul>
-        <div class="title"><%= "MODEL" %></div>
+        <div class="title"><%= @product.name %></div>
       </div>
 
       <div class="box-content">
@@ -16,17 +18,29 @@
                 <span><strong><%= t'.name' %></strong> <%= @product.name %></span>
               </li>
               <li>
-                <span><strong><%= t'.description' %></strong> <%= @product.description %></span>
+                <span><strong><%= t'.family_id' %></strong> <%= @product.family.name if @product.family %></span>
               </li>
               <li>
-                <span><strong><%= t'.company_id' %></strong> <%= @product.company.name if @product.company %></span>
+                <span><strong><%= t'.subfamily_id' %></strong> <%= @product.subfamily.name if @product.subfamily %></span>
               </li>
+            </ul>
+          </div>
+          <div class="tab-pane" id="description">
+            <ul class="box-list">
               <li>
-                <span><strong><%= t'.branch_id' %></strong> <%= @product.branch.name if @product.branch %></span>
+                <span><%= @product.description %></span>
               </li>
-              <li>
-                <span><strong><%= t'.storage_id' %></strong> <%= @product.storage.name if @product.storage %></span>
-              </li>
+            </ul>
+          </div>
+          <div class="tab-pane" id="prices">
+            <ul class="box-list">
+              <%@product.prices.each do |price|%>
+                <li>
+                  <span><strong><%= t'prices.show.branch_id' %></strong> <%= price.branch.name %></span> <br>
+                  <span><strong><%= t'prices.show.client_type_id' %></strong> <%= price.client_type.name %>.</span>
+                  <span><strong style="color: red;"><%= t'prices.show.price' %></strong> <%= price.price_with_unit %></span>
+                </li>
+              <%end%>
             </ul>
           </div>
         </div>

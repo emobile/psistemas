@@ -2,6 +2,7 @@ class Company < ActiveRecord::Base
   acts_as_avatarable  
   has_many :users, :dependent => :destroy
   has_many :branches, :dependent => :destroy
+  has_many :storages, :dependent => :destroy
   has_many :error_reports, :dependent => :destroy 
   has_many :cellphones, :dependent => :destroy 
   has_many :trucks, :dependent => :destroy

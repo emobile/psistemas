@@ -34,3 +34,4 @@
 //= require charts/sparkline_samples
 //= require generic
 //= require custom
+//= require jquery_nested_form

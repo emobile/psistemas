@@ -4,3 +4,23 @@ es:
     models:
       orders: Ordenes
       routes: Rutas
+    errors:
+      messages:
+        you_need_to_set_at_least_base_price: You Need To Set At Least Base Price
+  clients:
+    show:
+      client_type: Client Type
+  products:
+    index:
+      family_id: Family Id
+      subfamily_id: Subfamily Id
+    show:
+      family_id: Family Id
+      subfamily_id: Subfamily Id
+  messages:
+    errors:
+      driver_is_on_route: Driver Is On Route
+      price_is_already_set: Price Is Already Set
+  layouts:
+    application:
+      prices: Prices
