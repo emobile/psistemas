@@ -2,7 +2,7 @@ class ClientBranch < ActiveRecord::Base
   belongs_to :client
   belongs_to :company
   belongs_to :branch
-  validates :name, :email1, :phone1, :address1, :address2, :city, :state, :zip, :country, :presence, :company_id, :branch_id, :client_id, :presence => true  
+  validates :name, :email1, :phone1, :address1, :address2, :city, :state, :zip, :country, :company_id, :branch_id, :client_id, :presence => true  
   validates :name, :uniqueness => true
   validates :phone1, :zip, :numericality => {:only_integer => true}
   validates :phone2, :fax, :numericality => {:only_integer => true}, :allow_blank => true  

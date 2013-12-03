@@ -261,7 +261,6 @@ ActiveRecord::Schema.define(version: 20131202221629) do
     t.string   "name"
     t.text     "description"
     t.integer  "company_id"
-    t.integer  "storage_id"
     t.integer  "family_id"
     t.integer  "subfamily_id"
     t.datetime "created_at"
@@ -270,7 +269,6 @@ ActiveRecord::Schema.define(version: 20131202221629) do
 
   add_index "products", ["company_id"], name: "index_products_on_company_id", using: :btree
   add_index "products", ["family_id"], name: "index_products_on_family_id", using: :btree
-  add_index "products", ["storage_id"], name: "index_products_on_storage_id", using: :btree
   add_index "products", ["subfamily_id"], name: "index_products_on_subfamily_id", using: :btree
 
   create_table "roles", force: true do |t|
@@ -335,6 +333,7 @@ ActiveRecord::Schema.define(version: 20131202221629) do
     t.integer  "zip"
     t.string   "country"
     t.text     "description"
+    t.boolean  "main_storage", default: false, null: false
     t.integer  "company_id"
     t.integer  "branch_id"
     t.datetime "created_at"

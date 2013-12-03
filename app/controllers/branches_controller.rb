@@ -1,4 +1,5 @@
 class BranchesController < ApplicationController
+  include BranchesHelper
   before_action :set_branch, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
   before_filter :set_icon  
@@ -27,6 +28,7 @@ class BranchesController < ApplicationController
   def create
     @branch = Branch.new(branch_params)
     if @branch.save
+      create_branch_dependencies
       redirect_to @branch, notice:  t("actions.created.female",  model: t("activerecord.models.#{controller_name.singularize}").downcase)
     else
       render action: 'new'

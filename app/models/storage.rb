@@ -2,7 +2,7 @@ class Storage < ActiveRecord::Base
   belongs_to :company
   belongs_to :branch
   validates :name, :email1, :phone1, :address1, :address2, :city, :state, :zip, :country, :company_id, :branch_id, :presence => true  
-  validates :name, :uniqueness => true
+  validates_uniqueness_of :name, :scope => [:branch_id]
   validates :phone1, :zip, :numericality => {:only_integer => true}
   validates :phone2, :fax, :numericality => {:only_integer => true}, :allow_blank => true  
   validates_length_of :email1, :maximum => 120
@@ -13,7 +13,8 @@ class Storage < ActiveRecord::Base
   validates :phone2, :fax, :length => { :within => 10..15 }, :allow_blank => true  
   validates_format_of :email1, :with => /^\w+([\.-]?\w+)*@[a-zA-Z0-9]+([\.-]?[a-zA-Z0-9]+)*(\.[a-zA-Z]{2,3})+$/i, :multiline => true  
   validates_format_of :email2, :with => /^\w+([\.-]?\w+)*@[a-zA-Z0-9]+([\.-]?[a-zA-Z0-9]+)*(\.[a-zA-Z]{2,3})+$/i, :multiline => true, :allow_blank => true
-
+  validates_uniqueness_of :main_storage, :scope => [:branch_id], :if => Proc.new{|branch| branch.main_storage == true }, :message =>  I18n.t('errors.messages.brancu_has_already_a_main_storage')
+  
   self.per_page = 15
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

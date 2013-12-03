@@ -33,7 +33,7 @@
                   <%end%>
                   <td><%= storage.name %></td>
                   <td><%= storage.contact %></td>
-                  <td><%= storage.phone1 %></td>
+                  <td><%= number_to_phone(storage.phone1, area_code: true) %></td>
                   <td><%= storage.fulladdress if storage.fulladdress%></td>
                   <td><%= storage.company.name if storage.company %></td>
                   <td><%= storage.branch.name if storage.branch %></td>

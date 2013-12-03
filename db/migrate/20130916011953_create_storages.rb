@@ -16,6 +16,7 @@ class CreateStorages < ActiveRecord::Migration
       t.integer :zip
       t.string :country
       t.text :description
+      t.boolean :main_storage,  :null => false, :default => false
       t.references :company, index: true
       t.references :branch, index: true
 

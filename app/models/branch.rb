@@ -7,7 +7,7 @@ class Branch < ActiveRecord::Base
   has_many :messages, :dependent => :destroy 
   has_many :storages, :dependent => :destroy
   validates :name, :email1, :phone1, :address1, :address2, :city, :state, :zip, :country, :company_id, :presence => true  
-  validates :name, :uniqueness => true
+  validates_uniqueness_of :name, :scope => [:company_id]
   validates :phone1, :zip, :numericality => {:only_integer => true}
   validates :phone2, :fax, :numericality => {:only_integer => true}, :allow_blank => true  
   validates_length_of :email1, :maximum => 120

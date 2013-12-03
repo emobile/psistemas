@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  include CompaniesHelper
+  include BranchesHelper
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
   before_filter :set_icon
@@ -25,10 +27,8 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-      @branch = @company.branches.build(company_params)
-      @branch.save
-      @storage = @branch.storages.build(company_params)
-      @storage.save
+      create_company_dependencies
+      create_branch_dependencies
       redirect_to @company, notice:  t("actions.created.female",  model: t("activerecord.models.#{controller_name.singularize}").downcase)
     else
       render action: 'new'
@@ -38,8 +38,7 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1
   def update
     if @company.update(company_params)
-      @branch = Branch.find_by_company_id_and_main_branch(@company.id, true)
-      @branch.update(company_params)
+      update_company_dependencies
       redirect_to @company, notice:  t("actions.updated.female",  model: t("activerecord.models.#{controller_name.singularize}").downcase)
     else
       render action: 'edit'

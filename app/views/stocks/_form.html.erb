@@ -44,51 +44,33 @@
                     <%= f.label :branch_id %><br>
                     <%= f.collection_select(:branch_id, @branches, :id, :name, {}, { :class => 'chzn-select' }) %>
                   </li>
-                  <li class="field">
-                    <%= f.label :storage_id %><br>
-                    <%= f.collection_select(:storage_id, @storages, :id, :name, {}, { :class => 'chzn-select' }) %>
-                  </li>
-                  <li class="field">
-                    <%= f.label :product_id %><br>
-                    <%= f.collection_select(:product_id, @products, :id, :name, {}, { :class => 'chzn-select' }) %>
-                  </li>
                 <%elsif current_user.role.company_admin%>
                   <li class="field">
                     <%= f.label :branch_id %><br>
                     <%= f.collection_select(:branch_id, @branches, :id, :name, {}, { :class => 'chzn-select' }) %>          
                   </li>
-                  <li class="field">
-                    <%= f.label :storage_id %><br>
-                    <%= f.collection_select(:storage_id, @storages, :id, :name, {}, { :class => 'chzn-select' }) %>
-                  </li>
-                  <li class="field">
-                    <%= f.label :product_id %><br>
-                    <%= f.collection_select(:product_id, @products, :id, :name, {}, { :class => 'chzn-select' }) %>
-                  </li>
                   <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
                 <%else%> 
-                  <li class="field">
-                    <%= f.label :storage_id %><br>
-                    <%= f.collection_select(:storage_id, @storages, :id, :name, {}, { :class => 'chzn-select' }) %>
-                  </li>
-                  <li class="field">
-                    <%= f.label :product_id %><br>
-                    <%= f.collection_select(:product_id, @products, :id, :name, {}, { :class => 'chzn-select' }) %>
-                  </li>
                   <%= f.hidden_field :branch_id, :value => current_user.branch_id, :readonly => true %>
                   <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
                 <%end%>
-
                 <li class="field">
-                  <%= f.label :quantity %>
-                  <%= f.text_field :quantity, :required => true, :placeholder => t(:required) %>
+                  <%= f.label :storage_id %><br>
+                  <%= f.collection_select(:storage_id, @storages, :id, :name, {}, { :class => 'chzn-select' }) %>
                 </li>
-
               </ul>
             </div>
 
             <div class="col-lg-6">
               <ul class="padded separate-sections">
+                <li class="field">
+                  <%= f.label :product_id %><br>
+                  <%= f.collection_select(:product_id, @products, :id, :name, {}, { :class => 'chzn-select' }) %>
+                </li>
+                <li class="field">
+                  <%= f.label :quantity %>
+                  <%= f.text_field :quantity, :required => true, :placeholder => t(:required) %>
+                </li>
               </ul>
             </div>
           </div>
