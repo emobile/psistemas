@@ -178,11 +178,8 @@ module ApplicationHelper
     if current_user.role.super_admin
       @families = Family.order('id DESC').paginate(:page => params[:page])
       @families_count = @families.count
-    elsif current_user.role.company_admin
+    else
       @families = Family.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
-      @families_count = @families.count
-    else  
-      @families = Family.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
       @families_count = @families.count
     end
   end
@@ -191,11 +188,8 @@ module ApplicationHelper
     if current_user.role.super_admin
       @subfamilies = Subfamily.order('id DESC').paginate(:page => params[:page])
       @subfamilies_count = @subfamilies.count
-    elsif current_user.role.company_admin
+    else
       @subfamilies = Subfamily.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
-      @subfamilies_count = @subfamilies.count
-    else  
-      @subfamilies = Subfamily.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
       @subfamilies_count = @subfamilies.count
     end
   end
@@ -220,6 +214,19 @@ module ApplicationHelper
     else  
       @measurement_units = MeasurementUnit.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
       @measurement_units_count = @measurement_units.count
+    end
+  end
+  
+  def prices
+    if current_user.role.super_admin
+      @prices = Price.order('id DESC').paginate(:page => params[:page])
+      @price_count = @prices.count
+    elsif current_user.role.company_admin
+      @prices = Price.where(:company_id => current_user.company_id).order('id DESC').paginate(:page => params[:page])
+      @price_count = @prices.count
+    else  
+      @prices = Price.where(:branch_id => current_user.branch_id).order('id DESC').paginate(:page => params[:page])
+      @price_count = @prices.count
     end
   end
   

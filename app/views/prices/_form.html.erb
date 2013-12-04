@@ -72,7 +72,7 @@
                 </li>
                 <li class="field">
                   <%= f.label :measurement_unit_id %>
-                  <%= f.collection_select(:measurement_unit_id, @measurement_units, :id, :name, {}, { :class => 'chzn-select' }) %>
+                  <%= f.collection_select(:measurement_unit_id, @measurement_units, :id, :name_description, {}, { :class => 'chzn-select' }) %>
                 </li>
                 <li class="field">
                   <%= f.label :description %>

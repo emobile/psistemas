@@ -5,7 +5,7 @@ class CreateStocks < ActiveRecord::Migration
       t.references :branch, index: true
       t.references :storage, index: true
       t.references :product, index: true
-      t.references :price, index: true     
+      t.references :measurement_unit, index: true     
       t.float :quantity
 
       t.timestamps

@@ -45,11 +45,11 @@ class Ability
         can :manage, Client, :branch_id => @user.branch_id 
         can :manage, ClientBranch, :branch_id => @user.branch_id 
         can :manage, ClientType, :branch_id => @user.branch_id 
-        can :manage, Family, :branch_id => @user.branch_id 
-        can :manage, Subfamily, :branch_id => @user.branch_id
+        can :manage, Family, :company_id => @user.company_id 
+        can :manage, Subfamily, :company_id => @user.company_id 
         can :manage, MeasurementUnit, :branch_id => @user.branch_id 
         can :manage, Price, :branch_id => @user.branch_id 
-        can :manage, Product, :branch_id => @user.branch_id 
+        can :manage, Product, :company_id => @user.company_id 
         can :manage, Stock, :branch_id => @user.branch_id 
       elsif @user.role.super_manager == true
       elsif @user.role.manager == true

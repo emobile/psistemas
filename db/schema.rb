@@ -305,7 +305,7 @@ ActiveRecord::Schema.define(version: 20131202221629) do
     t.integer  "branch_id"
     t.integer  "storage_id"
     t.integer  "product_id"
-    t.integer  "price_id"
+    t.integer  "measurement_unit_id"
     t.float    "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -313,7 +313,7 @@ ActiveRecord::Schema.define(version: 20131202221629) do
 
   add_index "stocks", ["branch_id"], name: "index_stocks_on_branch_id", using: :btree
   add_index "stocks", ["company_id"], name: "index_stocks_on_company_id", using: :btree
-  add_index "stocks", ["price_id"], name: "index_stocks_on_price_id", using: :btree
+  add_index "stocks", ["measurement_unit_id"], name: "index_stocks_on_measurement_unit_id", using: :btree
   add_index "stocks", ["product_id"], name: "index_stocks_on_product_id", using: :btree
   add_index "stocks", ["storage_id"], name: "index_stocks_on_storage_id", using: :btree
 

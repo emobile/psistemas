@@ -58,14 +58,18 @@
                   <%= f.label :storage_id %><br>
                   <%= f.collection_select(:storage_id, @storages, :id, :name, {}, { :class => 'chzn-select' }) %>
                 </li>
+                <li class="field">
+                  <%= f.label :product_id %><br>
+                  <%= f.collection_select(:product_id, @products, :id, :name, {}, { :class => 'chzn-select' }) %>
+                </li>
               </ul>
             </div>
 
             <div class="col-lg-6">
               <ul class="padded separate-sections">
                 <li class="field">
-                  <%= f.label :product_id %><br>
-                  <%= f.collection_select(:product_id, @products, :id, :name, {}, { :class => 'chzn-select' }) %>
+                  <%= f.label :measurement_unit_id %><br>
+                  <%= f.collection_select(:measurement_unit_id, @measurement_units, :id, :name_description, {}, { :class => 'chzn-select' }) %>
                 </li>
                 <li class="field">
                   <%= f.label :quantity %>

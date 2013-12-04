@@ -62,6 +62,6 @@ def set_stock
 
     # Only allow a trusted parameter "white list" through.
     def stock_params
-      params.require(:stock).permit(:company_id, :branch_id, :storage_id, :product_id, :quantity)
+      params.require(:stock).permit(:company_id, :branch_id, :storage_id, :product_id, :quantity, :measurement_unit_id)
   end
 end

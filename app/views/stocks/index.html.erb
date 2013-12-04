@@ -35,6 +35,7 @@
                   <td><%= stock.storage.name if stock.branch %></td>
                   <td><%= stock.product.name if stock.product %></td>
                   <td><%= stock.quantity %></td>
+                  <td><%= stock.measurement_unit.name if stock.measurement_unit %></td>
                   <td><%= render "layouts/index_links" %></td>
                 </tr>
               <% end %>

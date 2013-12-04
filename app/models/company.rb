@@ -19,7 +19,7 @@ class Company < ActiveRecord::Base
   validates :phone2, :fax, :length => { :within => 10..15 }, :allow_blank => true  
   validates_format_of :email1, :with => /^\w+([\.-]?\w+)*@[a-zA-Z0-9]+([\.-]?[a-zA-Z0-9]+)*(\.[a-zA-Z]{2,3})+$/i, :multiline => true  
   validates_format_of :email2, :with => /^\w+([\.-]?\w+)*@[a-zA-Z0-9]+([\.-]?[a-zA-Z0-9]+)*(\.[a-zA-Z]{2,3})+$/i, :multiline => true, :allow_blank => true
-  validates :webpage, :format => URI::regexp(%w(http https))
+  #validates :webpage, :format => URI::regexp(%w(http https))
   
   self.per_page = 15
   def self.to_csv(options = {})

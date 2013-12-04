@@ -24,9 +24,13 @@ es:
       client_type_is_already_set: Client Type Is Already Set
       measurement_unit_is_already_set: Measurement Unit Is Already Set
       incorrect_price: Incorrect Price
+      product_on_stock: Product On Stock
   layouts:
     application:
       prices: Prices
   errors:
     messages:
       brancu_has_already_a_main_storage: Brancu Has Already A Main Storage
+  stocks:
+    show:
+      measurement_unit: Measurement Unit

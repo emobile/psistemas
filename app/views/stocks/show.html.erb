@@ -5,7 +5,7 @@
         <ul class="nav nav-tabs nav-tabs-left">
           <li class="active"><a href="#home" data-toggle="tab"><i class="icon-home"></i></a></li>
         </ul>
-        <div class="title"><%= "MODEL" %></div>
+        <div class="title"><%= @stock.product_unit %></div>
       </div>
 
       <div class="box-content">
@@ -23,6 +23,9 @@
               </li>
               <li>
                 <span><strong><%= t'.product_id' %></strong> <%= @stock.product.name if @stock.product %></span>
+              </li>
+              <li>
+                <span><strong><%= t'.measurement_unit' %></strong> <%= @stock.measurement_unit.name %></span>
               </li>
               <li>
                 <span><strong><%= t'.quantity' %></strong> <%= @stock.quantity %></span>

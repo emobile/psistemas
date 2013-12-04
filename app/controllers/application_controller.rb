@@ -56,6 +56,7 @@ class ApplicationController < ActionController::Base
       subfamilies
       products
       measurement_units
+      prices
     end
   end
   
