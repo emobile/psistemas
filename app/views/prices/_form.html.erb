@@ -37,9 +37,9 @@
                 <%if current_user.role.super_admin %>
                   <li class="field">
                     <%= f.label :company_id %>
-                    <%= f.collection_select(:company_id, @companies, :id, :name, {}, { :class => 'chzn-select' }) %>
+                    <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>
-                  <li class="field">
+                  <li class="field" id="div_<%=controller_name.singularize%>_branch_id">
                     <%= f.label :branch_id %>
                     <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>

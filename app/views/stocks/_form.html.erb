@@ -38,16 +38,16 @@
                 <% if current_user.role.super_admin %>
                   <li class="field">
                     <%= f.label :company_id %><br>
-                    <%= f.collection_select(:company_id, @companies, :id, :name, {}, { :class => 'chzn-select' }) %>
+                    <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>
                   <li class="field">
                     <%= f.label :branch_id %><br>
-                    <%= f.collection_select(:branch_id, @branches, :id, :name, {}, { :class => 'chzn-select' }) %>
+                    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>
                 <%elsif current_user.role.company_admin%>
                   <li class="field">
                     <%= f.label :branch_id %><br>
-                    <%= f.collection_select(:branch_id, @branches, :id, :name, {}, { :class => 'chzn-select' }) %>          
+                    <%= f.collection_select(:branch_id, @branches, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>          
                   </li>
                   <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
                 <%else%> 
@@ -56,11 +56,11 @@
                 <%end%>
                 <li class="field">
                   <%= f.label :storage_id %><br>
-                  <%= f.collection_select(:storage_id, @storages, :id, :name, {}, { :class => 'chzn-select' }) %>
+                  <%= f.collection_select(:storage_id, @storages, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                 </li>
                 <li class="field">
                   <%= f.label :product_id %><br>
-                  <%= f.collection_select(:product_id, @products, :id, :name, {}, { :class => 'chzn-select' }) %>
+                  <%= f.collection_select(:product_id, @products, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                 </li>
               </ul>
             </div>

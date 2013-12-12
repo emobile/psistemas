@@ -50,7 +50,7 @@
                 <%if current_user.role.super_admin %>
                   <li class="field">
                     <%= f.label :company_id %>
-                    <%= f.collection_select(:company_id, @companies, :id, :name, {}, { :class => 'chzn-select' }) %>
+                    <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>
                 <%else%>
                   <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>

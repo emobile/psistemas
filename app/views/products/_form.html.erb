@@ -37,18 +37,18 @@
                 <% if current_user.role.super_admin %>
                   <li class="field">
                     <%= f.label :company_id %><br>
-                    <%= f.collection_select(:company_id, @companies, :id, :name, {}, { :class => 'chzn-select' }) %>
+                    <%= f.collection_select(:company_id, @companies, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                   </li>
                 <%else%> 
                   <%= f.hidden_field :company_id, :value => current_user.company_id, :readonly => true %>
                 <%end%>
                 <li class="field">
                   <%= f.label :family_id %><br>
-                  <%= f.collection_select(:family_id, @families, :id, :name, {}, { :class => 'chzn-select' }) %>
+                  <%= f.collection_select(:family_id, @families, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                 </li>
                 <li class="field">
                   <%= f.label :subfamily_id %><br>
-                  <%= f.collection_select(:subfamily_id, @subfamilies, :id, :name, {}, { :class => 'chzn-select' }) %>
+                  <%= f.collection_select(:subfamily_id, @subfamilies, :id, :name, {:prompt => true}, { :class => 'chzn-select' }) %>
                 </li>
               </ul>
             </div>

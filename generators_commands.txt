@@ -43,3 +43,5 @@ rails g scaffold client_type name:string description:text company:references bra
 rails g scaffold prices price:float measurement_unit:references description:text company:references branch:references product:references client_type:references
 
 rails g scaffold measurement_unit name:string description:text company:references branch:references
+
+rails g scaffold visitor ip:string host:string port:integer address:string city:string state:string region_code:string country:string country_code:integer time_zone:string latitude:string longitude:string

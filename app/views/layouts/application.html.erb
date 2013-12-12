@@ -14,6 +14,145 @@
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <%if action_name == "new" or action_name == "create" or action_name == "edit" or action_name == "update"%>
+      <script type="text/javascript">
+
+        $(function() {
+
+          $("#<%=controller_name.singularize%>_company_id").change(function() {
+            getBranches($(this).val());
+            $('#s2id_<%=controller_name.singularize%>_branch_id span').html('<%=t('helpers.select.prompt')%>')
+          });
+
+          $("#<%=controller_name.singularize%>_branch_id").change(function() {
+            getDrivers($(this).val());
+            //getUsers($(this).val());
+          });
+
+
+          var default_company_id = null;
+          var default_branch_id = null;
+
+
+  <%if current_user.role.super_admin %>
+    <%if (action_name == "create" or action_name == "update") and eval("@#{controller_name.singularize}.company_id")%>
+              default_company_id = <%=eval("@#{controller_name.singularize}.company_id")%>;
+    <%end%>
+  <%elsif current_user.role.company_admin%>
+            default_company_id = <%=current_user.company_id%>;
+            default_branch_id = null;
+  <%else%>
+            default_company_id = <%=current_user.company_id%>;
+            default_branch_id = <%=current_user.branch_id%>;
+  <%end%>
+
+
+  <%if controller_name == "registrations"%>
+            getBranches('<%=@user.company_id%>');
+  <%else%>
+            getBranches(default_company_id);
+  <%end%>
+
+
+          function getBranches(id) {
+            $('#<%=controller_name.singularize%>_branch_id').empty();
+            //getDrivers(default_branch_id);
+            //getUsers(default_branch_id);
+            var company_id = id;
+            function setBranchesSelect(branches) {
+              var dropdown = document.getElementById("<%=controller_name.singularize%>_branch_id");
+              if (dropdown) {
+                
+              $("#<%=controller_name.singularize%>_branch_id' [value=<%=controller_name.singularize%>]").attr('selected','selected');
+              
+                createOption(dropdown, '<%=t('helpers.select.prompt')%>', "");
+                for (var i = 0; i < branches.length; ++i) {
+                  createOption(dropdown, branches[i].name, branches[i].id);
+                }
+              }
+            }
+            function createOption(dropdown, text, value) {
+              var opt = document.createElement('option');
+              opt.value = value;
+              opt.text = text;
+              dropdown.options.add(opt);
+            }
+            $.ajax({
+              url: "/ajax_calls/get_branches?company_id=" + company_id,
+              dataType: 'jsonp',
+              error: function(xhr, status, error) {
+                alert(status);
+              },
+              success: setBranchesSelect
+            });
+          }
+
+          /*
+           function getDrivers(id) {
+           $("#div_<%=controller_name.singularize%>_driver_id").fadeOut("fast");
+           $('#<%=controller_name.singularize%>_driver_id').empty();
+           var branch_id = id;
+         
+           function setDriversSelect(drivers) {
+           $("#div_<%=controller_name.singularize%>_driver_id").fadeIn("slow");
+           var dropdown = document.getElementById("<%=controller_name.singularize%>_driver_id");
+           createOption(dropdown, '<%=t('helpers.select.prompt')%>', "");
+           if (dropdown) {
+           for (var i = 0; i < drivers.length; ++i) {
+           createOption(dropdown, drivers[i].name, drivers[i].id);
+           }
+           }
+           }
+           function createOption(dropdown, text, value) {
+           var opt = document.createElement('option');
+           opt.value = value;
+           opt.text = text;
+           dropdown.options.add(opt);
+           }
+           $.ajax({
+           url: "/ajax_calls/get_drivers?branch_id=" + branch_id,
+           dataType: 'jsonp',
+           error: function(xhr, status, error) {
+           alert(status);
+           },
+           success: setDriversSelect
+           });
+           }
+         
+           function getUsers(id) {
+           $('#<%=controller_name.singularize%>_user_id').empty();
+           var branch_id = id;
+         
+           function setUsersSelect(users) {
+           $("#<%=controller_name.singularize%>_user_id").fadeIn("slow");
+           var dropdown = document.getElementById("<%=controller_name.singularize%>_user_id");
+           createOption(dropdown, '<%=t('helpers.select.prompt')%>', "");
+           if (dropdown) {
+           for (var i = 0; i < users.length; ++i) {
+           createOption(dropdown, users[i].first_name + " " + users[i].last_name, users[i].id);
+           }
+           }
+           }
+           function createOption(dropdown, text, value) {
+           var opt = document.createElement('option');
+           opt.value = value;
+           opt.text = text;
+           dropdown.options.add(opt);
+           }
+           $.ajax({
+           url: "/ajax_calls/get_users?branch_id=" + branch_id,
+           dataType: 'jsonp',
+           error: function(xhr, status, error) {
+           alert(status);
+           },
+           success: setUsersSelect
+           });
+           }*/
+
+
+        });
+      </script>
+    <%end%>
   </head>
 
 

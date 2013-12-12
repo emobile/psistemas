@@ -1,4 +1,7 @@
 Serviroute::Application.routes.draw do
+  
+  get "ajax_calls/get_branches"
+  
   resources :measurement_units
 
   resources :prices
