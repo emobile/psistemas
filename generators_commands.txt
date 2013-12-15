@@ -45,3 +45,8 @@ rails g scaffold prices price:float measurement_unit:references description:text
 rails g scaffold measurement_unit name:string description:text company:references branch:references
 
 rails g scaffold visitor ip:string host:string port:integer address:string city:string state:string region_code:string country:string country_code:integer time_zone:string latitude:string longitude:string
+
+
+    
+name:string user:references username:string password:string password_confirmation:string email1:string email2:string webpage:string phone1:string phone2:string fax:string address1:string address2:string city:string state:string zip:integer country:string model:string brand:string color:string deliver_date:date deliver_time:datetime deliver_before:time delivered:boolean price:decimal total:float quantity:integer comment:references description:text observation:text 
+
