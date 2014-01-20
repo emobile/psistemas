@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
       models[x] = {'name' => model, 'human_name' => t("activerecord.models.#{model.underscore.downcase.pluralize}")}
       x += 1
     end
-    @models = models.sort_by { |m| m["human_name"] } 
+    @models = models.sort_by { |m| m["human_name"] }
   end
   
   before_filter :get_user_status
@@ -42,21 +42,10 @@ class ApplicationController < ActionController::Base
     if signed_in?
       companies
       branches
-      storages
       roles
       users
-      comments
-      statuses
-      cellphones
-      trucks
-      client_types
       clients
       client_branches
-      families
-      subfamilies
-      products
-      measurement_units
-      prices
     end
   end
   

@@ -31,12 +31,6 @@
           <i class="icon-comments"></i><span> <%=t(".messages")%></span>
         <%end%>
       </li>
-      <%if can? :new, Comment%>
-        <li class="cdrop"><%=link_to new_comment_path, :title => t(".leave_a_comment") do %>
-            <i class="icon-comment"></i><span> <%=t(".leave_a_comment")%></span>
-          <%end%>
-        </li>
-      <%end%>
       <li class="dropdown cdrop">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=t('.shortcuts')%><b class="caret"></b></a>
         <ul class="dropdown-menu">

@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Serviroute::Application.load_tasks
+Psistemas::Application.load_tasks

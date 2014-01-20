@@ -1,48 +1,18 @@
-Serviroute::Application.routes.draw do
+Psistemas::Application.routes.draw do
   
   get "ajax_calls/get_branches"
   
-  resources :measurement_units
-
-  resources :prices
-
-  resources :client_types
-
-  resources :stocks
-
-  resources :products
-
-  resources :storages
-
   get "mobile_services/index"
   get "mobile_services/get_driver_info"
-  resources :subfamilies
-
-  resources :families
-
   resources :client_branches
 
   resources :clients
-
-  resources :tasks
-
-  resources :drivers
-
-  resources :messages
-
-  resources :trucks
-
-  resources :cellphones
-
-  resources :statuses
 
   resources :error_reports
 
   resources :branches
 
   resources :companies
-
-  resources :comments
 
   devise_for :users
   devise_scope :user do

@@ -27,49 +27,12 @@
     </li>
   <%end%>
 
-  <% if can? :new, Status %>
-    <li class="action-nav-button">
-      <%= link_to new_status_path, :class=>"tip", :title=>t(".create_status") do%>
-        <i class="icon-star"></i>
-      <%end%>
-      <span class="label label-black"><%= @statuses_count %></span>
-    </li>
-  <%end%>
-
   <% if can? :new, User %>
     <li class="action-nav-button">
       <%= link_to new_user_path, :class=>"tip", :title=>t(".create_user") do%>
         <i class="icon-user"></i>
       <%end%>
       <span class="label label-black"><%= @users_count %></span>
-    </li>
-  <%end%>
-
-  <% if can? :index, Comment %>
-    <li class="action-nav-button">
-      <%= link_to comments_path, :class=>"tip", :title=>t(".comments") do%>
-        <i class="icon-comments"></i>
-      <%end%>
-      <span class="label label-black"><%= @comments_count %></span>
-    </li>
-  <%end%>
-
-
-  <% if can? :new, Cellphone %>
-    <li class="action-nav-button">
-      <%= link_to new_cellphone_path, :class=>"tip", :title=>t(".create_cellphone") do%>
-        <i class="icon-phone"></i>
-      <%end%>
-      <span class="label label-black"><%= @cellphones_count %></span>
-    </li>
-  <%end%>
-
-  <% if can? :new, Truck %>
-    <li class="action-nav-button">
-      <%= link_to new_truck_path, :class=>"tip", :title=>t(".create_truck") do%>
-        <i class="icon-truck"></i>
-      <%end%>
-      <span class="label label-black"><%= @trucks_count %></span>
     </li>
   <%end%>
 
